@@ -1,5 +1,5 @@
 ---
-title: Before we Start
+title: Перед тим як почати
 teaching: 25
 exercises: 15
 source: Rmd
