@@ -25,8 +25,7 @@ source: Rmd
 **`dplyr`** pairs nicely with **`tidyr`** which enables you to swiftly
 convert between different data formats (long vs. wide) for plotting and analysis.
 To learn more about **`tidyr`** after the workshop, you may want to check out this
-[handy data tidying with **`tidyr`**
-cheatsheet](https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf).
+handy data tidying with .
 
 To make sure everyone will use the same dataset for this lesson, we'll read
 again the SAFI dataset that we downloaded earlier.
@@ -57,7 +56,7 @@ There are essentially three rules that define a "tidy" dataset:
 This graphic visually represents the three rules that define a "tidy" dataset:
 
 ![](fig/tidy-data-wickham.png)
-*R for Data Science*, Wickham H and Grolemund G ([https://r4ds.had.co.nz/index.html](https://r4ds.had.co.nz/index.html))
+_R for Data Science_, Wickham H and Grolemund G ([https://r4ds.had.co.nz/index.html](https://r4ds.had.co.nz/index.html))
 © Wickham, Grolemund 2017
 This image is licenced under Attribution-NonCommercial-NoDerivs 3.0 United States (CC-BY-NC-ND 3.0 US)
 
@@ -74,7 +73,7 @@ with each record collected (each interview in the villages). It is stated
 that the `key_ID` was "added to provide a unique Id for each observation"
 and the `instanceID` "does this as well but it is not as convenient to use."
 
-Once we have established that `key_ID` and `instanceID` are both unique we can use 
+Once we have established that `key_ID` and `instanceID` are both unique we can use
 either variable as an identifier corresponding to the 131 interview records.
 
 
@@ -105,16 +104,16 @@ interviews %>%
 # A tibble: 10 × 4
    key_ID village  interview_date      instanceID                               
     <dbl> <chr>    <dttm>              <chr>                                    
- 1     46 Chirodzo 2016-11-17 00:00:00 uuid:35f297e0-aa5d-4149-9b7b-4965004cfc37
- 2     65 Chirodzo 2016-11-16 00:00:00 uuid:143f7478-0126-4fbc-86e0-5d324339206b
- 3     54 Chirodzo 2016-11-16 00:00:00 uuid:273ab27f-9be3-4f3b-83c9-d3e1592de919
- 4     52 Chirodzo 2016-11-16 00:00:00 uuid:6db55cb4-a853-4000-9555-757b7fae2bcf
- 5    200 Chirodzo 2017-06-04 00:00:00 uuid:aa77a0d7-7142-41c8-b494-483a5b68d8a7
- 6     49 Chirodzo 2016-11-16 00:00:00 uuid:2303ebc1-2b3c-475a-8916-b322ebf18440
- 7     69 Chirodzo 2016-11-16 00:00:00 uuid:f86933a5-12b8-4427-b821-43c5b039401d
- 8     10 Chirodzo 2016-12-16 00:00:00 uuid:8f4e49bc-da81-4356-ae34-e0d794a23721
- 9     68 Chirodzo 2016-11-16 00:00:00 uuid:ef04b3eb-b47d-412e-9b09-4f5e08fc66f9
-10     59 Chirodzo 2016-11-16 00:00:00 uuid:1936db62-5732-45dc-98ff-9b3ac7a22518
+ 1     57 Chirodzo 2016-11-16 00:00:00 uuid:a7184e55-0615-492d-9835-8f44f3b03a71
+ 2     67 Chirodzo 2016-11-16 00:00:00 uuid:6c15d667-2860-47e3-a5e7-7f679271e419
+ 3     10 Chirodzo 2016-12-16 00:00:00 uuid:8f4e49bc-da81-4356-ae34-e0d794a23721
+ 4      9 Chirodzo 2016-11-16 00:00:00 uuid:846103d2-b1db-4055-b502-9cd510bb7b37
+ 5     37 Chirodzo 2016-11-17 00:00:00 uuid:408c6c93-d723-45ef-8dee-1b1bd3fe20cd
+ 6     66 Chirodzo 2016-11-16 00:00:00 uuid:a457eab8-971b-4417-a971-2e55b8702816
+ 7     60 Chirodzo 2016-11-16 00:00:00 uuid:85465caf-23e4-4283-bb72-a0ef30e30176
+ 8     49 Chirodzo 2016-11-16 00:00:00 uuid:2303ebc1-2b3c-475a-8916-b322ebf18440
+ 9     55 Chirodzo 2016-11-16 00:00:00 uuid:883c0433-9891-4121-bc63-744f082c1fa0
+10    127 Chirodzo 2016-11-16 00:00:00 uuid:f6d04b41-b539-4e00-868a-0f62b427587d
 ```
 
 We notice that the layout or format of the `interviews` data is in a format that
@@ -183,9 +182,9 @@ We can do both of these transformations with two `tidyr` functions,
 `pivot_wider()` takes three principal arguments:
 
 1. the data
-2. the *names\_from* column variable whose values will become new column names.
-3. the *values\_from* column variable whose values will fill the new column
-  variables.
+2. the _names\_from_ column variable whose values will become new column names.
+3. the _values\_from_ column variable whose values will fill the new column
+   variables.
 
 Further arguments include `values_fill` which, if set, fills in missing values
 with the value provided.
@@ -201,7 +200,7 @@ the `interviews` data frame.
 interviews_items_owned <- interviews %>%
 ```
 
-Then we will actually need to make our data frame longer, because we have 
+Then we will actually need to make our data frame longer, because we have
 multiple items in a single cell.
 We will use a new function, `separate_longer_delim()`, from the **`tidyr`** package
 to separate the values of `items_owned` based on the presence of semi-colons (`;`).
@@ -389,7 +388,6 @@ months_lack_food <- interviews %>%
 
 :::::::::::::::::::::::::
 
-
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Pivoting longer
@@ -406,12 +404,11 @@ column names. We will do this in two steps to make this process a bit clearer.
 `pivot_longer()` takes four principal arguments:
 
 1. the data
-2. *cols* are the names of the columns we use to fill the a new values variable
-  (or to drop).
-3. the *names\_to* column variable we wish to create from the *cols* provided.
-4. the *values\_to* column variable we wish to create and fill with values
-  associated with the *cols* provided.
-
+2. _cols_ are the names of the columns we use to fill the a new values variable
+   (or to drop).
+3. the _names\_to_ column variable we wish to create from the _cols_ provided.
+4. the _values\_to_ column variable we wish to create and fill with values
+   associated with the _cols_ provided.
 
 
 ``` r
@@ -468,9 +465,7 @@ interviews_long %>%
 
 :::::::::::::::::::::::::
 
-
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-
 
 ## Applying what we learned to clean our data
 
@@ -507,7 +502,6 @@ interviews_plotting <- interviews %>%
               values_from = months_lack_food_logical,
               values_fill = list(months_lack_food_logical = FALSE))
 ```
-
 
 ## Exporting data
 

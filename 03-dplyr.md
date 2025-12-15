@@ -1,9 +1,10 @@
 ---
-title: Data Wrangling with dplyr
+title: Маніпулювання даними за допомогою пакету dplyr
 teaching: 25
 exercises: 15
 source: Rmd
 ---
+
 
 
 :::: instructor
@@ -15,7 +16,6 @@ source: Rmd
   should be, and when to use `filter()` and `select()`.
 
 ::::::::::::
-
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
@@ -46,10 +46,10 @@ in R's memory when we called `library(tidyverse)` earlier.
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
-## Note
+## Примітка
 
 The packages in the tidyverse, namely **`dplyr`**, **`tidyr`** and **`ggplot2`**
-accept both the British (e.g. *summarise*) and American (e.g. *summarize*) spelling
+accept both the British (e.g. _summarise_) and American (e.g. _summarize_) spelling
 variants of different function and option names. For this lesson, we utilize
 the American spellings of different functions; however, feel free to use
 the regional variant for where you are teaching.
@@ -78,7 +78,7 @@ To learn more about **`dplyr`** after the workshop, you may want to check out th
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
-## Note
+## Примітка
 
 There are alternatives to the `tidyverse` packages for data wrangling, including
 the package [`data.table`](https://rdatatable.gitlab.io/data.table/). See this
@@ -108,7 +108,7 @@ interviews
 # view(interviews)
 ```
 
-We're going to learn some of the most common **`dplyr`** functions:
+Ми вивчимо деякі з найпоширеніших функцій **`dplyr`**:
 
 - `select()`: subset columns
 - `filter()`: subset rows on conditions
@@ -168,7 +168,7 @@ filter(interviews, village == "Chirodzo")
 ```
 
 You may also have noticed that the output from these call doesn't run off the
-screen anymore. It's one of the advantages of `tbl_df` (also called tibble), 
+screen anymore. It's one of the advantages of `tbl_df` (also called tibble),
 the central data class in the tidyverse, compared to normal dataframes in R.
 
 We can also specify multiple conditions within the `filter()` function. We can
@@ -236,7 +236,7 @@ filter(interviews, village == "Chirodzo" &
 #   instanceID <chr>
 ```
 
-In an "or" statement, observations must meet *at least one* of the specified conditions.
+In an "or" statement, observations must meet _at least one_ of the specified conditions.
 To form "or" statements we use the logical operator for "or," which is the vertical bar (|):
 
 
@@ -296,13 +296,12 @@ This is handy, but can be difficult to read if too many functions are nested, as
 R evaluates the expression from the inside out (in this case, filtering, then
 selecting).
 
-The last option, *pipes*, are a recent addition to R. Pipes let you take the
+The last option, _pipes_, are a recent addition to R. Pipes let you take the
 output of one function and send it directly to the next, which is useful when
 you need to do many things to the same dataset. There are two Pipes in R: 1) `%>%` (called magrittr pipe; made available via the **`magrittr`** package, installed automatically with
 **`dplyr`**) or 2) `|>` (called native R pipe and it comes preinstalled with R v4.1.0 onwards). Both the pipes are, by and large, function similarly with a few differences (For more information, check: https://www.tidyverse.org/blog/2023/04/base-vs-magrittr-pipe/). The choice of which pipe to be used can be changed in the Global settings in R studio and once that is done, you can type the pipe with:
 
-- <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> if you have a PC or <kbd>Cmd</kbd> +
-  <kbd>Shift</kbd> + <kbd>M</kbd> if you have a Mac.
+- <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> if you have a PC or <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> if you have a Mac.
 
 
 ``` r
@@ -343,8 +342,8 @@ on its right, we don't need to explicitly include the dataframe as an argument
 to the `filter()` and `select()` functions any more.
 
 Some may find it helpful to read the pipe like the word "then". For instance,
-in the above example, we take the dataframe `interviews`, *then* we `filter`
-for rows with `village == "Chirodzo"`, *then* we `select` columns `village:respondent_wall_type`.
+in the above example, we take the dataframe `interviews`, _then_ we `filter`
+for rows with `village == "Chirodzo"`, _then_ we `select` columns `village:respondent_wall_type`.
 The **`dplyr`** functions by themselves are somewhat simple,
 but by combining them into linear workflows with the pipe, we can accomplish
 more complex data wrangling operations.
@@ -530,7 +529,7 @@ interviews_total_meals <- interviews %>%
 
 ## Split-apply-combine data analysis and the summarize() function
 
-Many data analysis tasks can be approached using the *split-apply-combine*
+Many data analysis tasks can be approached using the _split-apply-combine_
 paradigm: split the data into groups, apply some analysis to each group, and
 then combine the results. **`dplyr`** makes this very easy through the use of
 the `group_by()` function.
@@ -589,7 +588,7 @@ interviews %>%
 9 Ruaca    <NA>                 6.22
 ```
 
-Note that the output is a grouped tibble of nine rows by three columns 
+Note that the output is a grouped tibble of nine rows by three columns
 which is indicated by the by two first lines with the `#`.
 To obtain an ungrouped tibble, use the
 `ungroup` function:
@@ -622,7 +621,7 @@ interviews %>%
 9 Ruaca    <NA>                 6.22
 ```
 
-Notice that the second line with the `#` that previously indicated the grouping has 
+Notice that the second line with the `#` that previously indicated the grouping has
 disappeared and we now only have a 9x3-tibble without grouping.
 When grouping both by `village` and `membr_assoc`, we see rows in our table for
 respondents who did not specify whether they were a member of an irrigation

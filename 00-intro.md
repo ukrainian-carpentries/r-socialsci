@@ -11,11 +11,8 @@ source: Rmd
 
 - The main goal here is to help the learners be comfortable with the RStudio
   interface.
-- Go very slowly in the "Getting set up" section. Make sure everyone is following
-  along (remind learners to use the stickies). Plan with the helpers at this
-  point to go around the room, and be available to help. It's important to make
-  sure that learners are in the correct working directory, and that they create
-  a `data` (all lowercase) subfolder.
+- Виконуйте етапи дуже повільно під час розділу "Початкове налаштування". Переконайтеся, що всі учасники встигають за ходом заняття (нагадайте їм користуватися наліпками для зворотного зв’язку). Plan with the helpers at this
+  point to go around the room, and be available to help. Дуже важливо впевнитися, що всі працюють у правильному робочому каталозі та створили підкаталог `data` (усі літери малі).
 
 ::::::::::::
 
@@ -23,8 +20,8 @@ source: Rmd
 
 - Install latest version of R.
 - Install latest version of RStudio.
-- Navigate the RStudio GUI.
-- Install additional packages using the packages tab.
+- Ознайомитися з інтерфейсом RStudio.
+- Встановити додаткові пакети за допомогою вкладки "packages".
 - Install additional packages using R code.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -32,13 +29,13 @@ source: Rmd
 :::::::::::::::::::::::::::::::::::::::: questions
 
 - How to find your way around RStudio?
-- How to interact with R?
+- Як взаємодіяти з R?
 - How to manage your environment?
-- How to install packages?
+- Як встановити пакети?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## What is R? What is RStudio?
+## Що таке R? Що таке RStudio?
 
 The term "`R`" is used to refer to both the programming language and the
 software that interprets the scripts written using it.
@@ -53,12 +50,12 @@ software that provides
 tools to make programming easier.
 
 You can also use the R Presentations feature to present your work in an HTML5
-presentation mixing Markdown and R code. You can display these within R Studio 
-or your browser. There are many options for customising your presentation slides, 
+presentation mixing Markdown and R code. You can display these within R Studio
+or your browser. There are many options for customising your presentation slides,
 including an option for showing LaTeX equations. This can help you collaborate
 with others and also has an application in teaching and classroom use.
 
-## Why learn R?
+## Навіщо вивчати R?
 
 ### R does not involve lots of pointing and clicking, and that's a good thing
 
@@ -90,12 +87,12 @@ reproducible, so knowing R will give you an edge with these requirements.
 
 To further support reproducibility and transparency, there are also packages
 that help you with dependency management: keeping track of which packages we
-are loading and how they depend on the package version you are using. 
+are loading and how they depend on the package version you are using.
 This helps you make sure existing workflows work consistently and continue
-doing what they did before. 
+doing what they did before.
 
 Packages like renv let you “save” and “load” the state of your project library,
-also keeping track of the package version you use and the source it can be 
+also keeping track of the package version you use and the source it can be
 retrieved from.
 
 ### R is interdisciplinary and extensible
@@ -127,10 +124,7 @@ aspect of your graph to convey most effectively the message from your data.
 
 Thousands of people use R daily. Many of them are willing to help you through
 mailing lists and websites such as [Stack Overflow](https://stackoverflow.com/),
-or on the [RStudio community](https://community.rstudio.com/). Questions which
-are backed up with [short, reproducible code
-snippets](https://www.tidyverse.org/help/) are more likely to attract
-knowledgeable responses.
+or on the [RStudio community](https://community.rstudio.com/). Питання, які супроводжуються [короткими, відтворюваними фрагментами коду](https://www.tidyverse.org/help/), швидше за все, отримують компетентні відповіді.
 
 ### Not only is R free, but it is also open-source and cross-platform
 
@@ -192,11 +186,11 @@ provides many shortcuts, autocompletion, and highlighting for the major file
 types you use while developing in R. RStudio makes typing easier and less
 error-prone.
 
-## Getting set up
+## Налаштування
 
 It is good practice to keep a set of related data, analyses, and text
 self-contained in a single folder called the **working directory**. All of the
-scripts within this folder can then use *relative paths* to files. Relative
+scripts within this folder can then use _relative paths_ to files. Relative
 paths indicate where inside the project a file is located (as opposed to
 absolute paths, which point to where a file is on a specific computer). Working
 this way makes it a lot easier to move your project around on your computer and
@@ -209,7 +203,7 @@ its location (allowing you to quickly navigate to it). The interface also
 (optionally) preserves custom settings and open files to make it easier to
 resume work after a break.
 
-### Create a new project
+### Створення нового проєкту
 
 - Under the `File` menu, click on `New project`, choose `New directory`, then
   `New project`
@@ -230,7 +224,7 @@ added benefit of allowing you to open multiple projects at the same time each
 open to its own project directory. This allows you to keep multiple projects
 open without them interfering with each other.
 
-### The RStudio Interface
+### Інтерфейс RStudio
 
 Let's take a quick tour of RStudio.
 
@@ -259,7 +253,7 @@ are some examples of suggested directories:
 - **`data/`** Use this folder to store your raw data and intermediate datasets.
   For the sake of transparency and
   [provenance](https://en.wikipedia.org/wiki/Provenance), you
-  should *always* keep a copy of your raw data accessible and do as much of
+  should _always_ keep a copy of your raw data accessible and do as much of
   your data cleanup and preprocessing programmatically (i.e., with scripts,
   rather than manually) as possible.
 - **`data_output/`** When you need to modify your raw data,
@@ -327,9 +321,9 @@ download.file(
 
 The basis of programming is that we write down instructions for the computer to
 follow, and then we tell the computer to follow those instructions. We write, or
-*code*, instructions in R because it is a common language that both the computer
-and we can understand. We call the instructions *commands* and we tell the
-computer to follow the instructions by *executing* (also called *running*) those
+_code_, instructions in R because it is a common language that both the computer
+and we can understand. We call the instructions _commands_ and we tell the
+computer to follow the instructions by _executing_ (also called _running_) those
 commands.
 
 There are two main ways of interacting with R: by using the console or by using
@@ -346,11 +340,9 @@ is a complete record of what we did, and anyone (including our future selves!)
 can easily replicate the results on their computer.
 
 RStudio allows you to execute commands directly from the script editor by using
-the <kbd>Ctrl</kbd> + <kbd>Enter</kbd> shortcut (on Mac, <kbd>Cmd</kbd> +
-<kbd>Return</kbd> will work). The command on the current line in the
+the <kbd>Ctrl</kbd> + <kbd>Enter</kbd> shortcut (on Mac, <kbd>Cmd</kbd> + <kbd>Return</kbd> will work). The command on the current line in the
 script (indicated by the cursor) or all of the commands in
-selected text will be sent to the console and executed when you press
-<kbd>Ctrl</kbd> + <kbd>Enter</kbd>. If there is information in the console
+selected text will be sent to the console and executed when you press <kbd>Ctrl</kbd> + <kbd>Enter</kbd>. If there is information in the console
 you do not need anymore, you can clear it with <kbd>Ctrl</kbd> + <kbd>L</kbd>.
 You can find other keyboard shortcuts in this
 [RStudio cheatsheet about the RStudio IDE](https://raw.githubusercontent.com/rstudio/cheatsheets/main/rstudio-ide.pdf).
@@ -358,13 +350,11 @@ You can find other keyboard shortcuts in this
 At some point in your analysis, you may want to check the content of a variable
 or the structure of an object without necessarily keeping a record of it in
 your script. You can type these commands and execute them directly in the
-console.  RStudio provides the <kbd>Ctrl</kbd> + <kbd>1</kbd> and
-<kbd>Ctrl</kbd> + <kbd>2</kbd> shortcuts allow you to jump between the
+console.  RStudio provides the <kbd>Ctrl</kbd> + <kbd>1</kbd> and <kbd>Ctrl</kbd> + <kbd>2</kbd> shortcuts allow you to jump between the
 script and the console panes.
 
 If R is ready to accept commands, the R console shows a `>` prompt. If R
-receives a command (by typing, copy-pasting, or sent from the script editor using
-<kbd>Ctrl</kbd> + <kbd>Enter</kbd>), R will try to execute it and, when
+receives a command (by typing, copy-pasting, or sent from the script editor using <kbd>Ctrl</kbd> + <kbd>Enter</kbd>), R will try to execute it and, when
 ready, will show the results and come back with a new `>` prompt to wait for new
 commands.
 

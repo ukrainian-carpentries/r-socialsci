@@ -9,7 +9,7 @@ source: Rmd
 
 :::: instructor
 
-The two main goals for this lessons are:
+Дві основні цілі цих уроків:
 
 - To make sure that learners are comfortable with working with data frames, and
   can use the bracket notation to select slices/columns.
@@ -17,7 +17,6 @@ The two main goals for this lessons are:
   and so it is important that they are guided through it the first time they are
   exposed to it. The content of the lesson should be enough for learners to
   avoid common mistakes with them.
-
 
 ::::::::::::
 
@@ -48,7 +47,7 @@ The two main goals for this lessons are:
 
 ## What are data frames?
 
-Data frames are the *de facto* data structure for tabular data in `R`, and what
+Data frames are the _de facto_ data structure for tabular data in `R`, and what
 we use for data processing, statistics, and plotting.
 
 A data frame is the representation of data in the format of a table where the
@@ -81,22 +80,22 @@ was produced through cleaning in OpenRefine (`data/SAFI_clean.csv`). In this dat
 information for a single interview respondent, and the columns
 represent:
 
-| column\_name          | description                                                                                                                      | 
-| -------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| key\_id               | Added to provide a unique Id for each observation. (The InstanceID field does this as well but it is not as convenient to use)   | 
-| village              | Village name                                                                                                                     | 
-| interview\_date       | Date of interview                                                                                                                | 
-| no\_membrs            | How many members in the household?                                                                                               | 
-| years\_liv            | How many years have you been living in this village or neighboring village?                                                      | 
-| respondent\_wall\_type | What type of walls does their house have (from list)                                                                             | 
-| rooms                | How many rooms in the main house are used for sleeping?                                                                          | 
-| memb\_assoc           | Are you a member of an irrigation association?                                                                                   | 
-| affect\_conflicts     | Have you been affected by conflicts with other irrigators in the area?                                                           | 
-| liv\_count            | Number of livestock owned.                                                                                                       | 
-| items\_owned          | Which of the following items are owned by the household? (list)                                                                  | 
-| no\_meals             | How many meals do people in your household normally eat in a day?                                                                | 
-| months\_lack\_food     | Indicate which months, In the last 12 months have you faced a situation when you did not have enough food to feed the household? | 
-| instanceID           | Unique identifier for the form data submission                                                                                   | 
+| column\_name                                 | description                                                                                                                                                       |
+| ------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| key\_id                                      | Added to provide a unique Id for each observation. (The InstanceID field does this as well but it is not as convenient to use) |
+| village                                                            | Village name                                                                                                                                                      |
+| interview\_date                              | Date of interview                                                                                                                                                 |
+| no\_membrs                                   | How many members in the household?                                                                                                                                |
+| years\_liv                                   | How many years have you been living in this village or neighboring village?                                                                                       |
+| respondent\_wall\_type | What type of walls does their house have (from list)                                                                                           |
+| rooms                                                              | How many rooms in the main house are used for sleeping?                                                                                                           |
+| memb\_assoc                                  | Are you a member of an irrigation association?                                                                                                                    |
+| affect\_conflicts                            | Have you been affected by conflicts with other irrigators in the area?                                                                                            |
+| liv\_count                                   | Number of livestock owned.                                                                                                                        |
+| items\_owned                                 | Which of the following items are owned by the household? (list)                                                                                |
+| no\_meals                                    | How many meals do people in your household normally eat in a day?                                                                                                 |
+| months\_lack\_food     | Indicate which months, In the last 12 months have you faced a situation when you did not have enough food to feed the household?                                  |
+| instanceID                                                         | Unique identifier for the form data submission                                                                                                                    |
 
 ## Importing data
 
@@ -110,21 +109,21 @@ When you load  the **`tidyverse`** (`library(tidyverse)`), the core packages
 
 Before proceeding, however, this is a good opportunity to talk about conflicts.
 Certain packages we load can end up introducing function names that are already
-in use by pre-loaded R packages. For instance, when we load the tidyverse 
+in use by pre-loaded R packages. For instance, when we load the tidyverse
 package below, we will introduce two conflicting functions: `filter()` and `lag()`.
 This happens because `filter` and `lag` are already functions used by the stats
 package (already pre-loaded in R). What will happen now is that if we, for
 example, call the `filter()` function, R will use the `dplyr::filter()` version
-and not the `stats::filter()` one. This happens because, if conflicted, by 
+and not the `stats::filter()` one. This happens because, if conflicted, by
 default R uses the function from the most recently loaded package. Conflicted
 functions may cause you some trouble in the future, so it is important that we
 are aware of them so that we can properly handle them, if we want.
 
-To do so, we just need the following functions from the conflicted package:  
+To do so, we just need the following functions from the conflicted package:
 
-- `conflicted::conflict_scout()`: Shows us any conflicted functions.  
+- `conflicted::conflict_scout()`: Shows us any conflicted functions.
 - `conflict_prefer("function", "package_prefered")`:  Allows us to choose the
-default function we want from now on.  
+  default function we want from now on.
 
 It is also important to know that we can, at any time, just call the function
 directly from the package we want, such as `stats::filter()`.
@@ -132,7 +131,7 @@ directly from the package we want, such as `stats::filter()`.
 Even with the use of an RStudio project, it can be difficult to learn how to
 specify paths to file locations. Enter the **here** package! The here package
 creates paths relative to the top-level directory (your RStudio project). These
-relative paths work *regardless* of where the associated source file lives
+relative paths work _regardless_ of where the associated source file lives
 inside your project, like analysis projects with data and reports in different
 subdirectories.  This is an important contrast to using `setwd()`, which
 depends on the way you order your files on your computer.
@@ -270,8 +269,8 @@ Size:
 - `dim(interviews)` - returns a vector with the number of rows as the first
   element, and the number of columns as the second element (the **dim**ensions of
   the object)
-- `nrow(interviews)` - returns the number of rows
-- `ncol(interviews)` - returns the number of columns
+- `nrow(interviews) `- повертає кількість рядків
+- `ncol(interviews)` - повертає кількість стовпців
 
 Content:
 
@@ -483,12 +482,12 @@ names of the columns.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Exercise
+## Завдання
 
 1. Create a tibble (`interviews_100`) containing only the data in
-  row 100 of the `interviews` dataset.
+   row 100 of the `interviews` dataset.
 
-Now, continue using `interviews` for each of the following activities: 
+Now, continue using `interviews` for each of the following activities:
 
 2. Notice how `nrow()` gave you the number of rows in the tibble?
 
@@ -499,19 +498,19 @@ Now, continue using `interviews` for each of the following activities:
 - Create a new tibble (`interviews_last`) from that last row.
 
 3. Using the number of rows in the interviews dataset that you found in
-  question 2, extract the row that is in the middle of the dataset. Store
-  the content of this middle row in an object named `interviews_middle`.
-  (hint: This dataset has an odd number of rows, so finding the middle is a
-  bit trickier than dividing n\_rows by 2. Use the median( ) function and what
-  you've learned about sequences in R to extract the middle row!
+   question 2, extract the row that is in the middle of the dataset. Store
+   the content of this middle row in an object named `interviews_middle`.
+   (hint: This dataset has an odd number of rows, so finding the middle is a
+   bit trickier than dividing n\_rows by 2. Use the median( ) function and what
+   you've learned about sequences in R to extract the middle row!
 
 4. Combine `nrow()` with the `-` notation above to reproduce the behavior of
-  `head(interviews)`, keeping just the first through 6th rows of the
-  interviews dataset.
+   `head(interviews)`, keeping just the first through 6th rows of the
+   interviews dataset.
 
 :::::::::::::::  solution
 
-## Solution
+## Відповідь
 
 
 ``` r
@@ -531,7 +530,7 @@ interviews_head <- interviews[-(7:n_rows), ]
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Factors
+## Фактори
 
 R has a special data class, called factor, to deal with categorical data that
 you may encounter when creating plots or doing statistical analyses. Factors are
@@ -548,7 +547,7 @@ character vectors, they are actually treated as integer vectors by `R`. So
 you need to be very careful when treating them as strings.
 
 Once created, factors can only contain a pre-defined set of values, known as
-*levels*. By default, R always sorts levels in alphabetical order. For
+_levels_. By default, R always sorts levels in alphabetical order. For
 instance, if you have a factor with 2 levels:
 
 
@@ -826,7 +825,7 @@ plot(memb_assoc)
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Exercise
+## Завдання
 
 - Rename the levels of the factor to have the first letter in uppercase:
   "No","Undetermined", and "Yes".
@@ -836,7 +835,7 @@ plot(memb_assoc)
 
 :::::::::::::::  solution
 
-## Solution
+## Відповідь
 
 
 ``` r
@@ -870,7 +869,7 @@ convert those dates into three separate columns.
 str(interviews)
 ```
 
-We are going to use the package **`lubridate`**, , which is included in the **`tidyverse`** installation and should be loaded by default. 
+We are going to use the package **`lubridate`**, , which is included in the **`tidyverse`** installation and should be loaded by default.
 However, if we deal with older versions of tidyverse (2022 and ealier), we can manually load it by typing `library(lubridate)`.
 
 If necessary, start by loading the required package:
@@ -931,14 +930,14 @@ interviews
 #   instanceID <chr>, day <int>, month <dbl>, year <dbl>
 ```
 
-Notice the three new columns at the end of our data frame.
+Зверніть увагу на три нові стовпці в кінці нашого датафрейму.
 
 In our example above, the `interview_date` column was read in correctly as a
 `Date` variable but generally that is not the case. Date columns are often read
 in as `character` variables and one can use the `as_date()` function to convert
 them to the appropriate `Date/POSIXct`format.
 
-Let's say we have a vector of dates in character format:
+Припустимо, у нас є вектор дат у символьному форматі:
 
 
 ``` r
@@ -962,8 +961,8 @@ as_date(char_dates, format = "%m/%d/%Y")
 ```
 
 Argument `format` tells the function the order to parse the characters and
-identify the month, day and year. The format above is the equivalent of
-mm/dd/yyyy. A wrong format can lead to parsing errors or incorrect results.
+identify the month, day and year. Формат вище - це еквівалент
+мм/дд/рррр. Неправильний формат може призвести до помилок або неправильних результатів.
 
 For example, observe what happens when we use a lower case y instead of upper
 case Y for the year.
@@ -1017,8 +1016,8 @@ mdy(char_dates)
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- Use read\_csv to read tabular data in R.
-- Use factors to represent categorical data in R.
+- Використовуйте read\_csv для читання табличних даних у R.
+- Використовуйте фактори для представлення категоріальних даних у R.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 

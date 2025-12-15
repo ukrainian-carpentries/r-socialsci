@@ -2,13 +2,11 @@
 title: Setup
 ---
 
-## Setup instructions
+## Інструкції з налаштування
 
 **R** and **RStudio** are separate downloads and installations. R is the
 underlying statistical computing environment, but using R alone is no
-fun. RStudio is a graphical integrated development environment (IDE) that makes
-using R much easier and more interactive. You need to install R before you
-install RStudio. Once installed, because RStudio is an IDE, RStudio will run R in
+fun. RStudio — це графічне інтегроване середовище розробки (IDE), яке робить роботу з R значно простішою та більш інтерактивною. Перед встановленням RStudio необхідно встановити R. Once installed, because RStudio is an IDE, RStudio will run R in
 the background.  You do not need to run it separately.
 
 After installing both programs,
@@ -43,7 +41,7 @@ installr::updateR(TRUE)
   the [CRAN website](http://cran.r-project.org/bin/windows/base/release.htm).
 - Run the `.exe` file that was just downloaded.
 - Go to the [RStudio download page](https://posit.co/download/rstudio-desktop/).
-- Under *Installers* select **RStudio x.yy.zzz - Windows.
+- Under _Installers_ select **RStudio x.yy.zzz - Windows.
   Vista/7/8/10** (where x, y, and z represent version numbers).
 - Double click the file to install it.
 - Once it's installed, open RStudio to make sure it works and you don't get any
@@ -70,7 +68,7 @@ installr::updateR(TRUE)
 - It is also a good idea to install [XQuartz](https://www.xquartz.org/) (needed
   by some packages).
 - Go to the [RStudio download page](https://posit.co/download/rstudio-desktop/).
-- Under *Installers* select **RStudio x.yy.zzz - Mac OS X 10.6+ (64-bit)**
+- Under _Installers_ select **RStudio x.yy.zzz - Mac OS X 10.6+ (64-bit)**
   (where x, y, and z represent version numbers).
 - Double click the file to install RStudio.
 - Once it's installed, open RStudio to make sure it works and you don't get any
@@ -87,7 +85,7 @@ installr::updateR(TRUE)
   usually out of date. In any case, make sure you have at least R 3.2.
 - Go to the
   [RStudio download page](https://posit.co/download/rstudio-desktop/).
-- Under *Installers* select the version that matches your distribution, and
+- Under _Installers_ select the version that matches your distribution, and
   install it with your preferred method (e.g., with Debian/Ubuntu `sudo dpkg -i rstudio-x.yy.zzz-amd64.deb` at the terminal).
 - Once it's installed, open RStudio to make sure it works and you don't get any
   error messages.

@@ -13,7 +13,7 @@ This lesson uses `SAFI_clean.csv`. The direct download link for the data file is
 
 ## Lesson Plans
 
-The lesson contains much more material than can be taught in a day. Instructors will 
+The lesson contains much more material than can be taught in a day. Instructors will
 need to pick an appropriate subset of episodes to use in a standard one day course.
 
 Suggested path for half-day course:
@@ -62,8 +62,8 @@ This character can be created using:
 ## Other Resources
 
 If you encounter a problem during a workshop, feel free to contact the
-maintainers by email or [open an
-issue](https://github.com/datacarpentry/r-socialsci/issues/new).
+maintainers by email or open an
+issue.
 
 For a more in-depth coverage of topics of the workshops, you may want to read "[R for Data Science](http://r4ds.had.co.nz/)" by Hadley Wickham and Garrett Grolemund.
 

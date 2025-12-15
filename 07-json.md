@@ -197,7 +197,7 @@ $ F08_emply_lab                  <chr> "no", "yes", "no", "no", "no", "no", "nâ€
 $ `_members_count`               <chr> "3", "7", "10", "7", "7", "3", "6", "12â€¦
 ```
 
-Looking good, but you might notice that actually we have a variable, *F\_liv* that is a list of dataframes! It is very important to know what you are expecting from your data to be able to look for things like this. For example, if you are getting your JSON from an API, have a look at the API documentation, so you know what to look for.
+Looking good, but you might notice that actually we have a variable, _F\_liv_ that is a list of dataframes! It is very important to know what you are expecting from your data to be able to look for things like this. For example, if you are getting your JSON from an API, have a look at the API documentation, so you know what to look for.
 
 Often when we have a very large number of columns, it can become difficult to determine all the variables which may require some special attention, like lists. Fortunately, we can use special verbs like `where` to quickly select all the list columns.
 
@@ -227,7 +227,7 @@ $ G03_no_food_mitigation <list> <"na", "rely_less_food", "reduce_meals", "day_â€
 $ E_no_group             <list> [<data.frame[2 x 6]>], [<data.frame[0 x 0]>], â€¦
 ```
 
-So what can we do about *F\_liv*, the column of dataframes? Well first things first, we can access each one. For  example to access the dataframe in the first row, we can use the  bracket (`[`) subsetting. Here we use single bracket, but you could also use double bracket (`[[`). The `[[` form allows only a single element to be selected using integer or character indices, whereas `[` allows indexing by vectors.
+So what can we do about _F\_liv_, the column of dataframes? Well first things first, we can access each one. For  example to access the dataframe in the first row, we can use the  bracket (`[`) subsetting. Here we use single bracket, but you could also use double bracket (`[[`). The `[[` form allows only a single element to be selected using integer or character indices, whereas `[` allows indexing by vectors.
 
 
 ``` r
@@ -240,7 +240,7 @@ json_data$F_liv[1]
 1            1    poultry
 ```
 
-We can also choose to view the nested dataframes at all the rows of our main dataframe where a particular condition is met (for example where the value for the variable *C06\_rooms* is equal to 4):
+We can also choose to view the nested dataframes at all the rows of our main dataframe where a particular condition is met (for example where the value for the variable _C06\_rooms_ is equal to 4):
 
 
 ``` r

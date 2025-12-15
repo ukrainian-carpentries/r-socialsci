@@ -97,7 +97,7 @@ header (i.e. after the second `---`).
 ## Markdown syntax
 
 Markdown is a popular markup language that allows you to add formatting elements
-to text, such as **bold**, *italics*, and `code`. The formatting will not be
+to text, such as **bold**, _italics_, and `code`. The formatting will not be
 immediately visible in a markdown (.md) document, like you would see in a Word
 document. Rather, you add Markdown syntax to the text, which can then be
 converted to various other files that can translate the Markdown syntax.
@@ -130,10 +130,10 @@ section heading to create an Introduction section.
 ```
 
 You can make things **bold** by surrounding the word with double asterisks,
-`**bold**`, or double underscores, `__bold__`; and *italicize* using single
+`**bold**`, or double underscores, `__bold__`; and _italicize_ using single
 asterisks, `*italics*`, or single underscores, `_italics_`.
 
-You can also combine **bold** and *italics* to write something ***really***
+You can also combine **bold** and _italics_ to write something _**really**_
 important with triple-asterisks, `***really***`, or underscores, `___really___`;
 and, if you're feeling bold (pun intended), you can also use a combination of
 asterisks and underscores, `**_really_**`, `**_really_**`.
@@ -197,9 +197,7 @@ And nested items by tab-indenting:
 For more Markdown syntax see [the following reference guide](https://www.markdownguide.org/basic-syntax).
 
 Now we can render the document into HTML by clicking the **Knit** button in the
-top of the Source pane (top left), or use the keyboard shortcut
-<kbd>Ctrl</kbd>\+<kbd>Shift</kbd>\+<kbd>K</kbd> on Windows and Linux, and
-<kbd>Cmd</kbd>\+<kbd>Shift</kbd>\+<kbd>K</kbd> on Mac. If you haven't saved the
+top of the Source pane (top left), or use the keyboard shortcut <kbd>Ctrl</kbd>\+<kbd>Shift</kbd>\+<kbd>K</kbd> on Windows and Linux, and <kbd>Cmd</kbd>\+<kbd>Shift</kbd>\+<kbd>K</kbd> on Mac. If you haven't saved the
 document yet, you will be prompted to do so when you **Knit** for the first
 time.
 
@@ -227,7 +225,7 @@ The syntax of a code chunk is:
 ````
 
 An R Markdown document knows that this text is not part of the report from the
-```` ``` ```` that begins and ends the chunk. It also knows that the code
+` ``` ` that begins and ends the chunk. It also knows that the code
 inside of the chunk is R code from the `r` inside of the curly braces (`{}`).
 After the `r` you can add a name for the code chunk . Naming a chunk is
 optional, but recommended. Each chunk name must be unique, and only contain
@@ -248,6 +246,7 @@ library(here)
 interviews <- read_csv(here("data/SAFI_clean.csv"), na = "NULL")
 ```
 ````
+
 :::::::::::::::::::::::::::::::::::::::::  callout
 
 ## Important Note!
@@ -270,9 +269,7 @@ naming rules).
 
 It isn't necessary to **Knit** your document every time you want to see the
 output. Instead you can run the code chunk with the green triangle in the top
-right corner of the the chunk, or with the keyboard shortcuts:
-<kbd>Ctrl</kbd>\+<kbd>Alt</kbd>\+<kbd>C</kbd> on Windows and Linux, or
-<kbd>Cmd</kbd>\+<kbd>Option</kbd>\+<kbd>C</kbd> on Mac.
+right corner of the the chunk, or with the keyboard shortcuts: <kbd>Ctrl</kbd>\+<kbd>Alt</kbd>\+<kbd>C</kbd> on Windows and Linux, or <kbd>Cmd</kbd>\+<kbd>Option</kbd>\+<kbd>C</kbd> on Mac.
 
 To make sure the table is formatted nicely in our output document, we will need
 to use the `kable()` function from the **knitr** package. The `kable()` function
@@ -308,23 +305,23 @@ Table: We can also add a caption.
 
 Many different R packages can be used to generate tables. Some of the more commonly used options are listed in the table below.
 
-| Name          | Creator(s)   | Description                              |
-|---------------|--------------|-------------------------------------------|
-| [condformat](https://condformat.sergioller.com/index.html) | [Oller Moreno (2022)](https://cran.rstudio.com/web/packages/condformat/index.html) | Apply and visualize conditional formatting to data frames in R. It renders a data frame with cells formatted according to criteria defined by rules, using a tidy evaluation syntax.  |
-| [DT](https://rstudio.github.io/DT/) | [Xie et al. (2023)](https://cran.r-project.org/web/packages/DT/index.html) | Data objects in R can be rendered as HTML tables using the JavaScript library 'DataTables' (typically via R Markdown or Shiny). The 'DataTables' library has been included in this R package. |
-| [formattable](https://github.com/renkun-ken/formattable) | [Ren and Russell (2021)](https://cran.r-project.org/web/packages/formattable/index.html) | Provides functions to create formattable vectors and data frames. 'Formattable' vectors are printed with text formatting, and formattable data frames are printed with multiple types of formatting in HTML to improve the readability of data presented in tabular form rendered on web pages. |
-| [flextable](https://davidgohel.github.io/flextable/) | [Gohel and Skintzos (2023)](https://cran.r-project.org/web/packages/flextable/index.html) | Use a grammar for creating and customizing pretty tables. The following formats are supported: 'HTML', 'PDF', 'RTF', 'Microsoft Word', 'Microsoft PowerPoint' and R 'Grid Graphics'. 'R Markdown', 'Quarto', and the package 'officer' can be used to produce the result files. |
-| [gt](https://gt.rstudio.com/) | [Iannone et al. (2022)](https://cloud.r-project.org/web/packages/gt/index.html) | Build display tables from tabular data with an easy-to-use set of functions. With its progressive approach, we can construct display tables with cohesive table parts. Table values can be formatted using any of the included formatting functions. |
-| [huxtable](https://hughjonesd.github.io/huxtable/)   | [Hugh-Jones (2022)](https://cran.r-project.org/web/packages/huxtable/index.html) | Creates styled tables for data presentation. Export to HTML, LaTeX, RTF, 'Word', 'Excel', and 'PowerPoint'. Simple, modern interface to manipulate borders, size, position, captions, colours, text styles and number formatting.|
-| [pander](https://rapporter.github.io/pander/) | [Daróczi and Tsegelskyi (2022)](https://cran.r-project.org/web/packages/pander/index.html) | Contains some functions catching all messages, 'stdout' and other useful information while evaluating R code and other helpers to return user specified text elements (e.g., header, paragraph, table, image, lists etc.) in 'pandoc' markdown or several types of R objects similarly automatically transformed to markdown format.  |
-| [pixiedust](https://pixiedust.github.io/pixiedust/) | [Nutter and Kretch (2021)](https://cran.rstudio.com/web/packages/pixiedust/index.html) | 'pixiedust' provides tidy data frames with a programming interface intended to be similar to 'ggplot2's system of layers with fine-tuned control over each cell of the table.  |
-| [reactable](https://glin.github.io/reactable/) | [Lin et al. (2023)](https://cran.r-project.org/web/packages/reactable/index.html) | Interactive data tables for R, based on the 'React Table' JavaScript library. Provides an HTML widget that can be used in 'R Markdown' or 'Quarto' documents, 'Shiny' applications, or viewed from an R console. |
-| [rhandsontable](http://jrowen.github.io/rhandsontable/) | [Owen et al. (2021)](https://cran.r-project.org/web/packages/rhandsontable/index.html) | An R interface to the 'Handsontable' JavaScript library, which is a minimalist Excel-like data grid editor. |
-| [stargazer](https://github.com/cran/stargazer) | [Hlavac (2022)](https://cran.r-project.org/web/packages/stargazer/index.html) | Produces LaTeX code, HTML/CSS code and ASCII text for well-formatted tables that hold regression analysis results from several models side-by-side, as well as summary statistics. |
-| [tables](https://github.com/dmurdoch/tables) | [Murdoch (2022)](https://cran.r-project.org/web/packages/tables/index.html) | Computes and displays complex tables of summary statistics. Output may be in LaTeX, HTML, plain text, or an R matrix for further processing. |
-| [tangram](https://github.com/spgarbet/tangram) | [Garbett et al. (2023)](https://cran.r-project.org/web/packages/tangram/index.html) | Provides an extensible formula system to quickly and easily create production quality tables. The processing steps are a formula parser, statistical content generation from data defined by a formula, and rendering into a table.  |
-| [xtable](https://github.com/cran/xtable) | [Dahl et al. (2019)](https://cran.r-project.org/web/packages/xtable/index.html) | Coerce data to LaTeX and HTML tables. |
-| [ztable](https://github.com/cardiomoon/ztable) | [Moon (2021)](https://cran.r-project.org/web/packages/ztable/index.html) | Makes zebra-striped tables (tables with alternating row colors) in LaTeX and HTML formats easily from a data.frame, matrix, lm, aov, anova, glm, coxph, nls, fitdistr, mytable and cbind.mytable objects. |
+| Name                                                       | Creator(s)                                                                                             | Description                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [condformat](https://condformat.sergioller.com/index.html) | [Oller Moreno (2022)](https://cran.rstudio.com/web/packages/condformat/index.html)                     | Apply and visualize conditional formatting to data frames in R. It renders a data frame with cells formatted according to criteria defined by rules, using a tidy evaluation syntax.                                                                                                                                                                                                    |
+| [DT](https://rstudio.github.io/DT/)                        | [Xie et al. (2023)](https://cran.r-project.org/web/packages/DT/index.html)             | Data objects in R can be rendered as HTML tables using the JavaScript library 'DataTables' (typically via R Markdown or Shiny). The 'DataTables' library has been included in this R package.                                                                                                                                                                        |
+| [formattable](https://github.com/renkun-ken/formattable)   | [Ren and Russell (2021)](https://cran.r-project.org/web/packages/formattable/index.html)               | Provides functions to create formattable vectors and data frames. 'Formattable' vectors are printed with text formatting, and formattable data frames are printed with multiple types of formatting in HTML to improve the readability of data presented in tabular form rendered on web pages.                                                                                         |
+| [flextable](https://davidgohel.github.io/flextable/)       | [Gohel and Skintzos (2023)](https://cran.r-project.org/web/packages/flextable/index.html)              | Use a grammar for creating and customizing pretty tables. The following formats are supported: 'HTML', 'PDF', 'RTF', 'Microsoft Word', 'Microsoft PowerPoint' and R 'Grid Graphics'. 'R Markdown', 'Quarto', and the package 'officer' can be used to produce the result files.                                                                         |
+| [gt](https://gt.rstudio.com/)                              | [Iannone et al. (2022)](https://cloud.r-project.org/web/packages/gt/index.html)        | Build display tables from tabular data with an easy-to-use set of functions. With its progressive approach, we can construct display tables with cohesive table parts. Table values can be formatted using any of the included formatting functions.                                                                                                                    |
+| [huxtable](https://hughjonesd.github.io/huxtable/)         | [Hugh-Jones (2022)](https://cran.r-project.org/web/packages/huxtable/index.html)                       | Creates styled tables for data presentation. Export to HTML, LaTeX, RTF, 'Word', 'Excel', and 'PowerPoint'. Simple, modern interface to manipulate borders, size, position, captions, colours, text styles and number formatting.                                                                                                                                       |
+| [pander](https://rapporter.github.io/pander/)              | [Daróczi and Tsegelskyi (2022)](https://cran.r-project.org/web/packages/pander/index.html)             | Contains some functions catching all messages, 'stdout' and other useful information while evaluating R code and other helpers to return user specified text elements (e.g., header, paragraph, table, image, lists etc.) in 'pandoc' markdown or several types of R objects similarly automatically transformed to markdown format. |
+| [pixiedust](https://pixiedust.github.io/pixiedust/)        | [Nutter and Kretch (2021)](https://cran.rstudio.com/web/packages/pixiedust/index.html)                 | 'pixiedust' provides tidy data frames with a programming interface intended to be similar to 'ggplot2's system of layers with fine-tuned control over each cell of the table.                                                                                                                                                                                                                           |
+| [reactable](https://glin.github.io/reactable/)             | [Lin et al. (2023)](https://cran.r-project.org/web/packages/reactable/index.html)      | Interactive data tables for R, based on the 'React Table' JavaScript library. Provides an HTML widget that can be used in 'R Markdown' or 'Quarto' documents, 'Shiny' applications, or viewed from an R console.                                                                                                                                                                        |
+| [rhandsontable](http://jrowen.github.io/rhandsontable/)    | [Owen et al. (2021)](https://cran.r-project.org/web/packages/rhandsontable/index.html) | An R interface to the 'Handsontable' JavaScript library, which is a minimalist Excel-like data grid editor.                                                                                                                                                                                                                                                                                             |
+| [stargazer](https://github.com/cran/stargazer)             | [Hlavac (2022)](https://cran.r-project.org/web/packages/stargazer/index.html)                          | Produces LaTeX code, HTML/CSS code and ASCII text for well-formatted tables that hold regression analysis results from several models side-by-side, as well as summary statistics.                                                                                                                                                                                                                      |
+| [tables](https://github.com/dmurdoch/tables)               | [Murdoch (2022)](https://cran.r-project.org/web/packages/tables/index.html)                            | Computes and displays complex tables of summary statistics. Output may be in LaTeX, HTML, plain text, or an R matrix for further processing.                                                                                                                                                                                                                                            |
+| [tangram](https://github.com/spgarbet/tangram)             | [Garbett et al. (2023)](https://cran.r-project.org/web/packages/tangram/index.html)    | Provides an extensible formula system to quickly and easily create production quality tables. The processing steps are a formula parser, statistical content generation from data defined by a formula, and rendering into a table.                                                                                                                                                     |
+| [xtable](https://github.com/cran/xtable)                   | [Dahl et al. (2019)](https://cran.r-project.org/web/packages/xtable/index.html)        | Coerce data to LaTeX and HTML tables.                                                                                                                                                                                                                                                                                                                                                                   |
+| [ztable](https://github.com/cardiomoon/ztable)             | [Moon (2021)](https://cran.r-project.org/web/packages/ztable/index.html)                               | Makes zebra-striped tables (tables with alternating row colors) in LaTeX and HTML formats easily from a data.frame, matrix, lm, aov, anova, glm, coxph, nls, fitdistr, mytable and cbind.mytable objects.                                                                                                                                            |
 
 ## Customising chunk output
 
@@ -334,14 +331,14 @@ available to customise how the code-chunks are presented in the output document.
 The options are entered in the code chunk after `chunk-name` and separated by
 commas, e.g. `{r chunk-name, eval = FALSE, echo = TRUE}`.
 
-| Option | Options | Output                                                                                                    | 
-| ------ | ------- | --------------------------------------------------------------------------------------------------------- |
-| `eval`       | `TRUE` or `FALSE`    | Whether or not the code within the code chunk should be run.                                              | 
-| `echo`       | `TRUE` or `FALSE`    | Choose if you want to show your code chunk in the output document. `echo = TRUE` will show the code chunk.                                       | 
-| `include`       | `TRUE` or `FALSE`    | Choose if the output of a code chunk should be included in the document. `FALSE` means that your code will run, but will not show up in the document.                                 | 
-| `warning`       | `TRUE` or `FALSE`    | Whether or not you want your output document to display potential warning messages produced by your code. | 
-| `message`       | `TRUE` or `FALSE`    | Whether or not you want your output document to display potential messages produced by your code.         | 
-| `fig.align`       | `default`, `left`, `right`, `center`      | Where the figure from your R code chunk should be output on the page                                      | 
+| Option      | Options                              | Output                                                                                                                                                                                |
+| ----------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `eval`      | `TRUE` or `FALSE`                    | Whether or not the code within the code chunk should be run.                                                                                                          |
+| `echo`      | `TRUE` or `FALSE`                    | Choose if you want to show your code chunk in the output document. `echo = TRUE` will show the code chunk.                                            |
+| `include`   | `TRUE` or `FALSE`                    | Choose if the output of a code chunk should be included in the document. `FALSE` means that your code will run, but will not show up in the document. |
+| `warning`   | `TRUE` or `FALSE`                    | Whether or not you want your output document to display potential warning messages produced by your code.                                                             |
+| `message`   | `TRUE` or `FALSE`                    | Whether or not you want your output document to display potential messages produced by your code.                                                                     |
+| `fig.align` | `default`, `left`, `right`, `center` | Where the figure from your R code chunk should be output on the page                                                                                                                  |
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
@@ -387,9 +384,9 @@ To use in-line R-code, we use the same backticks that we used in the Markdown
 section, with an `r` to specify that we are generating R-code. The difference
 between in-line code and a code chunk is the number of backticks. In-line R code
 uses one backtick (`` `r` ``), whereas code chunks use three backticks
-(`` ```r``` ``).
+(` ```r``` `).
 
-For example, today's date is ``` `r Sys.Date()` ```, will be rendered as:
+For example, today's date is ` `r Sys.Date()` `, will be rendered as:
 today's date is 2025-12-15.  
 The code will display today's date in the output document (well, technically the
 date the document was last knitted).
@@ -414,7 +411,7 @@ Now we can make an informative statement on the means of each village, and inclu
 the mean values as in-line R-code. For example:
 
 The average household size in the village of Chirodzo is
-``` `r round(mean_chirodzo$mean_no_membrs, 2)` ```
+` `r round(mean_chirodzo$mean_no_membrs, 2)` `
 
 becomes...
 
@@ -554,8 +551,8 @@ clicking 'Insert' allows 'Citation' to be selected (shortcut:
 'Crtl+Shift+F8'). For example, searching '10.1007/978-3-319-24277-4'
 in 'From DOI' and inserting will provide the citation for `ggplot2`
 [@wickham2016]. This will also save the citation(s) in
-'references.bib' in the current working directory. Visit the [R Studio
-website](https://rstudio.github.io/visual-markdown-editing/) for more
+'references.bib' in the current working directory. Visit the R Studio
+website for more
 information. Tip: obtaining citation information from relevant
 packages can be done by using `citation("package")`.
 

@@ -66,14 +66,14 @@ You can get output from R simply by typing math in the console:
 
 Everything that exists in `R` is an objects: from simple numerical values, to strings, to more complex objects like vectors, matrices, and lists. Even expressions and functions are objects in `R`.
 
-However, to do useful and interesting things, we need to name objects. To do so, we need to give a *name* followed by the assignment operator `<-`, and the *object* we want to be named:
+However, to do useful and interesting things, we need to name objects. To do so, we need to give a _name_ followed by the assignment operator `<-`, and the _object_ we want to be named:
 
 
 ``` r
-area_hectares <- 1.0
+areaHectares <- 1.0
 ```
 
-`<-` is the assignment operator. It assigns values (objects) on the right to names (also called *symbols*) on
+`<-` is the assignment operator. It assigns values (objects) on the right to names (also called _symbols_) on
 the left. So, after executing `x <- 3`, the value of `x` is `3`. The arrow can
 be read as 3 **goes into** `x`.  For historical reasons, you can also use `=`
 for assignments, but not in every context. Because of the
@@ -108,8 +108,8 @@ verbs for function names. It's important to be consistent in the styling of your
 code (where you put spaces, how you name objects, etc.). Using a consistent
 coding style makes your code clearer to read for your future self and your
 collaborators. In R, three popular style guides are
-[Google's](https://google.github.io/styleguide/Rguide.xml), [Jean
-Fan's](https://jef.works/R-style-guide/) and the
+[Google's](https://google.github.io/styleguide/Rguide.xml), Jean
+Fan's and the
 [tidyverse's](https://style.tidyverse.org/). The tidyverse's is very
 comprehensive and may seem overwhelming at first. You can install the
 [**`lintr`**](https://github.com/jimhester/lintr) package to automatically check
@@ -229,11 +229,9 @@ area_acres				# print land area in acres.
 ```
 
 RStudio makes it easy to comment or uncomment a paragraph: after selecting the
-lines you  want to comment, press at the same time on your keyboard
-<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>. If you only want to comment
+lines you  want to comment, press at the same time on your keyboard <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>. If you only want to comment
 out one line, you can put the cursor at any location of that line (i.e. no need
-to select the whole line), then press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> +
-<kbd>C</kbd>.
+to select the whole line), then press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -284,12 +282,12 @@ r_area
 
 Functions are "canned scripts" that automate more complicated sets of commands
 including operations assignments, etc. Many functions are predefined, or can be
-made available by importing R *packages* (more on that later). A function
-usually gets one or more inputs called *arguments*. Functions often (but not
-always) return a *value*. A typical example would be the function `sqrt()`. The
+made available by importing R _packages_ (more on that later). A function
+usually gets one or more inputs called _arguments_. Functions often (but not
+always) return a _value_. A typical example would be the function `sqrt()`. The
 input (the argument) must be a number, and the return value (in fact, the
 output) is the square root of that number. Executing a function ('running it')
-is called *calling* the function. An example of a function call is:
+is called _calling_ the function. An example of a function call is:
 
 
 ``` r
@@ -307,8 +305,8 @@ even a dataset. We'll see that when we read data files into R.
 Arguments can be anything, not only numbers or filenames, but also other
 objects. Exactly what each argument means differs per function, and must be
 looked up in the documentation (see below). Some functions take arguments which
-may either be specified by the user, or, if left out, take on a *default* value:
-these are called *options*. Options are typically used to alter the way the
+may either be specified by the user, or, if left out, take on a _default_ value:
+these are called _options_. Options are typically used to alter the way the
 function operates, such as whether it ignores 'bad values', or what symbol to
 use in a plot.  However, if you want something specific, you can specify a value
 of your choice which will be used instead of the default.
@@ -601,7 +599,7 @@ gets converted into a `1` before it gets converted into `"1"` in
 You've probably noticed that objects of different types get
 converted into a single, shared type within a vector. In R, we
 call converting objects from one class into another class
-*coercion*. These conversions happen according to a hierarchy,
+_coercion_. These conversions happen according to a hierarchy,
 whereby some types get preferentially coerced into other
 types. Can you draw a diagram that represents the hierarchy of how
 these data types are coerced?

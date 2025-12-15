@@ -20,7 +20,7 @@ frame, and a brief introduction to plotting.
 
 ::::::::::::::::::::::::::::::::::::::::::  prereq
 
-## Getting Started
+## Початок роботи
 
 Data Carpentry's teaching is hands-on, so participants are encouraged to use
 their own computers to ensure the proper setup of tools for an efficient
@@ -33,10 +33,8 @@ download data to your computer and follow any installation instructions.
 
 #### Prerequisites
 
-This lesson requires a working copy of **R** and **RStudio**.
-<br>To most effectively use these materials, please make sure to install
-everything *before* working through this lesson.
-
+This lesson requires a working copy of **R** and **RStudio**. <br>To most effectively use these materials, please make sure to install
+everything _before_ working through this lesson.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -47,7 +45,6 @@ everything *before* working through this lesson.
 If you are teaching this lesson in a workshop, please see the
 [Instructor notes](https://datacarpentry.org/r-socialsci/instructor/instructor-notes.html)
 for helpful tips.
-
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 

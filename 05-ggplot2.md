@@ -116,6 +116,7 @@ interviews_plotting <- interviews %>%
 Before we start with **`ggplot2`**, it's helpful to know that there are several ways to create visualizations in R. While **`ggplot2`** is great for building complex and highly customizable plots, there are simpler and quicker alternatives that you might encounter or use depending on the context. Let's briefly explore a few of them:
 
 ### R Base Plots
+
 Base R plots are the simplest form of visualization and are great for quick, exploratory analysis. You can create plots with very little code, but customizing them can be cumbersome compared to **`ggplot2`**.
 
 Example of a simple scatterplot in base R using the `no_membrs` and `liv_count` variables:
@@ -131,6 +132,7 @@ plot(interviews_plotting$no_membrs, interviews_plotting$liv_count,
 <img src="fig/05-ggplot2-rendered-unnamed-chunk-3-1.png" style="display: block; margin: auto;" />
 
 ### **`Lattice`**
+
 Lattice is another plotting system in R, which allows for creating multi-panel plots easily. It’s different from ggplot2 because you define the entire plot in a single function call, and modifications after plotting are limited.
 
 Example of a lattice plot using `no_membrs` and `liv_count` split by `village`:
@@ -140,6 +142,7 @@ Example of a lattice plot using `no_membrs` and `liv_count` split by `village`:
 library(lattice)
 ```
 
+
 ``` r
 xyplot(liv_count ~ no_membrs | village, data = interviews_plotting,
        main = "Lattice Plot: Livestock Count by Household Members",
@@ -148,7 +151,6 @@ xyplot(liv_count ~ no_membrs | village, data = interviews_plotting,
 ```
 
 <img src="fig/05-ggplot2-rendered-unnamed-chunk-4-1.png" style="display: block; margin: auto;" />
-
 
 ## Plotting with **`ggplot2`**
 
@@ -172,12 +174,12 @@ Each chart built with ggplot2 must include the following
 - Data
 
 - Aesthetic mapping (aes)
-  
+
   - Describes how variables are mapped onto graphical attributes
   - Visual attribute of data including x-y axes, color, fill, shape, and alpha
 
 - Geometric objects (geom)
-  
+
   - Determines how values are rendered graphically, as bars (`geom_bar`), scatterplot (`geom_point`), line (`geom_line`), etc.
 
 Thus, the template for graphic in ggplot2 is:
@@ -209,7 +211,7 @@ interviews_plotting %>%
 - add 'geoms' – graphical representations of the data in the plot (points,
   lines, bars). **`ggplot2`** offers many different geoms; we will use some
   common ones today, including:
-  
+
   - `geom_point()` for scatter plots, dot plots, etc.
   - `geom_boxplot()` for, well, boxplots!
   - `geom_line()` for trend lines, time series, etc.
@@ -252,7 +254,7 @@ interviews_plot +
 - You can also specify mappings for a given geom independently of the mapping
   defined globally in the `ggplot()` function.
 - The `+` sign used to add new layers must be placed at the end of the line
-  containing the *previous* layer. If, instead, the `+` sign is added at the
+  containing the _previous_ layer. If, instead, the `+` sign is added at the
   beginning of the line containing the new layer, **`ggplot2`** will not add
   the new layer and will return an error message.
 
@@ -325,8 +327,8 @@ locations where there are overlapping points. Jittering introduces a little bit
 of randomness into the position of our points. You can think of this process as
 taking the overplotted graph and giving it a tiny shake. The points will move a
 little bit side-to-side and up-and-down, but their position from the original
-plot won't dramatically change. Note that this solution is suitable for plotting 
-integer figures, while for numeric figures with decimals, geom_jitter() becomes 
+plot won't dramatically change. Note that this solution is suitable for plotting
+integer figures, while for numeric figures with decimals, geom_jitter() becomes
 inappropriate because it obscures the true value of the observation.
 
 We can jitter our points using the `geom_jitter()` function instead of the
@@ -345,7 +347,7 @@ The `geom_jitter()` function allows for us to specify the amount of random
 motion in the jitter, using the `width` and `height` arguments. When we don't
 specify values for `width` and `height`, `geom_jitter()` defaults to 40% of the
 resolution of the data (the smallest change that can be measured). Hence, if we
-would like *less* spread in our jitter than was default, we should pick values
+would like _less_ spread in our jitter than was default, we should pick values
 between 0.1 and 0.4. Experiment with the values to see how your plot changes.
 
 
@@ -495,7 +497,7 @@ change in the code to put the boxplot layer in front of the jitter layer?
 
 ## Exercise
 
-Boxplots are useful summaries, but hide the *shape* of the distribution. For
+Boxplots are useful summaries, but hide the _shape_ of the distribution. For
 example, if the distribution is bimodal, we would not see it in a
 boxplot. An alternative to the boxplot is the violin plot, where the shape
 (of the density of points) is drawn.
@@ -711,7 +713,7 @@ data for a single village. This would be especially useful if we had
 a large number of villages that we had sampled, as a large number of
 side-by-side bars will become more difficult to read.
 
-**`ggplot2`** has a special technique called *faceting* that allows the
+**`ggplot2`** has a special technique called _faceting_ that allows the
 user to split one plot into multiple plots based on a factor included
 in the dataset. We will use it to split our barplot of housing type
 proportion by village so that each village has its own panel in a
@@ -827,8 +829,7 @@ using each of those themes. Which do you like best?
 
 ## Customization
 
-Take a look at the [**`ggplot2`** cheat
-sheet](https://github.com/rstudio/cheatsheets/blob/main/data-visualization-2.1.pdf),
+Take a look at the ,
 and think of ways you could improve the plot.
 
 Now, let's change names of axes to something more informative than 'village' and
@@ -867,8 +868,7 @@ percent_items %>%
 <img src="fig/05-ggplot2-rendered-ggplot-customization-font-size-1.png" style="display: block; margin: auto;" />
 
 Note that it is also possible to change the fonts of your plots. If you are on
-Windows, you may have to install the [**`extrafont`**
-package](https://github.com/wch/extrafont), and follow the instructions included
+Windows, you may have to install the , and follow the instructions included
 in the README for this package.
 
 After our manipulations, you may notice that the values on the x-axis are still
@@ -933,7 +933,7 @@ for inspiration. Here are some ideas:
 
 - See if you can make the bars white with black outline.
 - Try using a different colour palette (see
-  [http://www.cookbook-r.com/Graphs/Colors\_(ggplot2)/](https://www.cookbook-r.com/Graphs/Colors_\(ggplot2\)/)).
+  [http://www.cookbook-r.com/Graphs/Colors\_(ggplot2)/](https://www.cookbook-r.com/Graphs/Colors_\\(ggplot2\\)/)).
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
