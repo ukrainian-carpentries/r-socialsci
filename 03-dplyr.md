@@ -88,7 +88,7 @@ for example to get a sense of the differences between using `base`, `tidyverse`,
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Learning **`dplyr`**
+## Вивчення **`dplyr`**
 
 To make sure everyone will use the same dataset for this lesson, we'll read
 again the SAFI dataset that we downloaded earlier.
@@ -382,7 +382,7 @@ expression.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Exercise
+## Завдання
 
 Using pipes, subset the `interviews` data to include interviews
 where respondents were members of an irrigation association
@@ -391,7 +391,7 @@ where respondents were members of an irrigation association
 
 :::::::::::::::  solution
 
-## Solution
+## Відповідь
 
 
 ``` r
@@ -499,7 +499,7 @@ not** missing.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Exercise
+## Завдання
 
 Create a new dataframe from the `interviews` data that meets the following
 criteria: contains only the `village` column and a new column called
@@ -790,7 +790,7 @@ interviews %>%
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Exercise
+## Завдання
 
 How many households in the survey have an average of
 two meals per day? Three meals per day? Are there any other numbers
@@ -798,7 +798,7 @@ of meals represented?
 
 :::::::::::::::  solution
 
-## Solution
+## Відповідь
 
 
 ``` r
@@ -822,7 +822,7 @@ observations (hint: see `?n`).
 
 :::::::::::::::  solution
 
-## Solution
+## Відповідь
 
 
 ``` r
@@ -851,7 +851,7 @@ What was the largest household interviewed in each month?
 
 :::::::::::::::  solution
 
-## Solution
+## Відповідь
 
 
 ``` r

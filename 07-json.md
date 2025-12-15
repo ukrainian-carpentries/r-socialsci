@@ -37,7 +37,7 @@ source: Rmd
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## The JSON data format
+## Формат даних JSON
 
 The JSON data format was designed as a way of allowing different machines or processes within machines to communicate with each other by sending messages constructed in a well defined format. JSON is now the preferred data format used by APIs (Application Programming Interfaces).
 
@@ -49,7 +49,7 @@ The JSON file we are going to use is the [SAFI.json](data/SAFI.json) file. This 
 
 Because detailed surveys are by nature nested structures making it possible to record different levels of detail or selectively ask a set of specific questions based on the answer given to a previous question, the structure of the answers for the survey can not only be complex and convoluted, it could easily be different from one survey respondent's set of answers to another.
 
-### Advantages of JSON
+### Переваги JSON
 
 - Very popular data format for APIs (e.g. results from an Internet search)
 - Human readable
@@ -57,7 +57,7 @@ Because detailed surveys are by nature nested structures making it possible to r
 - Documents do not all have to have the same structure within the same file
 - Document structures can be complex and nested
 
-### Disadvantages of JSON
+### Недоліки JSON
 
 - It is more verbose than the equivalent data in csv format
 - Can be more difficult to process and display than csv formatted data
@@ -326,7 +326,7 @@ write_csv(flattened_json_data, "data_output/json_data_with_flattened_list_column
 
 Note: this means that when you read this csv back into R, the column of the nested dataframes will now be read in as a character vector. Converting it back to list to extract elements might be complicated, so it is probably better to keep storing these data in a JSON format if you will have to do this.
 
-You can also write out the individual nested dataframes to a csv. For example:
+You can also write out the individual nested dataframes to a csv. Наприклад:
 
 
 ``` r

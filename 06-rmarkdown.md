@@ -354,7 +354,7 @@ commas, e.g. `{r chunk-name, eval = FALSE, echo = TRUE}`.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Exercise
+## Завдання
 
 Play around with the different options in the chunk with the code for the
 table, and re-**Knit** to see what each option does to the output.
@@ -422,7 +422,7 @@ Because we are using in-line R code instead of the actual values, we have create
 a dynamic document that will automatically update if we make changes to the dataset
 and/or code chunks.
 
-## Plots
+## Графіки
 
 Finally, we will also include a plot, so our document is a little more colourful
 and a little less boring. We will use the `interview_plotting` data from the
@@ -456,7 +456,7 @@ interviews_plotting <- interviews %>%
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Exercise
+## Завдання
 
 Create a new code chunk for the plot, and copy the code from any of the plots
 we created in the previous episode to produce a plot in the chunk. I recommend
