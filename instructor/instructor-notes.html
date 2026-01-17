@@ -248,7 +248,7 @@
 <div class="accordion accordion-flush" id="accordionFlush3">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading3">
-        <a href="01-intro-to-r.html">2. Introduction to R</a>
+        <a href="01-intro-to-r.html">2. Введення до R</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -260,7 +260,7 @@
 <div class="accordion accordion-flush" id="accordionFlush4">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading4">
-        <a href="02-starting-with-data.html">3. Starting with Data</a>
+        <a href="02-starting-with-data.html">3. Починаємо з даних</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -284,7 +284,7 @@
 <div class="accordion accordion-flush" id="accordionFlush6">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading6">
-        <a href="04-tidyr.html">5. Data Wrangling with tidyr</a>
+        <a href="04-tidyr.html">5. Маніпулювання даними за допомогою пакету tidyr</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -296,7 +296,7 @@
 <div class="accordion accordion-flush" id="accordionFlush7">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading7">
-        <a href="05-ggplot2.html">6. Data Visualisation with ggplot2</a>
+        <a href="05-ggplot2.html">6. Візуалізація даних за допомогою ggplot2</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -320,7 +320,7 @@
 <div class="accordion accordion-flush" id="accordionFlush9">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading9">
-        <a href="07-json.html">8. Processing JSON data (Optional)</a>
+        <a href="07-json.html">8. Обробка даних JSON (необов'язково)</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -385,112 +385,111 @@
         <h1>Instructor Notes</h1>
         
 
-<section><h2 class="section-heading" id="dataset">Dataset<a class="anchor" aria-label="anchor" href="#dataset"></a>
+<section><h2 class="section-heading" id="набір-даних">Набір даних<a class="anchor" aria-label="anchor" href="#%D0%BD%D0%B0%D0%B1%D1%96%D1%80-%D0%B4%D0%B0%D0%BD%D0%B8%D1%85"></a>
 </h2>
 <hr class="half-width">
-<p>The data used for this lesson are a slightly cleaned up version of
-the SAFI Survey Results available on GitHub. The original data is on <a href="https://figshare.com/articles/dataset/SAFI_Survey_Results/6262019" class="external-link">figshare</a>.</p>
-<p>This lesson uses <code>SAFI_clean.csv</code>. The direct download
-link for the data file is: <a href="https://raw.githubusercontent.com/datacarpentry/r-socialsci/main/episodes/data/SAFI_clean.csv" class="external-link">https://raw.githubusercontent.com/datacarpentry/r-socialsci/main/episodes/data/SAFI_clean.csv</a>.</p>
-</section><section><h2 class="section-heading" id="lesson-plans">Lesson Plans<a class="anchor" aria-label="anchor" href="#lesson-plans"></a>
+<p>Дані, використані в цьому уроці, — це трохи очищена версія
+результатів опитування SAFI, доступна на GitHub. Оригінальні дані
+знаходяться на <a href="https://figshare.com/articles/dataset/SAFI_Survey_Results/6262019" class="external-link">figshare</a>.</p>
+<p>У цьому уроці використовується <code>SAFI_clean.csv</code>. Пряме
+посилання для завантаження файлу даних: <a href="https://raw.githubusercontent.com/datacarpentry/r-socialsci/main/episodes/data/SAFI_clean.csv" class="external-link">https://raw.githubusercontent.com/datacarpentry/r-socialsci/main/episodes/data/SAFI_clean.csv</a>.</p>
+</section><section><h2 class="section-heading" id="плани-уроків">Плани уроків<a class="anchor" aria-label="anchor" href="#%D0%BF%D0%BB%D0%B0%D0%BD%D0%B8-%D1%83%D1%80%D0%BE%D0%BA%D1%96%D0%B2"></a>
 </h2>
 <hr class="half-width">
-<p>The lesson contains much more material than can be taught in a day.
-Instructors will need to pick an appropriate subset of episodes to use
-in a standard one day course.</p>
-<p>Suggested path for half-day course:</p>
+<p>Урок містить значно більше матеріалу, ніж можна охопити за один день.
+Інструкторам потрібно обрати відповідну підмножину епізодів для
+стандартного одноденного курсу.</p>
+<p>Рекомендований план для курсу на пів дня:</p>
 <ul>
-<li>Before we Start</li>
-<li>Introduction to R</li>
-<li>Starting with Data</li>
+<li>Перед тим як почати</li>
+<li>Введення до R</li>
+<li>Починаємо з даних</li>
 </ul>
-<p>Suggested path for full-day course:</p>
+<p>Пропонований шлях для повноцінного курсу:</p>
 <ul>
-<li>Before we Start</li>
-<li>Introduction to R</li>
-<li>Starting with Data</li>
-<li>Data Wranging with dplyr</li>
-<li>(OPTIONAL) Data Wrangling with tidyr</li>
-<li>Data Visualisation with ggplot2</li>
+<li>Перед тим як почати</li>
+<li>Введення до R</li>
+<li>Починаємо з даних</li>
+<li>Маніпулювання даними за допомогою пакету dplyr</li>
+<li>(ДОДАТКОВО) Маніпулювання даними за допомогою пакету tidyr</li>
+<li>Візуалізація даних за допомогою ggplot2</li>
 </ul>
-<p>For a two-day workshop, it may be possible to cover all of the
-episodes. Feedback from the community on successful lesson plans is
-always appreciated!</p>
-</section><section><h2 class="section-heading" id="technical-tips-and-tricks">Technical Tips and Tricks<a class="anchor" aria-label="anchor" href="#technical-tips-and-tricks"></a>
+<p>Для дводенного семінару можливо охопити всі епізоди. Зворотний
+зв’язок від спільноти щодо успішних планів уроків завжди цінний!</p>
+</section><section><h2 class="section-heading" id="технічні-поради-та-рекомендації">Технічні поради та рекомендації<a class="anchor" aria-label="anchor" href="#%D1%82%D0%B5%D1%85%D0%BD%D1%96%D1%87%D0%BD%D1%96-%D0%BF%D0%BE%D1%80%D0%B0%D0%B4%D0%B8-%D1%82%D0%B0-%D1%80%D0%B5%D0%BA%D0%BE%D0%BC%D0%B5%D0%BD%D0%B4%D0%B0%D1%86%D1%96%D1%97"></a>
 </h2>
 <hr class="half-width">
-<p>Show how to use the ‘zoom’ button to blow up graphs without
-constantly resizing windows.</p>
-<p>Sometimes a package will not install. You can try a different CRAN
-mirror:</p>
+<p>Покажіть, як використовувати кнопку «Zoom», щоб збільшувати графіки
+без постійної зміни розміру вікон.</p>
+<p>Іноді пакет не встановлюється. Ви можете спробувати інше дзеркало
+CRAN:</p>
 <ul>
 <li>Tools &gt; Global Options &gt; Packages &gt; CRAN Mirror</li>
 </ul>
-<p>Alternatively you can go to CRAN and download the package and install
-from ZIP file:</p>
+<p>Або можна завантажити пакет з CRAN і встановити його з ZIP-файлу:</p>
 <ul>
-<li>Tools &gt; Install Packages &gt; set to ‘from Zip/TAR’</li>
+<li>Tools &gt; Install Packages &gt; встановити ‘from Zip/TAR’</li>
 </ul>
-<p>It’s often easier to make sure they have all the needed packages
-installed at one time, rather than deal with these issues over and over.
-See the “Setup instructions” section on the homepage of the course
-website for package installation instructions.</p>
-<p><strong><code>|</code> character on Spanish keyboards:</strong> The
-Spanish Mac keyboard does not have a <code>|</code> key. This character
-can be created using:</p>
+<p>Часто легше переконатися, що всі потрібні пакети встановлені одразу,
+ніж постійно розв’язувати ці проблеми. Дивіться розділ “Setup
+instructions (Інструкції з налаштування)” на головній сторінці курсу для
+інструкцій зі встановлення пакетів.</p>
+<p><strong><code>|</code> символ на іспанських клавіатурах:</strong> на
+іспанській клавіатурі Mac немає клавіші <code>|</code>. Цей символ можна
+створити за допомогою:</p>
 <pre><code><span><span class="va">`alt`</span> <span class="op">+</span> <span class="va">`1`</span></span></code></pre>
-</section><section><h2 class="section-heading" id="other-resources">Other Resources<a class="anchor" aria-label="anchor" href="#other-resources"></a>
+</section><section><h2 class="section-heading" id="інші-ресурси">Інші ресурси<a class="anchor" aria-label="anchor" href="#%D1%96%D0%BD%D1%88%D1%96-%D1%80%D0%B5%D1%81%D1%83%D1%80%D1%81%D0%B8"></a>
 </h2>
 <hr class="half-width">
-<p>If you encounter a problem during a workshop, feel free to contact
-the maintainers by email or open an issue.</p>
-<p>For a more in-depth coverage of topics of the workshops, you may want
-to read “<a href="http://r4ds.had.co.nz/" class="external-link">R for Data Science</a>” by
-Hadley Wickham and Garrett Grolemund.</p>
+<p>Якщо під час семінару у вас виникнуть проблеми, не соромтеся
+звертатися до підтримки електронною поштою або <a href="https://github.com/datacarpentry/r-socialsci/issues/new" class="external-link">відкривати
+issue</a>.</p>
+<p>Для глибшого вивчення тем семінару можна прочитати книгу “<a href="http://r4ds.had.co.nz/" class="external-link">R for Data Science</a>” авторів Хедлі
+Вікем (Hadley Wickham) та Гаррета Гролемунда (Garrett Grolemund).</p>
 </section><section id="aggregate-instructor-notes"><section id="00-intro"><h2 class="section-heading"><a href="00-intro.html">Перед тим як почати</a></h2>
 <hr class="half-width">
 <h3 id="00-intro-headingInstructor1">
 <a href="00-intro.html#headingInstructor1">Instructor Note</a><a class="anchor" aria-label="anchor" href="#00-intro-headingInstructor1"></a>
 </h3>
 <ul>
-<li>The main goal here is to help the learners be comfortable with the
-RStudio interface.</li>
-<li>Виконуйте етапи дуже повільно під час розділу “Початкове
-налаштування”. Переконайтеся, що всі учасники встигають за ходом заняття
-(нагадайте їм користуватися наліпками для зворотного зв’язку). Plan with
-the helpers at this point to go around the room, and be available to
-help. Дуже важливо впевнитися, що всі працюють у правильному робочому
-каталозі та створили підкаталог <code>data</code> (усі літери
-малі).</li>
+<li>Основна мета цього епізоду - допомогти слухачам комфортно почуватися
+під час користування інтерфейсом RStudio.</li>
+<li>У епізоді “Початкове налаштування” виконуйте усі етапи дуже
+повільно. Переконайтеся, що всі учасники встигають за ходом заняття
+(нагадайте їм користуватися наліпками для зворотного зв’язку). На цьому
+етапі домовтеся з помічниками, щоб вони ходили по аудиторії та
+допомагали учасникам. Дуже важливо впевнитися, що всі працюють у
+правильному робочому каталозі та створили підкаталог <code>data</code>
+(усі літери малі).</li>
 </ul>
 <hr>
-<br></section><section id="01-intro-to-r"><h2 class="section-heading"><a href="01-intro-to-r.html">Introduction to R</a></h2>
+<br></section><section id="01-intro-to-r"><h2 class="section-heading"><a href="01-intro-to-r.html">Введення до R</a></h2>
 <hr class="half-width">
 <h3 id="01-intro-to-r-headingInstructor1">
 <a href="01-intro-to-r.html#headingInstructor1">Instructor Note</a><a class="anchor" aria-label="anchor" href="#01-intro-to-r-headingInstructor1"></a>
 </h3>
 <ul>
-<li>The main goal is to introduce users to the various objects in R,
-from atomic types to creating your own objects.</li>
-<li>While this epsiode is foundational, be careful not to get caught in
-the weeds as the variety of types and operations can be overwhelming for
-new users, especially before they understand how this fits into their
-own “workflow.”</li>
+<li>Основна мета - познайомити користувачів з різними об’єктами в R, від
+елементарних типів до створення власних об’єктів.</li>
+<li>Хоча цей розділ є базовим, будьте обережні, щоб не “загрузнути в
+деталях”, адже різноманіття типів і операцій може бути надто складним
+для новачків — особливо до того, як вони зрозуміють, як усе це
+вписується у їх власний “робочий процес”.</li>
 </ul>
 <hr>
-<br></section><section id="02-starting-with-data"><h2 class="section-heading"><a href="02-starting-with-data.html">Starting with Data</a></h2>
+<br></section><section id="02-starting-with-data"><h2 class="section-heading"><a href="02-starting-with-data.html">Починаємо з даних</a></h2>
 <hr class="half-width">
 <h3 id="02-starting-with-data-headingInstructor1">
 <a href="02-starting-with-data.html#headingInstructor1">Instructor Note</a><a class="anchor" aria-label="anchor" href="#02-starting-with-data-headingInstructor1"></a>
 </h3>
 <p>Дві основні цілі цих уроків:</p>
 <ul>
-<li>To make sure that learners are comfortable with working with data
-frames, and can use the bracket notation to select slices/columns.</li>
-<li>To expose learners to factors. Their behavior is not necessarily
-intuitive, and so it is important that they are guided through it the
-first time they are exposed to it. The content of the lesson should be
-enough for learners to avoid common mistakes with them.</li>
+<li>Переконатися, що учасники впевнено працюють із датафреймом і можуть
+використовувати дужки для вибору рядків і стовпців.</li>
+<li>Виставити учнів як фактори. Їхня поведінка не завжди інтуїтивно
+зрозуміла, тому важливо, щоб учасників супроводжували під час роботи з
+ними вперше. The content of the lesson should be enough for learners to
+avoid common mistakes with them.</li>
 </ul>
 <hr>
 <br></section><section id="03-dplyr"><h2 class="section-heading"><a href="03-dplyr.html">Маніпулювання даними за допомогою пакету dplyr</a></h2>
@@ -499,34 +498,33 @@ enough for learners to avoid common mistakes with them.</li>
 <a href="03-dplyr.html#headingInstructor1">Instructor Note</a><a class="anchor" aria-label="anchor" href="#03-dplyr-headingInstructor1"></a>
 </h3>
 <ul>
-<li>This lesson works better if you have graphics demonstrating dplyr
-commands. You can modify <a href="https://docs.google.com/presentation/d/1A9abypFdFp8urAe9z7GCMjFr4aPeIb8mZAtJA2F7H0w/edit#slide=id.g652714585f_0_114" class="external-link">this
-Google Slides deck</a> and use it for your workshop.</li>
-<li>For this lesson make sure that learners are comfortable using
-pipes.</li>
-<li>There is also sometimes some confusion on what the arguments of
-<code>group_by</code> should be, and when to use <code>filter()</code>
-and <code>select()</code>.</li>
+<li>Цей урок буде зрозумілішим, якщо використовувати графіки, які наочно
+демонструють роботу команд dplyr. Ви можете змінити <a href="https://docs.google.com/presentation/d/1A9abypFdFp8urAe9z7GCMjFr4aPeIb8mZAtJA2F7H0w/edit#slide=id.g652714585f_0_114" class="external-link">цю
+презентацію Google Slides</a> та використати для свого семінару.</li>
+<li>Для цього уроку переконайтеся, що учні впевнено користуються
+оператором pipe (%&gt;%).</li>
+<li>Також іноді виникає деяка плутанина щодо того, якими мають бути
+аргументи <code>group_by</code> , а також коли використовувати
+<code>filter ()</code> та <code>select ()</code>.</li>
 </ul>
 <hr>
-<br></section><section id="04-tidyr"><h2 class="section-heading"><a href="04-tidyr.html">Data Wrangling with tidyr</a></h2>
-<hr class="half-width"></section><section id="05-ggplot2"><h2 class="section-heading"><a href="05-ggplot2.html">Data Visualisation with ggplot2</a></h2>
+<br></section><section id="04-tidyr"><h2 class="section-heading"><a href="04-tidyr.html">Маніпулювання даними за допомогою пакету tidyr</a></h2>
+<hr class="half-width"></section><section id="05-ggplot2"><h2 class="section-heading"><a href="05-ggplot2.html">Візуалізація даних за допомогою ggplot2</a></h2>
 <hr class="half-width">
 <h3 id="05-ggplot2-headingInstructor1">
 <a href="05-ggplot2.html#headingInstructor1">Instructor Note</a><a class="anchor" aria-label="anchor" href="#05-ggplot2-headingInstructor1"></a>
 </h3>
 <ul>
-<li>This episode is a broad overview of ggplot2 and focuses on (1)
-getting familiar with the layering system of ggplot2, (2) using the
-argument <code>group</code> in the <code>aes()</code> function, (3)
-basic customization of the plots.</li>
-<li>The episode depends on data created in the Data Wrangling with tidyr
-episode. If you did not get to or through all of the tidyr episode, you
-can have the learners access the data by either downloading it or
-quickly creating it using the tidyr code below. You will probably want
-to copy the code into the Etherpad.</li>
-<li>If you did skip the tidyr episode, you might want to go over the
-exporting data section in that episode.</li>
+<li>Цей епізод є загальним оглядом ggplot2 і зосереджується на: (1)
+ознайомленні з системою шарів у ggplot2, (2) використанні аргументу
+group у функції aes(), (3) базовому налаштуванні графіків.</li>
+<li>Епізод залежить від даних, створених в епізоді “Маніпулювання даними
+за допомогою tidyr”. Якщо ви не дійшли або не пройшли увесь епізод про
+tidyr, ви можете надати учасникам доступ до даних, завантаживши їх або
+швидко створивши за допомогою наведеного нижче коду tidyr. Ймовірно, ви
+захочете скопіювати код в Etherpad.</li>
+<li>Якщо ви пропустили епізод про tidyr, ви можете перейти до розділу
+експорт даних у тому епізоді.</li>
 </ul>
 <hr>
 <br></section><section id="06-rmarkdown"><h2 class="section-heading"><a href="06-rmarkdown.html">Getting started with R Markdown (Optional)</a></h2>
@@ -542,18 +540,18 @@ prefer to teach it early in the workshop, depending on the
 audience.</li>
 </ul>
 <hr>
-<br></section><section id="07-json"><h2 class="section-heading"><a href="07-json.html">Processing JSON data (Optional)</a></h2>
+<br></section><section id="07-json"><h2 class="section-heading"><a href="07-json.html">Обробка даних JSON (необов'язково)</a></h2>
 <hr class="half-width">
 <h3 id="07-json-headingInstructor1">
 <a href="07-json.html#headingInstructor1">Instructor Note</a><a class="anchor" aria-label="anchor" href="#07-json-headingInstructor1"></a>
 </h3>
 <ul>
-<li>This is an optional lessons intended to introduce learners to JSON
-data, as well as how to read JSON data into R and how to convert the
-data into a data frame or array.</li>
-<li>Note that his lesson was community-contributed and remains a work in
-progress. As such, it could benefit from feedback from instructors
-and/or workshop participants.</li>
+<li>Цей урок необов’язковий і призначений для ознайомлення з даними у
+форматі JSON, зокрема з тим, як зчитувати JSON у R та конвертувати ці
+дані у датафрейм або масив.</li>
+<li>Зауважте, що урок був створений спільнотою і досі знаходиться у
+процесі доопрацювання. Тому він може покращитися завдяки відгукам
+викладачів та/або учасників семінару.</li>
 </ul>
 <hr>
 <br></section></section>
@@ -583,7 +581,7 @@ and/or workshop participants.</li>
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
 
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/main" class="external-link">sandpaper (0.17.4.9000)</a>, <a href="https://github.com/carpentries/pegboard/tree/main" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.9" class="external-link">varnish (1.0.9)</a></p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/main" class="external-link">sandpaper (0.18.1)</a>, <a href="https://github.com/carpentries/pegboard/tree/main" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.9" class="external-link">varnish (1.0.9)</a></p>
 		</div>
 		</footer>
 </div> <!-- / div.container -->
@@ -606,8 +604,8 @@ and/or workshop participants.</li>
   "url": "https://ukrainian-carpentries.github.io/r-socialsci/instructor/instructor-notes.html",
   "identifier": "https://ukrainian-carpentries.github.io/r-socialsci/instructor/instructor-notes.html",
   "dateCreated": "2017-05-25",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06"
+  "dateModified": "2026-01-17",
+  "datePublished": "2026-01-17"
 }
 
   </script><script>

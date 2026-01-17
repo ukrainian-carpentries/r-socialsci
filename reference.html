@@ -206,7 +206,7 @@
 <div class="accordion accordion-flush" id="accordionFlush3">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading3">
-        <a href="01-intro-to-r.html">2. Introduction to R</a>
+        <a href="01-intro-to-r.html">2. Введення до R</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -215,7 +215,7 @@
 <div class="accordion accordion-flush" id="accordionFlush4">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading4">
-        <a href="02-starting-with-data.html">3. Starting with Data</a>
+        <a href="02-starting-with-data.html">3. Починаємо з даних</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -233,7 +233,7 @@
 <div class="accordion accordion-flush" id="accordionFlush6">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading6">
-        <a href="04-tidyr.html">5. Data Wrangling with tidyr</a>
+        <a href="04-tidyr.html">5. Маніпулювання даними за допомогою пакету tidyr</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -242,7 +242,7 @@
 <div class="accordion accordion-flush" id="accordionFlush7">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading7">
-        <a href="05-ggplot2.html">6. Data Visualisation with ggplot2</a>
+        <a href="05-ggplot2.html">6. Візуалізація даних за допомогою ggplot2</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -260,7 +260,7 @@
 <div class="accordion accordion-flush" id="accordionFlush9">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading9">
-        <a href="07-json.html">8. Processing JSON data (Optional)</a>
+        <a href="07-json.html">8. Обробка даних JSON (необов'язково)</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -324,7 +324,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1></h1>
-        <p>Last updated on 2025-12-15 |
+        <p>Last updated on 2026-01-17 |
 
         <a href="https://github.com/ukrainian-carpentries/r-socialsci/edit/main/learners/reference.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -335,204 +335,202 @@
         </div>
 
         
-<section><h2 class="section-heading" id="glossary">Glossary<a class="anchor" aria-label="anchor" href="#glossary"></a></h2>
-<hr class="half-width"><p>Cheat sheet of functions used in the lessons</p>
+<section><h2 class="section-heading" id="словник-термінів">Словник термінів<a class="anchor" aria-label="anchor" href="#%D1%81%D0%BB%D0%BE%D0%B2%D0%BD%D0%B8%D0%BA-%D1%82%D0%B5%D1%80%D0%BC%D1%96%D0%BD%D1%96%D0%B2"></a></h2>
+<hr class="half-width"><p>Шпаргалка функцій, які використовуються у цих уроках</p>
 <div class="section level3">
-<h3 id="lesson-1-introduction-to-r">Lesson 1 – Introduction to R<a class="anchor" aria-label="anchor" href="#lesson-1-introduction-to-r"></a></h3>
+<h3 id="урок-1-введення-у-r">Урок 1 – Введення у R<a class="anchor" aria-label="anchor" href="#%D1%83%D1%80%D0%BE%D0%BA-1-%D0%B2%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%BD%D1%8F-%D1%83-r"></a></h3>
 <ul><li>
-<code>sqrt()</code> # calculate the square root</li>
+<code>sqrt()</code> # обчислює квадратний корінь</li>
 <li>
-<code>round()</code> # round a number</li>
+<code>round()</code> # округлює число</li>
 <li>
-<code>args()</code> # find what arguments a function takes</li>
+<code>args()</code> # показує, які аргументи приймає функція</li>
 <li>
-<code>length()</code> # how many elements are in a particular
-vector</li>
+<code>length()</code> # кількість елементів у векторі</li>
 <li>
-<code>class()</code> # the class (the type of element) of an
-object</li>
+<code>class()</code> # клас (тип елемента) об’єкта</li>
 <li>
-<code>str()</code> # an overview of the object and the elements it
-contains</li>
+<code>str()</code> # огляд об’єкта та його елементів</li>
 <li>
-<code>typeof</code> # determines the (R internal) type or storage
-mode of any object</li>
+<code>typeof()</code> # визначає внутрішній тип або режим зберігання
+об’єкта в R</li>
 <li>
-<code>c()</code> # create vector; add elements to vector</li>
+<code>c()</code> # створює вектор; додає елементи до вектора</li>
 <li>
-<code>[  ]</code> # extract and subset vector</li>
+<code>[  ]</code> # витягує підмножину вектора</li>
 <li>
-<code>%in%</code> # to test if a value is found in a vector</li>
+<code>%in%</code> # перевіряє, чи є значення у векторі</li>
 <li>
-<code>is.na()</code> # test if there are missing values</li>
+<code>is.na()</code> # перевіряє наявність пропущених значень</li>
 <li>
-<code>na.omit()</code> # Returns the object with incomplete cases
-removed</li>
+<code>na.omit()</code> # повертає об’єкт без пропущених
+елементів</li>
 <li>
-<code>complete.cases()</code># elements which are complete
-cases</li>
+<code>complete.cases()</code># елементи, які є повними
+випадками</li>
 </ul></div>
 <div class="section level3">
-<h3 id="lesson-2-starting-with-data">Lesson 2 – Starting with Data<a class="anchor" aria-label="anchor" href="#lesson-2-starting-with-data"></a></h3>
+<h3 id="урок-2-починаємо-з-даних">Урок 2 – Починаємо з даних<a class="anchor" aria-label="anchor" href="#%D1%83%D1%80%D0%BE%D0%BA-2-%D0%BF%D0%BE%D1%87%D0%B8%D0%BD%D0%B0%D1%94%D0%BC%D0%BE-%D0%B7-%D0%B4%D0%B0%D0%BD%D0%B8%D1%85"></a></h3>
 <ul><li>
-<code>download.file()</code> # download files from the internet to
-your computer</li>
+<code>download.file()</code> # завантажує файли з Інтернету на
+комп’ютер</li>
 <li>
-<code>read_csv()</code> # load CSV file into R memory</li>
+<code>read_csv()</code> # завантажує CSV-файл у пам’ять R</li>
 <li>
-<code>head()</code> # shows the first 6 rows</li>
+<code>head()</code> # показує перші 6 рядків</li>
 <li>
-<code>view()</code> # invoke a spreadsheet-style data viewer</li>
+<code>view()</code> # відкриває переглядач даних у вигляді
+електронної таблиці</li>
 <li>
-<code>read_delim()</code> # load a file in table format into R
-memory</li>
+<code>read_delim()</code> # завантажує файл у табличному форматі у
+пам’ять R</li>
 <li>
-<code>str()</code> # check structure of the object and information
-about the class, length and content of each column</li>
+<code>str()</code> # перевіряє структуру об’єкта та інформацію про
+клас, довжину та вміст кожної колонки</li>
 <li>
-<code>dim()</code> # check dimension of data frame</li>
+<code>dim()</code> # показує розмірність датафрейму</li>
 <li>
-<code>nrow()</code> # returns the number of rows</li>
+<code>nrow()</code> # повертає кількість рядків</li>
 <li>
-<code>ncol()</code> # returns the number of columns</li>
+<code>ncol()</code> # повертає кількість стовпців</li>
 <li>
-<code>tail()</code> # shows the last 6 rows</li>
+<code>tail()</code> # показує останні 6 рядків</li>
 <li>
-<code>names()</code> # returns the column names (synonym of
-colnames() for data frame objects)</li>
+<code>names()</code> # повертає назви стовпців (синонім colnames()
+для об’єктів датафрейму)</li>
 <li>
-<code>rownames()</code> # returns the row names</li>
+<code>rownames()</code> # повертає назви рядків</li>
 <li>
-<code>summary()</code> # summary statistics for each column</li>
+<code>summary()</code> # описова статистика для кожного стовпця</li>
 <li>
-<code>glimpse</code> # like <code>str()</code> applied to a data
-frame but tries to show as much data as possible</li>
+<code>glimpse()</code> # схоже на <code>str()</code>, застосоване до
+датафрейму, але показує якомога більше даних</li>
 <li>
-<code>factor()</code> # create factors</li>
+<code>factor()</code> # створює фактори</li>
 <li>
-<code>levels()</code> # check levels of a factor</li>
+<code>levels()</code> # перевіряє рівні фактора</li>
 <li>
-<code>nlevels()</code> # check number of levels of a factor</li>
+<code>nlevels()</code> # перевіряє кількість рівнів фактора</li>
 <li>
-<code>as.character()</code> # convert an object to a character
-vector</li>
+<code>as.character()</code> # конвертує об’єкт у вектор
+символів</li>
 <li>
-<code>as.numeric()</code> # convert an object to a numeric
-vector</li>
+<code>as.numeric()</code> # конвертує об’єкт у числовий вектор</li>
 <li>
-<code>as.numeric(as.character(x))</code> # convert factors where the
-levels appear as characters to a numeric vector</li>
+<code>as.numeric(as.character(x))</code> # конвертує фактори, де
+рівні виглядають як символи, у числовий вектор</li>
 <li>
-<code>as.numeric(levels(x))[x]</code> # convert factors where the
-levels appear as numbers to a numeric vector</li>
+<code>as.numeric(levels(x))[x]</code> # конвертує фактори, де рівні
+виглядають як числа, у числовий вектор</li>
 <li>
-<code>plot()</code> # plot an object</li>
+<code>plot()</code> # будує графік об’єкта</li>
 <li>
-<code>addNA()</code> # convert NA into a factor level</li>
+<code>addNA()</code> # перетворює NA на рівень фактора</li>
 <li>
-<code>data.frame()</code> # create a data.frame object</li>
+<code>data.frame()</code> # створює датафрейм</li>
 <li>
-<code>ymd()</code> # convert a vector representing year, month, and
-day to a Date vector</li>
+<code>ymd()</code> # конвертує вектор з роком, місяцем і днем у
+вектор Date</li>
 <li>
-<code>paste()</code> # concatenate vectors after converting to
-character</li>
+<code>paste()</code> # об’єднує вектори після перетворення у
+символи</li>
 </ul></div>
 <div class="section level3">
-<h3 id="lesson-3-data-wrangling-with-dplyr-and-tidyr">Lesson 3 – Data Wrangling with dplyr and tidyr<a class="anchor" aria-label="anchor" href="#lesson-3-data-wrangling-with-dplyr-and-tidyr"></a></h3>
+<h3 id="урок-3-маніпулювання-даними-за-допомогою-dplyr-та-tidyr">Урок 3 – Маніпулювання даними за допомогою dplyr та tidyr<a class="anchor" aria-label="anchor" href="#%D1%83%D1%80%D0%BE%D0%BA-3-%D0%BC%D0%B0%D0%BD%D1%96%D0%BF%D1%83%D0%BB%D1%8E%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-%D0%B4%D0%B0%D0%BD%D0%B8%D0%BC%D0%B8-%D0%B7%D0%B0-%D0%B4%D0%BE%D0%BF%D0%BE%D0%BC%D0%BE%D0%B3%D0%BE%D1%8E-dplyr-%D1%82%D0%B0-tidyr"></a></h3>
 <ul><li>
-<code>str()</code> # check structure of the object and information
-about the class, length and content of each column</li>
+<code>str()</code> # перевіряє структуру об’єкта та інформацію про
+клас, довжину і вміст кожного стовпця</li>
 <li>
-<code>view()</code> # invoke a spreadsheet-style data viewer</li>
+<code>view()</code> # відкриває перегляд даних у вигляді електронної
+таблиці</li>
 <li>
-<code>select()</code> # select columns of a data frame</li>
+<code>select()</code> # вибирає колонки з датафрейму</li>
 <li>
-<code>filter()</code> # allows you to select a subset of rows in a
-data frame</li>
+<code>filter()</code> # дозволяє вибрати підмножину рядків у
+датафреймі</li>
 <li>
-<code>%&gt;%</code> # pipes to select and filter at the same
-time</li>
+<code>%&gt;%</code> # для одночасного вибору та фільтрування</li>
 <li>
-<code>mutate()</code> # create new columns based on the values in
-existing columns</li>
+<code>mutate()</code> # створює нові стовпці на основі значень
+стовпців, які вже існують</li>
 <li>
-<code>head()</code> # shows the first 6 rows</li>
+<code>head()</code> # показує перші 6 рядків</li>
 <li>
-<code>group_by()</code> # split the data into groups, apply some
-analysis to each group, and then combine the results.</li>
+<code>group_by()</code> # розбиває дані на групи, застосовує аналіз
+до кожної групи та об’єднує результати.</li>
 <li>
-<code>summarize()</code> # collapses each group into a single-row
-summary of that group</li>
+<code>summarize()</code> # зводить кожну групу до одного рядка з
+підсумковими показниками</li>
 <li>
-<code>mean()</code> # calculate the mean value of a vector</li>
+<code>mean()</code> # обчислює середнє значення вектора</li>
 <li>
-<code>!is.na()</code> # test if there are no missing values</li>
+<code>!is.na()</code> # перевіряє, чи немає відсутніх значень</li>
 <li>
-<code>print()</code> # print values to the console</li>
+<code>print()</code> # виводить значення в консоль</li>
 <li>
-<code>min()</code> # return the minimum value of a vector</li>
+<code>min()</code> # повертає мінімальне значення вектора</li>
 <li>
-<code>arrange()</code> # arrange rows by variables</li>
+<code>arrange()</code> # впорядковує рядки за змінними</li>
 <li>
-<code>desc()</code> # transform a vector into a format that will be
-sorted in descending order</li>
+<code>desc()</code> # перетворює вектор у формат, який буде
+відсортовано за зменшенням</li>
 <li>
-<code>count()</code> # counts the total number of records for each
-category</li>
+<code>count()</code> # підраховує кількість записів для кожної
+категорії</li>
 <li>
-<code>pivot_wider()</code> # reshape a data frame by a key-value
-pair across multiple columns</li>
+<code>pivot_wider()</code> # змінює формат даних, розгортаючи
+ключ-значення у кілька стовпців</li>
 <li>
-<code>pivot_longer()</code> # reshape a data frame by collapsing
-into a key-value pair</li>
+<code>pivot_longer()</code> # змінює формат даних, згортаючи кілька
+стовпців у пару ключ-значення</li>
 <li>
-<code>replace_na()</code> # Replace NAs with specified values</li>
+<code>replace_na()</code> # замінює пропущені значення (NA) на
+задані</li>
 <li>
-<code>n_distinct()</code> # get a count of unique values</li>
+<code>n_distinct()</code> # повертає кількість унікальних
+значень</li>
 <li>
-<code>write_csv()</code> # save to a csv formatted file</li>
+<code>write_csv()</code> # зберігає у файл формату csv</li>
 </ul></div>
 <div class="section level3">
-<h3 id="lesson-4-data-visualization-with-ggplot2">Lesson 4 – Data Visualization with ggplot2<a class="anchor" aria-label="anchor" href="#lesson-4-data-visualization-with-ggplot2"></a></h3>
+<h3 id="урок-4-візуалізація-даних-за-допомогою-ggplot2">Урок 4 – Візуалізація даних за допомогою ggplot2<a class="anchor" aria-label="anchor" href="#%D1%83%D1%80%D0%BE%D0%BA-4-%D0%B2%D1%96%D0%B7%D1%83%D0%B0%D0%BB%D1%96%D0%B7%D0%B0%D1%86%D1%96%D1%8F-%D0%B4%D0%B0%D0%BD%D0%B8%D1%85-%D0%B7%D0%B0-%D0%B4%D0%BE%D0%BF%D0%BE%D0%BC%D0%BE%D0%B3%D0%BE%D1%8E-ggplot2"></a></h3>
 <ul><li>
-<code>read_csv()</code> # load a csv formatted file into R
-memory</li>
+<code>read_csv()</code> # завантажує csv-файл у пам’ять R</li>
 <li>
 <code>ggplot2(data= , aes(x= , y= )) + geom_point( ) + facet_wrap () + theme_bw() + theme()</code>
-# skeleton for creating plot layers</li>
+# шаблон для графіка з шарами</li>
 <li>
-<code>aes()</code> # by selecting the variables to be plotted and
-the variables to define the presentation such as plotting size, shape
-color, etc.</li>
+<code>aes()</code> # вибір змінних, які будуть відображатися на
+графіку та змінних, що визначатимуть спосіб їх подання розмір, форма,
+колір тощо.</li>
 <li>
-<code>geom_</code> # graphical representation of the data in the
-plot (points, lines, bars). To add a geom to the plot use +
-operator</li>
+<code>geom_</code> # геометричне представлення даних на графіку
+(точки, лінії, стовпчики). Щоб додати geom до графіка, використовуйте
+оператор +</li>
 <li>
-<code>facet_wrap()</code> # allows to split one plot into multiple
-plots based on a factor included in the dataset</li>
+<code>facet_wrap()</code> # дозволяє розбити один графік на кілька
+підграфіків за факторною змінною з набору даних</li>
 <li>
-<code>labs()</code> # set labels to plot</li>
+<code>labs()</code> # задає підписи до графіка</li>
 <li>
-<code>theme_bw()</code> # set the background to white</li>
+<code>theme_bw()</code> # встановлює білий фон графіка</li>
 <li>
-<code>theme()</code> # used to locally modify one or more theme
-elements in a specific ggplot object</li>
+<code>theme()</code> # використовується для локальної зміни одного
+або кількох елементів теми в конкретному ggplot об’єкті</li>
 <li>
-<code>+</code> # arrange ggplots horizontally</li>
+<code>+</code> # розміщує ggplot графіки горизонтально</li>
 <li>
-<code>/</code> # arrange ggplots vertically</li>
+<code>/</code> # розміщує ggplot графіки вертикально</li>
 <li>
-<code>plot_layout()</code> # set width and height of individual
-plots in a patchwork of plots</li>
+<code>plot_layout()</code> # задає ширину та висоту окремих графіків
+у композиції (patchwork)</li>
 <li>
-<code>ggsave()</code> # save a ggplot</li>
+<code>ggsave()</code> # зберігає ggplot графік</li>
 </ul></div>
 <div class="section level3">
-<h3 id="lesson-5-processing-json-data">Lesson 5 – Processing JSON data<a class="anchor" aria-label="anchor" href="#lesson-5-processing-json-data"></a></h3>
+<h3 id="урок-5-обробка-даних-json">Урок 5 – Обробка даних JSON<a class="anchor" aria-label="anchor" href="#%D1%83%D1%80%D0%BE%D0%BA-5-%D0%BE%D0%B1%D1%80%D0%BE%D0%B1%D0%BA%D0%B0-%D0%B4%D0%B0%D0%BD%D0%B8%D1%85-json"></a></h3>
 <ul><li>
-<code>read_json()</code> # load json object to an R object</li>
+<code>read_json()</code># завантажити об’єкт json до об’єкта R</li>
 </ul></div>
 </section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
@@ -572,7 +570,7 @@ plots in a patchwork of plots</li>
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
 
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/main" class="external-link">sandpaper (0.17.4.9000)</a>, <a href="https://github.com/carpentries/pegboard/tree/main" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.9" class="external-link">varnish (1.0.9)</a></p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/main" class="external-link">sandpaper (0.18.1)</a>, <a href="https://github.com/carpentries/pegboard/tree/main" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.9" class="external-link">varnish (1.0.9)</a></p>
 		</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -594,8 +592,8 @@ plots in a patchwork of plots</li>
   "url": "https://ukrainian-carpentries.github.io/r-socialsci/reference.html",
   "identifier": "https://ukrainian-carpentries.github.io/r-socialsci/reference.html",
   "dateCreated": "2017-05-25",
-  "dateModified": "2025-12-15",
-  "datePublished": "2026-01-06"
+  "dateModified": "2026-01-17",
+  "datePublished": "2026-01-17"
 }
 
   </script><script>

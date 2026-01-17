@@ -210,7 +210,7 @@
 <div class="accordion accordion-flush" id="accordionFlush3">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading3">
-        <a href="01-intro-to-r.html">2. Introduction to R</a>
+        <a href="01-intro-to-r.html">2. Введення до R</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -219,7 +219,7 @@
 <div class="accordion accordion-flush" id="accordionFlush4">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading4">
-        <a href="02-starting-with-data.html">3. Starting with Data</a>
+        <a href="02-starting-with-data.html">3. Починаємо з даних</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -237,7 +237,7 @@
 <div class="accordion accordion-flush" id="accordionFlush6">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading6">
-        <a href="04-tidyr.html">5. Data Wrangling with tidyr</a>
+        <a href="04-tidyr.html">5. Маніпулювання даними за допомогою пакету tidyr</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -246,7 +246,7 @@
 <div class="accordion accordion-flush" id="accordionFlush7">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading7">
-        <a href="05-ggplot2.html">6. Data Visualisation with ggplot2</a>
+        <a href="05-ggplot2.html">6. Візуалізація даних за допомогою ggplot2</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -264,7 +264,7 @@
 <div class="accordion accordion-flush" id="accordionFlush9">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading9">
-        <a href="07-json.html">8. Processing JSON data (Optional)</a>
+        <a href="07-json.html">8. Обробка даних JSON (необов'язково)</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -321,18 +321,19 @@
       <hr></nav><main id="main-content" class="main-content"><h1 class="schedule-heading">Summary and Schedule</h1>
       
 
-<p>Data Carpentry’s aim is to teach researchers basic concepts, skills,
-and tools for working with data so that they can get more done in less
-time, and with less pain. The lessons below were designed for those
-interested in working with social sciences data in R.</p>
-<p>This is an introduction to R designed for participants with no
-programming experience. These lessons can be taught in a half-day,
-full-day, or over a two-day workshop (see <a href="https://datacarpentry.org/r-socialsci/instructor/instructor-notes.html" class="external-link">Instructor
-Notes</a> for suggested lesson plans). They start with some basic
-information about R syntax, the RStudio interface, and move through how
-to import CSV files, the structure of data frames, how to deal with
-factors, how to add/remove rows and columns, how to calculate summary
-statistics from a data frame, and a brief introduction to plotting.</p>
+<p>Мета Data Carpentry полягає в тому, щоб навчити дослідників базовим
+поняттям, навичкам та інструментам роботи з даними, для того щоб вони
+могли виконувати більше завдань за менший час і з меншими зусиллями.
+Наведені нижче уроки розроблені для тих, хто зацікавлений у роботі з
+соціологічними даними у середовищі R.</p>
+<p>Це вступ до R, розроблений для учасників без попереднього досвіду
+програмування. Ці уроки можна проводити протягом півдня, повного дня або
+дводенного семінару (див. <a href="https://datacarpentry.org/r-socialsci/instructor/instructor-notes.html" class="external-link">Примітки
+для інструктора</a> із рекомендованими планами уроків). Вони починаються
+з базової інформації про синтаксис R та інтерфейс RStudio, а далі
+охоплюють: імпорт CSV-файлів, структуру датафрейму, роботу з факторами,
+додавання й видалення рядків і стовпців, обчислення описових статистик
+для датафрейму, а також короткий вступ до побудови графіків.</p>
 <div id="початок-роботи" class="callout prereq">
 <div class="callout-square">
 <i class="callout-icon" data-feather="check"></i>
@@ -341,19 +342,19 @@ statistics from a data frame, and a brief introduction to plotting.</p>
 <div id="початок-роботи" class="callout-inner">
 <h3 class="callout-title">Початок роботи</h3>
 <div class="callout-content">
-<p>Data Carpentry’s teaching is hands-on, so participants are encouraged
-to use their own computers to ensure the proper setup of tools for an
-efficient workflow.</p>
-<p><strong>These lessons assume no prior knowledge of the skills or
-tools.</strong></p>
-<p>To get started, follow the directions in the “<a href="index.html#setup">Setup</a>” tab to download data to your computer and
-follow any installation instructions.</p>
+<p>Тренінги Data Carpentry мають практичний характер, тому учасників
+заохочують працювати на власних комп’ютерах, щоб забезпечити правильне
+налаштування інструментів для ефективного робочого процесу.</p>
+<p><strong>Ці уроки не передбачають попереднього знання відповідних
+навичок чи інструментів.</strong></p>
+<p>Щоб розпочати, дотримуйтесь інструкцій у вкладці “<a href="index.html#setup">Setup</a>”, щоб завантажити дані на свій комп’ютер і
+виконати всі інструкції з встановлення.</p>
 <div class="section level4">
-<h4 id="prerequisites">Prerequisites<a class="anchor" aria-label="anchor" href="#prerequisites"></a></h4>
-<p>This lesson requires a working copy of <strong>R</strong> and
-<strong>RStudio</strong>. <br>To most effectively use these materials,
-please make sure to install everything <em>before</em> working through
-this lesson.</p>
+<h4 id="передумови">Передумови<a class="anchor" aria-label="anchor" href="#%D0%BF%D0%B5%D1%80%D0%B5%D0%B4%D1%83%D0%BC%D0%BE%D0%B2%D0%B8"></a></h4>
+<p>Для цього уроку потрібна робоча копія <strong>R</strong> та
+<strong>RStudio</strong>. <br>Щоб максимально ефективно використовувати
+ці матеріали, будь ласка, переконайтеся, що все необхідне встановлено
+<em>до</em> початку проходження цього уроку.</p>
 </div>
 </div>
 </div>
@@ -363,13 +364,13 @@ this lesson.</p>
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">
   <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div>
-  For Instructors
+  Для інструкторів
   </h3>
 </button>
 <div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
-<p>If you are teaching this lesson in a workshop, please see the <a href="https://datacarpentry.org/r-socialsci/instructor/instructor-notes.html" class="external-link">Instructor
-notes</a> for helpful tips.</p>
+<p>Якщо ви викладаєте цей урок на семінарі, будь ласка, перегляньте <a href="https://datacarpentry.org/r-socialsci/instructor/instructor-notes.html" class="external-link">Примітки
+для інструктора</a>, щоб отримати корисні поради.</p>
 </div>
 </div>
 </div>
@@ -384,34 +385,34 @@ notes</a> for helpful tips.</p>
  1. <a href="00-intro.html">Перед тим як почати</a>
 </td>
 <td>
-How to find your way around RStudio?<br>Як взаємодіяти з R?<br>How to
-manage your environment?<br>Як встановити пакети?
+Як орієнтуватися в RStudio?<br>Як взаємодіяти з R?<br>Як керувати
+робочим середовищем?<br>Як встановити пакети?
 </td>
 </tr><tr><td>
 <span class="visually-hidden">Duration: </span>00h 40m
 </td>
 <td>
- 2. <a href="01-intro-to-r.html">Introduction to R</a>
+ 2. <a href="01-intro-to-r.html">Введення до R</a>
 </td>
 <td>
-What data types are available in R?<br>What is an object?<br>How can
-objects of different data types be assigned to names?<br>What
-arithmetic and logical operators can be used?<br>How can subsets be
-extracted from vectors?<br>How does R treat missing values?<br>How can
-we deal with missing values in R?
+Які типи даних доступні в R?<br>Що таке об’єкт?<br>Як можна
+присвоювати іменам об’єкти різних типів даних?<br>Які арифметичні та
+логічні оператори можна використовувати?<br>Як можна отримати
+підмножини з векторів?<br>Як в R трактувати відсутні значення?<br>Як
+ми можемо впоратися з відсутніми значеннями в R?
 </td>
 </tr><tr><td>
 <span class="visually-hidden">Duration: </span>02h 00m
 </td>
 <td>
- 3. <a href="02-starting-with-data.html">Starting with Data</a>
+ 3. <a href="02-starting-with-data.html">Починаємо з даних</a>
 </td>
 <td>
-What is a data.frame?<br>How can I read a complete csv file into
-R?<br>How can I get basic summary information about my dataset?<br>How
-can I change the way R treats strings in my dataset?<br>Why would I
-want strings to be treated differently?<br>How are dates represented in
-R and how can I change the format?
+Що таке датафрейм?<br>Як я можу прочитати повний файл csv в R?<br>Як я
+можу отримати основну зведену інформацію про мій набір даних?<br>Як я
+можу змінити спосіб обробки R рядків у моєму наборі даних?<br>Чому мені
+потрібно, щоб текстові рядки оброблялися інакше?<br>Як у R представлені
+дати і як можна змінити їхній формат?
 </td>
 </tr><tr><td>
 <span class="visually-hidden">Duration: </span>03h 20m
@@ -429,23 +430,24 @@ create new columns or remove existing columns from a dataframe?
 <span class="visually-hidden">Duration: </span>04h 00m
 </td>
 <td>
- 5. <a href="04-tidyr.html">Data Wrangling with tidyr</a>
+ 5. <a href="04-tidyr.html">Маніпулювання даними за допомогою пакету
+tidyr</a>
 </td>
 <td>
-How can I reformat a data frame to meet my needs?
+Як я можу переформатувати датафрейм відповідно до своїх потреб?
 </td>
 </tr><tr><td>
 <span class="visually-hidden">Duration: </span>04h 40m
 </td>
 <td>
- 6. <a href="05-ggplot2.html">Data Visualisation with ggplot2</a>
+ 6. <a href="05-ggplot2.html">Візуалізація даних за допомогою
+ggplot2</a>
 </td>
 <td>
-What are the components of a ggplot?<br>What are the main differences
-between R base plots, lattice, and ggplot?<br>How do I create
-scatterplots, boxplots, and barplots?<br>How can I change the
-aesthetics (ex. colour, transparency) of my plot?<br>How can I create
-multiple plots at once?
+Які компоненти ggplot?<br>Які основні відмінності між базовими
+графіками R, lattice та ggplot?<br>Як створити діаграми розсіювання,
+коробкові та стовпчикові?<br>Як змінити естетику (наприклад, колір,
+прозорість) графіка?<br>Як створити кілька графіків одночасно?
 </td>
 </tr><tr><td>
 <span class="visually-hidden">Duration: </span>06h 35m
@@ -462,7 +464,7 @@ plots?<br>How can I convert .Rmd files to .html?
 <span class="visually-hidden">Duration: </span>07h 20m
 </td>
 <td>
- 8. <a href="07-json.html">Processing JSON data (Optional)</a>
+ 8. <a href="07-json.html">Обробка даних JSON (необов’язково)</a>
 </td>
 <td>
 What is JSON format?<br>How can I convert JSON to an R
@@ -480,33 +482,34 @@ Finish
       The actual schedule may vary slightly depending on the topics and exercises chosen by the instructor.
       </p>
       </section><section id="setup"><section><h2 class="section-heading" id="інструкції-з-налаштування">Інструкції з налаштування<a class="anchor" aria-label="anchor" href="#%D1%96%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D1%96%D1%97-%D0%B7-%D0%BD%D0%B0%D0%BB%D0%B0%D1%88%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F"></a></h2>
-<hr class="half-width"><p><strong>R</strong> and <strong>RStudio</strong> are separate
-downloads and installations. R is the underlying statistical computing
-environment, but using R alone is no fun. RStudio — це графічне
-інтегроване середовище розробки (IDE), яке робить роботу з R значно
-простішою та більш інтерактивною. Перед встановленням RStudio необхідно
-встановити R. Once installed, because RStudio is an IDE, RStudio will
-run R in the background. You do not need to run it separately.</p>
-<p>After installing both programs, you will need to install the
-<strong><code>tidyverse</code></strong> package from within RStudio. The
-<strong><code>tidyverse</code></strong> package is a powerful collection
-of data science tools within <strong>R</strong> see the <a href="https://tidyverse.tidyverse.org" class="external-link"><strong><code>tidyverse</code></strong>
-website</a> for more details. Follow the instructions below for your
-operating system, and then follow the instructions to install
-<strong><code>tidyverse</code></strong>.</p>
+<hr class="half-width"><p><strong>R</strong> та <strong>RStudio</strong> встановлюються окремо.
+R — це базове середовище для статистичних обчислень, але працювати лише
+з R не дуже зручно. RStudio — це графічне інтегроване середовище
+розробки (IDE), яке робить роботу з R значно простішою та більш
+інтерактивною. Перед встановленням RStudio необхідно встановити R. R
+буде автоматично запускатися у фоновому режимі під час користування
+RStudio. Окремо запускати R не потрібно.</p>
+<p>Після встановлення обох програм вам потрібно встановити пакет
+<strong><code>tidyverse</code></strong> безпосередньо з RStudio. Пакет
+<strong><code>tidyverse</code></strong> — це потужна колекція
+інструментів для аналізу даних у <strong>R</strong> (докладніше дивіться
+на <a href="https://tidyverse.tidyverse.org" class="external-link">сайті
+<strong><code>tidyverse</code></strong></a>). Дотримуйтесь інструкцій
+нижче для вашої операційної системи, а потім виконайте інструкції зі
+встановлення <strong><code>tidyverse</code></strong>.</p>
 <div class="section level3">
 <h3 id="windows">Windows<a class="anchor" aria-label="anchor" href="#windows"></a></h3>
 <div class="section level4">
-<h4 id="if-you-already-have-r-and-rstudio-installed">If you already have R and RStudio installed<a class="anchor" aria-label="anchor" href="#if-you-already-have-r-and-rstudio-installed"></a></h4>
-<ul><li>Open RStudio, and click on “Help” &gt; “Check for updates”. If a new
-version is available, quit RStudio, and download the latest version for
+<h4 id="якщо-у-вас-уже-встановлені-r-та-rstudio">Якщо у вас уже встановлені R та RStudio<a class="anchor" aria-label="anchor" href="#%D1%8F%D0%BA%D1%89%D0%BE-%D1%83-%D0%B2%D0%B0%D1%81-%D1%83%D0%B6%D0%B5-%D0%B2%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D1%96-r-%D1%82%D0%B0-rstudio"></a></h4>
+<ul><li>Відкрийте RStudio та натисніть “Help” &gt; “Check for updates”. Якщо
+доступна нова версія, закрийте RStudio та завантажте найновішу версію
 RStudio.</li>
-<li>To check which version of R you are using, start RStudio and the
-first thing that appears in the console indicates the version of R you
-are running. Alternatively, you can type <code>sessionInfo()</code>,
-which will also display which version of R you are running. Go on the <a href="https://cran.r-project.org/bin/windows/base/" class="external-link">CRAN website</a> and
-check whether a more recent version is available. If so, you can update
-R using the <code>installr</code> package, by running:</li>
+<li>Щоб перевірити, яку версію R ви використовуєте, запустіть RStudio —
+версія R буде показана в першому повідомленні в консолі. Або ж ви можете
+ввести <code>sessionInfo()</code>, що також покаже версію R, яку ви
+використовуєте. Перейдіть на <a href="https://cran.r-project.org/bin/windows/base/" class="external-link">сайт CRAN</a> і
+перевірте, чи доступна новіша версія. Якщо так, ви можете оновити R за
+допомогою пакета <code>installr</code>, виконавши:</li>
 </ul><div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -516,93 +519,94 @@ R using the <code>installr</code> package, by running:</li>
 </div>
 </div>
 <div class="section level4">
-<h4 id="if-you-dont-have-r-and-rstudio-installed">If you don’t have R and RStudio installed<a class="anchor" aria-label="anchor" href="#if-you-dont-have-r-and-rstudio-installed"></a></h4>
-<ul><li>Download R from the <a href="http://cran.r-project.org/bin/windows/base/release.htm" class="external-link">CRAN
-website</a>.</li>
-<li>Run the <code>.exe</code> file that was just downloaded.</li>
-<li>Go to the <a href="https://posit.co/download/rstudio-desktop/" class="external-link">RStudio download
-page</a>.</li>
-<li>Under <em>Installers</em> select <strong>RStudio x.yy.zzz - Windows.
-Vista/7/8/10</strong> (where x, y, and z represent version
-numbers).</li>
-<li>Double click the file to install it.</li>
-<li>Once it’s installed, open RStudio to make sure it works and you
-don’t get any error messages.</li>
+<h4 id="якщо-у-вас-не-встановлено-r-та-rstudio">Якщо у вас не встановлено R та RStudio<a class="anchor" aria-label="anchor" href="#%D1%8F%D0%BA%D1%89%D0%BE-%D1%83-%D0%B2%D0%B0%D1%81-%D0%BD%D0%B5-%D0%B2%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%BE-r-%D1%82%D0%B0-rstudio"></a></h4>
+<ul><li>Завантажте R з <a href="http://cran.r-project.org/bin/windows/base/release.htm" class="external-link">сайту
+CRAN</a>.</li>
+<li>Запустіть файл <code>.exe</code>, який був щойно завантажений.</li>
+<li>Перейдіть на <a href="https://posit.co/download/rstudio-desktop/" class="external-link">сторінку завантаження
+RStudio</a>.</li>
+<li>У розділі <em>Installers</em> виберіть <strong>RStudio x.yy.zzz -
+Windows. Vista/7/8/10</strong> (де x, y та z — номери версій).</li>
+<li>Двічі клацніть на файлі, щоб установити його.</li>
+<li>Після встановлення відкрийте RStudio, щоб переконатися, що він
+працює коректно і не з’являються повідомлення про помилки.</li>
 </ul></div>
 </div>
 <div class="section level3">
 <h3 id="macos">macOS<a class="anchor" aria-label="anchor" href="#macos"></a></h3>
 <div class="section level4">
-<h4 id="if-you-already-have-r-and-rstudio-installed-1">If you already have R and RStudio installed<a class="anchor" aria-label="anchor" href="#if-you-already-have-r-and-rstudio-installed-1"></a></h4>
-<ul><li>Open RStudio, and click on “Help” &gt; “Check for updates”. If a new
-version is available, quit RStudio, and download the latest version for
+<h4 id="якщо-у-вас-уже-встановлені-r-та-rstudio-1">Якщо у вас уже встановлені R та RStudio<a class="anchor" aria-label="anchor" href="#%D1%8F%D0%BA%D1%89%D0%BE-%D1%83-%D0%B2%D0%B0%D1%81-%D1%83%D0%B6%D0%B5-%D0%B2%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D1%96-r-%D1%82%D0%B0-rstudio-1"></a></h4>
+<ul><li>Відкрийте RStudio та натисніть “Help” &gt; “Check for updates”. Якщо
+доступна нова версія, закрийте RStudio та завантажте найновішу версію
 RStudio.</li>
-<li>To check the version of R you are using, start RStudio and the first
-thing that appears on the terminal indicates the version of R you are
-running. Alternatively, you can type <code>sessionInfo()</code>, which
-will also display which version of R you are running. Go on the <a href="https://cran.r-project.org/bin/macosx/" class="external-link">CRAN website</a> and check
-whether a more recent version is available. If so, please download and
-install it. In any case, make sure you have at least R 3.2.</li>
+<li>Щоб перевірити, яку версію R ви використовуєте, запустіть RStudio —
+версія R буде показана в першому повідомленні в консолі. Або ж ви можете
+ввести <code>sessionInfo()</code>, що також покаже версію R, яку ви
+використовуєте. Перейдіть на <a href="https://cran.r-project.org/bin/macosx/" class="external-link">сайт CRAN</a> і перевірте,
+чи доступна новіша версія. Якщо так, будь ласка, завантажте та
+встановіть її. У будь-якому випадку переконайтеся, що у вас встановлена
+версія R не нижче 3.2.</li>
 </ul></div>
 <div class="section level4">
-<h4 id="if-you-dont-have-r-and-rstudio-installed-1">If you don’t have R and RStudio installed<a class="anchor" aria-label="anchor" href="#if-you-dont-have-r-and-rstudio-installed-1"></a></h4>
-<ul><li>Download R from the <a href="http://cran.r-project.org/bin/macosx/" class="external-link">CRAN website</a>.</li>
-<li>Select the <code>.pkg</code> file for the latest R version.</li>
-<li>Double click on the downloaded file to install R.</li>
-<li>It is also a good idea to install <a href="https://www.xquartz.org/" class="external-link">XQuartz</a> (needed by some
-packages).</li>
-<li>Go to the <a href="https://posit.co/download/rstudio-desktop/" class="external-link">RStudio download
-page</a>.</li>
-<li>Under <em>Installers</em> select <strong>RStudio x.yy.zzz - Mac OS X
-10.6+ (64-bit)</strong> (where x, y, and z represent version
-numbers).</li>
-<li>Double click the file to install RStudio.</li>
-<li>Once it’s installed, open RStudio to make sure it works and you
-don’t get any error messages.</li>
+<h4 id="якщо-у-вас-не-встановлено-r-та-rstudio-1">Якщо у вас не встановлено R та RStudio<a class="anchor" aria-label="anchor" href="#%D1%8F%D0%BA%D1%89%D0%BE-%D1%83-%D0%B2%D0%B0%D1%81-%D0%BD%D0%B5-%D0%B2%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%BE-r-%D1%82%D0%B0-rstudio-1"></a></h4>
+<ul><li>Завантажте R з <a href="http://cran.r-project.org/bin/macosx/" class="external-link">сайту
+CRAN</a>.</li>
+<li>Виберіть файл ‘.pkg’ для останньої версії R.</li>
+<li>Двічі клацніть на завантаженому файлі для встановлення R.</li>
+<li>Також непогана ідея встановити <a href="https://www.xquartz.org/" class="external-link">XQuartz</a> (потрібно для деяких
+пакетів).</li>
+<li>Перейдіть на <a href="https://posit.co/download/rstudio-desktop/" class="external-link">сторінку завантаження
+RStudio</a>.</li>
+<li>У розділі <em>Installers</em> виберіть <strong>RStudio x.yy.zzz -
+Mac OS X 10.6+ (64-bit)</strong> (де x, y та z — номери версій).</li>
+<li>Двічі клацніть на файлі, щоб установити його.</li>
+<li>Після встановлення відкрийте RStudio, щоб переконатися, що він
+працює коректно і не з’являються повідомлення про помилки.</li>
 </ul></div>
 </div>
 <div class="section level3">
 <h3 id="linux">Linux<a class="anchor" aria-label="anchor" href="#linux"></a></h3>
-<ul><li>Follow the instructions for your distribution from <a href="https://cloud.r-project.org/bin/linux" class="external-link">CRAN</a>, they provide
-information to get the most recent version of R for common
-distributions. For most distributions, you could use your package
-manager (e.g., for Debian/Ubuntu run
-<code>sudo apt-get install r-base</code>, and for Fedora
-<code>sudo yum install R</code>), but we don’t recommend this approach
-as the versions provided by this approach are usually out of date. In
-any case, make sure you have at least R 3.2.</li>
-<li>Go to the <a href="https://posit.co/download/rstudio-desktop/" class="external-link">RStudio download
-page</a>.</li>
-<li>Under <em>Installers</em> select the version that matches your
-distribution, and install it with your preferred method (e.g., with
-Debian/Ubuntu <code>sudo dpkg -i rstudio-x.yy.zzz-amd64.deb</code> at
-the terminal).</li>
-<li>Once it’s installed, open RStudio to make sure it works and you
-don’t get any error messages.</li>
-<li>Before installing the <code>tidyverse</code> package,
-<strong>Ubuntu</strong> (and related) users may need to install the
-following dependencies:
-<code>libcurl4-openssl-dev libssl-dev libxml2-dev</code>
-(e.g. <code>sudo apt install libcurl4-openssl-dev libssl-dev libxml2-dev</code>).</li>
+<ul><li>Дотримуйтесь інструкцій для вашого дистрибутива від <a href="https://cloud.r-project.org/bin/linux" class="external-link">CRAN</a>, там наведено
+інформацію про встановлення найновішої версії R для поширених
+дистрибутивів. Для більшості дистрибутивів можна скористатися менеджером
+пакетів (наприклад, для Debian/Ubuntu виконати
+<code>sudo apt-get install r-base</code>, а для Fedora
+<code>sudo yum install R</code>), але ми не рекомендуємо цей спосіб,
+оскільки версії R, встановлені таким чином, зазвичай застарілі. У
+будь-якому разі переконайтеся, що у вас встановлена версія R не нижче
+3.2.</li>
+<li>Перейдіть на <a href="https://posit.co/download/rstudio-desktop/" class="external-link">сторінку завантаження
+RStudio</a>.</li>
+<li>У меню <em>Installers</em> виберіть версію, яка відповідає вашому
+дистрибутиву і встановіть її вашим обраним методом (наприклад, у
+Debian/Ubuntu виконайте
+<code>sudo dpkg -i rstudio-x.yy.zzz-amd64.deb</code> у терміналі).</li>
+<li>Після встановлення відкрийте RStudio, щоб переконатися, що він
+працює коректно і не з’являються повідомлення про помилки.</li>
+<li>Перед встановленням пакета “tidyverse”, користувачам
+<strong>Ubuntu</strong> (та споріднених дистрибутивів) може знадобитися
+встановити наступні залежності:
+<code>libcurl4-openssl-dev libssl-dev libxml2-dev</code> (наприклад:
+<code>sudo apt install libcurl4-openssl-dev libssl-dev libxml2-dev</code>).</li>
 </ul></div>
 <div class="section level3">
-<h3 id="for-everyone">For everyone<a class="anchor" aria-label="anchor" href="#for-everyone"></a></h3>
-<p><strong>After installing R and RStudio, you need to install the
-<code>tidyverse</code> and <code>here</code> packages.</strong></p>
-<ul><li><p>After starting RStudio, at the console type:
-<code>install.packages("tidyverse")</code> followed by the enter key.
-Once this has installed, type <code>install.packages("here")</code>
-followed by the enter key. Both packages should now be
-installed.</p></li>
-<li><p>For reference, the lesson uses <code>SAFI_clean.csv</code>. The
-direct download link for this file is: <a href="https://github.com/datacarpentry/r-socialsci/blob/main/episodes/data/SAFI_clean.csv" class="external-link">https://github.com/datacarpentry/r-socialsci/blob/main/episodes/data/SAFI_clean.csv</a>.
-This data is a slightly cleaned up version of the SAFI Survey Results
-available on <a href="https://figshare.com/articles/dataset/SAFI_Survey_Results/6262019" class="external-link">figshare</a>.
-Instructions for downloading the data with R are provided in the <a href="https://datacarpentry.org/r-socialsci/00-intro.html" class="external-link">Before we
-start episode</a>.</p></li>
-<li><p>The <a href="https://datacarpentry.org/r-socialsci/07-json.html" class="external-link">json
-episode</a> uses <code>SAFI.json</code>. The file is available on GitHub
-<a href="https://github.com/datacarpentry/r-socialsci/blob/main/episodes/data/SAFI.json" class="external-link">here</a>.</p></li>
+<h3 id="для-всіх-операційних-систем">Для всіх операційних систем<a class="anchor" aria-label="anchor" href="#%D0%B4%D0%BB%D1%8F-%D0%B2%D1%81%D1%96%D1%85-%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%86%D1%96%D0%B9%D0%BD%D0%B8%D1%85-%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC"></a></h3>
+<p>**Після встановлення R і RStudio вам потрібно встановити пакети
+<code>tidyverse</code> та <code>here</code>. **</p>
+<ul><li><p>Після запуску RStudio на консолі введіть:
+<code>install.packages ("tidyverse")</code>, а потім натисніть клавішу
+Enter. Коли пакет буде встановлено, введіть
+<code>install.packages ("here")</code>, а потім клавішу Enter. Обидва
+пакети тепер повинні бути встановлені.</p></li>
+<li><p>Зауважте, що у цьому уроці використовується файл
+<code>SAFI_clean.csv</code>. Пряме посилання для завантаження цього
+файлу: <a href="https://github.com/datacarpentry/r-socialsci/blob/main/episodes/data/SAFI_clean.csv" class="external-link">https://github.com/datacarpentry/r-socialsci/blob/main/episodes/data/SAFI_clean.csv</a>.
+Ці дані є дещо очищеною версією результатів опитування SAFI Survey
+Results, доступних на <a href="https://figshare.com/articles/dataset/SAFI_Survey_Results/6262019" class="external-link">figshare</a>.
+Інструкції щодо завантаження даних за допомогою R наведені в епізоді <a href="https://datacarpentry.org/r-socialsci/00-intro.html" class="external-link">Перед тим як
+почати</a>.</p></li>
+<li><p>Епізод <a href="https://datacarpentry.org/r-socialsci/07-json.html" class="external-link">json</a>
+використовує <code>SAFI.json</code>. Цей файл доступний на GitHub <a href="https://github.com/datacarpentry/r-socialsci/blob/main/episodes/data/SAFI.json" class="external-link">тут</a>.</p></li>
 </ul></div>
 </section></section></main><nav class="bottom-pagination mx-md-4" aria-label="Next Chapter"><!-- content for small screens --><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link float-end" href="../instructor/00-intro.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
@@ -633,7 +637,7 @@ episode</a> uses <code>SAFI.json</code>. The file is available on GitHub
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
 
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/main" class="external-link">sandpaper (0.17.4.9000)</a>, <a href="https://github.com/carpentries/pegboard/tree/main" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.9" class="external-link">varnish (1.0.9)</a></p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/main" class="external-link">sandpaper (0.18.1)</a>, <a href="https://github.com/carpentries/pegboard/tree/main" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.9" class="external-link">varnish (1.0.9)</a></p>
 		</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -655,8 +659,8 @@ episode</a> uses <code>SAFI.json</code>. The file is available on GitHub
   "url": "https://ukrainian-carpentries.github.io/r-socialsci/instructor/index.html",
   "identifier": "https://ukrainian-carpentries.github.io/r-socialsci/instructor/index.html",
   "dateCreated": "2017-05-25",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06"
+  "dateModified": "2026-01-17",
+  "datePublished": "2026-01-17"
 }
 
   </script><script>

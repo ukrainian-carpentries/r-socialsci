@@ -247,7 +247,7 @@
 <div class="accordion accordion-flush" id="accordionFlush3">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading3">
-        <a href="01-intro-to-r.html">2. Introduction to R</a>
+        <a href="01-intro-to-r.html">2. Введення до R</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -259,7 +259,7 @@
 <div class="accordion accordion-flush" id="accordionFlush4">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading4">
-        <a href="02-starting-with-data.html">3. Starting with Data</a>
+        <a href="02-starting-with-data.html">3. Починаємо з даних</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -283,7 +283,7 @@
 <div class="accordion accordion-flush" id="accordionFlush6">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading6">
-        <a href="04-tidyr.html">5. Data Wrangling with tidyr</a>
+        <a href="04-tidyr.html">5. Маніпулювання даними за допомогою пакету tidyr</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -295,7 +295,7 @@
 <div class="accordion accordion-flush" id="accordionFlush7">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading7">
-        <a href="05-ggplot2.html">6. Data Visualisation with ggplot2</a>
+        <a href="05-ggplot2.html">6. Візуалізація даних за допомогою ggplot2</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -319,7 +319,7 @@
 <div class="accordion accordion-flush" id="accordionFlush9">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading9">
-        <a href="07-json.html">8. Processing JSON data (Optional)</a>
+        <a href="07-json.html">8. Обробка даних JSON (необов'язково)</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -385,17 +385,17 @@
 <section id="00-intro"><h2 class="section-heading"><a href="00-intro.html">Перед тим як почати</a></h2>
 <hr class="half-width">
 <ul>
-<li>Use RStudio to write and run R programs.</li>
-<li>Use <code>install.packages()</code> to install packages
-(libraries).</li>
-</ul></section><section id="01-intro-to-r"><h2 class="section-heading"><a href="01-intro-to-r.html">Introduction to R</a></h2>
+<li>Використовуйте RStudio для створення та запуску програм R.</li>
+<li>Використовуйте <code>install.packages()</code> для встановлення
+пакетів (бібліотек).</li>
+</ul></section><section id="01-intro-to-r"><h2 class="section-heading"><a href="01-intro-to-r.html">Введення до R</a></h2>
 <hr class="half-width">
 <ul>
 <li>Access individual values by location using <code>[]</code>.</li>
 <li>Access arbitrary sets of data using <code>[c(...)]</code>.</li>
 <li>Use logical operations and logical vectors to access subsets of
 data.</li>
-</ul></section><section id="02-starting-with-data"><h2 class="section-heading"><a href="02-starting-with-data.html">Starting with Data</a></h2>
+</ul></section><section id="02-starting-with-data"><h2 class="section-heading"><a href="02-starting-with-data.html">Починаємо з даних</a></h2>
 <hr class="half-width">
 <ul>
 <li>Використовуйте read_csv для читання табличних даних у R.</li>
@@ -410,28 +410,31 @@ R.</li>
 <li>Use <code>group_by()</code> and <code>summarize()</code> to work
 with subsets of data.</li>
 <li>Use <code>mutate()</code> to create new variables.</li>
-</ul></section><section id="04-tidyr"><h2 class="section-heading"><a href="04-tidyr.html">Data Wrangling with tidyr</a></h2>
+</ul></section><section id="04-tidyr"><h2 class="section-heading"><a href="04-tidyr.html">Маніпулювання даними за допомогою пакету tidyr</a></h2>
 <hr class="half-width">
 <ul>
-<li>Use the <code>tidyr</code> package to change the layout of data
-frames.</li>
-<li>Use <code>pivot_wider()</code> to go from long to wide format.</li>
-<li>Use <code>pivot_longer()</code> to go from wide to long format.</li>
-</ul></section><section id="05-ggplot2"><h2 class="section-heading"><a href="05-ggplot2.html">Data Visualisation with ggplot2</a></h2>
+<li>Використовуйте пакет <code>tidyr</code>, щоб змінювати структуру
+датафреймів.</li>
+<li>Використовуйте <code>pivot_width()</code> для переходу від довгого
+до широкого формату.</li>
+<li>Використовуйте <code>pivot_longer()</code> для переходу від широкого
+до довгого формату.</li>
+</ul></section><section id="05-ggplot2"><h2 class="section-heading"><a href="05-ggplot2.html">Візуалізація даних за допомогою ggplot2</a></h2>
 <hr class="half-width">
 <ul>
 <li>
-<code>ggplot2</code> is a flexible and useful tool for creating
-plots in R.</li>
-<li>The data set and coordinate system can be defined using the
-<code>ggplot</code> function.</li>
-<li>Additional layers, including geoms, are added using the
-<code>+</code> operator.</li>
-<li>Boxplots are useful for visualizing the distribution of a continuous
-variable.</li>
-<li>Barplots are useful for visualizing categorical data.</li>
-<li>Faceting allows you to generate multiple plots based on a
-categorical variable.</li>
+<code>ggplot2</code> є гнучким та корисним інструментом для
+створення графіків у R.</li>
+<li>Набір даних і систему координат можна визначити за допомогою функції
+<code>ggplot</code>.</li>
+<li>Додаткові шари, включно з geoms, додаються за допомогою оператора
+<code>+</code>.</li>
+<li>Boxplot (коробковий графік) корисний для візуалізації розподілу
+числової змінної.</li>
+<li>Barplot (стовпчастий графік) зручний для візуалізації категоріальних
+даних.</li>
+<li>Faceting (фасетування) дозволяє створювати кілька графіків на основі
+категоріальної змінної.</li>
 </ul></section><section id="06-rmarkdown"><h2 class="section-heading"><a href="06-rmarkdown.html">Getting started with R Markdown (Optional)</a></h2>
 <hr class="half-width">
 <ul>
@@ -439,7 +442,7 @@ categorical variable.</li>
 combining text and executable R-code.</li>
 <li>Specify chunk options to control formatting of the output
 document</li>
-</ul></section><section id="07-json"><h2 class="section-heading"><a href="07-json.html">Processing JSON data (Optional)</a></h2>
+</ul></section><section id="07-json"><h2 class="section-heading"><a href="07-json.html">Обробка даних JSON (необов'язково)</a></h2>
 <hr class="half-width">
 <ul>
 <li>JSON is a popular data format for transferring data used by a great
@@ -475,7 +478,7 @@ csv file</li>
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
 
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/main" class="external-link">sandpaper (0.17.4.9000)</a>, <a href="https://github.com/carpentries/pegboard/tree/main" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.9" class="external-link">varnish (1.0.9)</a></p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/main" class="external-link">sandpaper (0.18.1)</a>, <a href="https://github.com/carpentries/pegboard/tree/main" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.9" class="external-link">varnish (1.0.9)</a></p>
 		</div>
 		</footer>
 </div> <!-- / div.container -->
@@ -498,8 +501,8 @@ csv file</li>
   "url": "https://ukrainian-carpentries.github.io/r-socialsci/key-points.html",
   "identifier": "https://ukrainian-carpentries.github.io/r-socialsci/key-points.html",
   "dateCreated": "2017-05-25",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06"
+  "dateModified": "2026-01-17",
+  "datePublished": "2026-01-17"
 }
 
   </script><script>

@@ -206,7 +206,7 @@
 <div class="accordion accordion-flush" id="accordionFlush3">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading3">
-        <a href="01-intro-to-r.html">2. Introduction to R</a>
+        <a href="01-intro-to-r.html">2. Введення до R</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -215,7 +215,7 @@
 <div class="accordion accordion-flush" id="accordionFlush4">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading4">
-        <a href="02-starting-with-data.html">3. Starting with Data</a>
+        <a href="02-starting-with-data.html">3. Починаємо з даних</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -249,7 +249,7 @@
 <div class="accordion accordion-flush" id="accordionFlush6">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading6">
-        <a href="04-tidyr.html">5. Data Wrangling with tidyr</a>
+        <a href="04-tidyr.html">5. Маніпулювання даними за допомогою пакету tidyr</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -258,7 +258,7 @@
 <div class="accordion accordion-flush" id="accordionFlush7">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading7">
-        <a href="05-ggplot2.html">6. Data Visualisation with ggplot2</a>
+        <a href="05-ggplot2.html">6. Візуалізація даних за допомогою ggplot2</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -276,7 +276,7 @@
 <div class="accordion accordion-flush" id="accordionFlush9">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading9">
-        <a href="07-json.html">8. Processing JSON data (Optional)</a>
+        <a href="07-json.html">8. Обробка даних JSON (необов'язково)</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -331,16 +331,16 @@
       <div class="d-none d-sm-none d-md-block">
         <a class="chapter-link" href="../instructor/02-starting-with-data.html" rel="prev">
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>
-          Previous: Starting with Data
+          Previous: Починаємо з даних
         </a>
         <a class="chapter-link float-end" href="../instructor/04-tidyr.html" rel="next">
-          Next: Data Wrangling with...
+          Next: Маніпулювання даними...
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i>
         </a>
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Маніпулювання даними за допомогою пакету dplyr</h1>
-        <p>Last updated on 2025-12-15 |
+        <p>Last updated on 2026-01-17 |
 
         <a href="https://github.com/ukrainian-carpentries/r-socialsci/edit/main/episodes/03-dplyr.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -359,16 +359,16 @@
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
-<ul><li>This lesson works better if you have graphics demonstrating dplyr
-commands. You can modify <a href="https://docs.google.com/presentation/d/1A9abypFdFp8urAe9z7GCMjFr4aPeIb8mZAtJA2F7H0w/edit#slide=id.g652714585f_0_114" class="external-link">this
-Google Slides deck</a> and use it for your workshop.</li>
-<li>For this lesson make sure that learners are comfortable using
-pipes.</li>
-<li>There is also sometimes some confusion on what the arguments of
-<code>group_by</code> should be, and when to use <code>filter()</code>
-and <code>select()</code>.</li>
+<ul><li>Цей урок буде зрозумілішим, якщо використовувати графіки, які наочно
+демонструють роботу команд dplyr. Ви можете змінити <a href="https://docs.google.com/presentation/d/1A9abypFdFp8urAe9z7GCMjFr4aPeIb8mZAtJA2F7H0w/edit#slide=id.g652714585f_0_114" class="external-link">цю
+презентацію Google Slides</a> та використати для свого семінару.</li>
+<li>Для цього уроку переконайтеся, що учні впевнено користуються
+оператором pipe (%&gt;%).</li>
+<li>Також іноді виникає деяка плутанина щодо того, якими мають бути
+аргументи <code>group_by</code> , а також коли використовувати
+<code>filter ()</code> та <code>select ()</code>.</li>
 </ul></div>
 </div>
 </div>
@@ -391,19 +391,20 @@ dataframe?</li>
 <div class="card-body">
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
-<ul><li>Describe the purpose of an R package and the
-<strong><code>dplyr</code></strong> package.</li>
-<li>Select certain columns in a dataframe with the
-<strong><code>dplyr</code></strong> function <code>select</code>.</li>
-<li>Select certain rows in a dataframe according to filtering conditions
-with the <strong><code>dplyr</code></strong> function
-<code>filter</code>.</li>
-<li>Link the output of one <strong><code>dplyr</code></strong> function
-to the input of another function with the ‘pipe’ operator
-<code>%&gt;%</code>.</li>
-<li>Add new columns to a dataframe that are functions of existing
-columns with <code>mutate</code>.</li>
-<li>Use the split-apply-combine concept for data analysis.</li>
+<ul><li>Описати призначення пакета R та пакету
+<strong><code>dplyr</code></strong>.</li>
+<li>Вибрати певні стовпці датафрейму за допомогою функції
+<code>select</code> з пакета <strong><code>dplyr</code></strong>.</li>
+<li>Вибрати певні рядки датафрейму відповідно до умов фільтрації за
+допомогою функції <code>filter</code> з пакета
+<strong><code>dplyr</code></strong>.</li>
+<li>Поєднати результат однієї з функції
+<strong><code>dplyr</code></strong> з введенням іншої функції з
+оператором ‘pipe’ <code>%&gt;%</code>.</li>
+<li>Додати нові стовпці до датафрейму, які є функціями наявних стовпців
+за допомогою <code>mutate</code>.</li>
+<li>Використати концепцію розділення-застосування-комбінування для
+аналізу даних.</li>
 <li>Use <code>summarize</code>, <code>group_by</code>, and
 <code>count</code> to split a dataframe into groups of observations,
 apply a summary statistics for each group, and then combine the
@@ -821,7 +822,7 @@ interviews where respondents were members of an irrigation association
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Відповідь </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -956,7 +957,7 @@ to produce this data frame!</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1271,7 +1272,7 @@ represented?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Відповідь </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb49">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1313,7 +1314,7 @@ add the number of observations (hint: see <code>?n</code>).</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Відповідь </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb51">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1360,7 +1361,7 @@ add the number of observations (hint: see <code>?n</code>).</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Відповідь </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb53">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1424,10 +1425,10 @@ with subsets of data.</li>
       <div class="d-none d-sm-none d-md-block">
         <a class="chapter-link" href="../instructor/02-starting-with-data.html" rel="prev">
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>
-          Previous: Starting with Data
+          Previous: Починаємо з даних
         </a>
         <a class="chapter-link float-end" href="../instructor/04-tidyr.html" rel="next">
-          Next: Data Wrangling with...
+          Next: Маніпулювання даними...
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i>
         </a>
       </div>
@@ -1453,7 +1454,7 @@ with subsets of data.</li>
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
 
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/main" class="external-link">sandpaper (0.17.4.9000)</a>, <a href="https://github.com/carpentries/pegboard/tree/main" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.9" class="external-link">varnish (1.0.9)</a></p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/main" class="external-link">sandpaper (0.18.1)</a>, <a href="https://github.com/carpentries/pegboard/tree/main" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.9" class="external-link">varnish (1.0.9)</a></p>
 		</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -1475,8 +1476,8 @@ with subsets of data.</li>
   "url": "https://ukrainian-carpentries.github.io/r-socialsci/instructor/03-dplyr.html",
   "identifier": "https://ukrainian-carpentries.github.io/r-socialsci/instructor/03-dplyr.html",
   "dateCreated": "2017-05-25",
-  "dateModified": "2025-12-15",
-  "datePublished": "2026-01-06"
+  "dateModified": "2026-01-17",
+  "datePublished": "2026-01-17"
 }
 
   </script><script>

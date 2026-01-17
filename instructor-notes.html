@@ -247,7 +247,7 @@
 <div class="accordion accordion-flush" id="accordionFlush3">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading3">
-        <a href="01-intro-to-r.html">2. Introduction to R</a>
+        <a href="01-intro-to-r.html">2. Введення до R</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -259,7 +259,7 @@
 <div class="accordion accordion-flush" id="accordionFlush4">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading4">
-        <a href="02-starting-with-data.html">3. Starting with Data</a>
+        <a href="02-starting-with-data.html">3. Починаємо з даних</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -283,7 +283,7 @@
 <div class="accordion accordion-flush" id="accordionFlush6">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading6">
-        <a href="04-tidyr.html">5. Data Wrangling with tidyr</a>
+        <a href="04-tidyr.html">5. Маніпулювання даними за допомогою пакету tidyr</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -295,7 +295,7 @@
 <div class="accordion accordion-flush" id="accordionFlush7">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading7">
-        <a href="05-ggplot2.html">6. Data Visualisation with ggplot2</a>
+        <a href="05-ggplot2.html">6. Візуалізація даних за допомогою ggplot2</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -319,7 +319,7 @@
 <div class="accordion accordion-flush" id="accordionFlush9">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading9">
-        <a href="07-json.html">8. Processing JSON data (Optional)</a>
+        <a href="07-json.html">8. Обробка даних JSON (необов'язково)</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -383,68 +383,67 @@
         <h1>Instructor Notes</h1>
         
 
-<section><h2 class="section-heading" id="dataset">Dataset<a class="anchor" aria-label="anchor" href="#dataset"></a>
+<section><h2 class="section-heading" id="набір-даних">Набір даних<a class="anchor" aria-label="anchor" href="#%D0%BD%D0%B0%D0%B1%D1%96%D1%80-%D0%B4%D0%B0%D0%BD%D0%B8%D1%85"></a>
 </h2>
 <hr class="half-width">
-<p>The data used for this lesson are a slightly cleaned up version of
-the SAFI Survey Results available on GitHub. The original data is on <a href="https://figshare.com/articles/dataset/SAFI_Survey_Results/6262019" class="external-link">figshare</a>.</p>
-<p>This lesson uses <code>SAFI_clean.csv</code>. The direct download
-link for the data file is: <a href="https://raw.githubusercontent.com/datacarpentry/r-socialsci/main/episodes/data/SAFI_clean.csv" class="external-link">https://raw.githubusercontent.com/datacarpentry/r-socialsci/main/episodes/data/SAFI_clean.csv</a>.</p>
-</section><section><h2 class="section-heading" id="lesson-plans">Lesson Plans<a class="anchor" aria-label="anchor" href="#lesson-plans"></a>
+<p>Дані, використані в цьому уроці, — це трохи очищена версія
+результатів опитування SAFI, доступна на GitHub. Оригінальні дані
+знаходяться на <a href="https://figshare.com/articles/dataset/SAFI_Survey_Results/6262019" class="external-link">figshare</a>.</p>
+<p>У цьому уроці використовується <code>SAFI_clean.csv</code>. Пряме
+посилання для завантаження файлу даних: <a href="https://raw.githubusercontent.com/datacarpentry/r-socialsci/main/episodes/data/SAFI_clean.csv" class="external-link">https://raw.githubusercontent.com/datacarpentry/r-socialsci/main/episodes/data/SAFI_clean.csv</a>.</p>
+</section><section><h2 class="section-heading" id="плани-уроків">Плани уроків<a class="anchor" aria-label="anchor" href="#%D0%BF%D0%BB%D0%B0%D0%BD%D0%B8-%D1%83%D1%80%D0%BE%D0%BA%D1%96%D0%B2"></a>
 </h2>
 <hr class="half-width">
-<p>The lesson contains much more material than can be taught in a day.
-Instructors will need to pick an appropriate subset of episodes to use
-in a standard one day course.</p>
-<p>Suggested path for half-day course:</p>
+<p>Урок містить значно більше матеріалу, ніж можна охопити за один день.
+Інструкторам потрібно обрати відповідну підмножину епізодів для
+стандартного одноденного курсу.</p>
+<p>Рекомендований план для курсу на пів дня:</p>
 <ul>
-<li>Before we Start</li>
-<li>Introduction to R</li>
-<li>Starting with Data</li>
+<li>Перед тим як почати</li>
+<li>Введення до R</li>
+<li>Починаємо з даних</li>
 </ul>
-<p>Suggested path for full-day course:</p>
+<p>Пропонований шлях для повноцінного курсу:</p>
 <ul>
-<li>Before we Start</li>
-<li>Introduction to R</li>
-<li>Starting with Data</li>
-<li>Data Wranging with dplyr</li>
-<li>(OPTIONAL) Data Wrangling with tidyr</li>
-<li>Data Visualisation with ggplot2</li>
+<li>Перед тим як почати</li>
+<li>Введення до R</li>
+<li>Починаємо з даних</li>
+<li>Маніпулювання даними за допомогою пакету dplyr</li>
+<li>(ДОДАТКОВО) Маніпулювання даними за допомогою пакету tidyr</li>
+<li>Візуалізація даних за допомогою ggplot2</li>
 </ul>
-<p>For a two-day workshop, it may be possible to cover all of the
-episodes. Feedback from the community on successful lesson plans is
-always appreciated!</p>
-</section><section><h2 class="section-heading" id="technical-tips-and-tricks">Technical Tips and Tricks<a class="anchor" aria-label="anchor" href="#technical-tips-and-tricks"></a>
+<p>Для дводенного семінару можливо охопити всі епізоди. Зворотний
+зв’язок від спільноти щодо успішних планів уроків завжди цінний!</p>
+</section><section><h2 class="section-heading" id="технічні-поради-та-рекомендації">Технічні поради та рекомендації<a class="anchor" aria-label="anchor" href="#%D1%82%D0%B5%D1%85%D0%BD%D1%96%D1%87%D0%BD%D1%96-%D0%BF%D0%BE%D1%80%D0%B0%D0%B4%D0%B8-%D1%82%D0%B0-%D1%80%D0%B5%D0%BA%D0%BE%D0%BC%D0%B5%D0%BD%D0%B4%D0%B0%D1%86%D1%96%D1%97"></a>
 </h2>
 <hr class="half-width">
-<p>Show how to use the ‘zoom’ button to blow up graphs without
-constantly resizing windows.</p>
-<p>Sometimes a package will not install. You can try a different CRAN
-mirror:</p>
+<p>Покажіть, як використовувати кнопку «Zoom», щоб збільшувати графіки
+без постійної зміни розміру вікон.</p>
+<p>Іноді пакет не встановлюється. Ви можете спробувати інше дзеркало
+CRAN:</p>
 <ul>
 <li>Tools &gt; Global Options &gt; Packages &gt; CRAN Mirror</li>
 </ul>
-<p>Alternatively you can go to CRAN and download the package and install
-from ZIP file:</p>
+<p>Або можна завантажити пакет з CRAN і встановити його з ZIP-файлу:</p>
 <ul>
-<li>Tools &gt; Install Packages &gt; set to ‘from Zip/TAR’</li>
+<li>Tools &gt; Install Packages &gt; встановити ‘from Zip/TAR’</li>
 </ul>
-<p>It’s often easier to make sure they have all the needed packages
-installed at one time, rather than deal with these issues over and over.
-See the “Setup instructions” section on the homepage of the course
-website for package installation instructions.</p>
-<p><strong><code>|</code> character on Spanish keyboards:</strong> The
-Spanish Mac keyboard does not have a <code>|</code> key. This character
-can be created using:</p>
+<p>Часто легше переконатися, що всі потрібні пакети встановлені одразу,
+ніж постійно розв’язувати ці проблеми. Дивіться розділ “Setup
+instructions (Інструкції з налаштування)” на головній сторінці курсу для
+інструкцій зі встановлення пакетів.</p>
+<p><strong><code>|</code> символ на іспанських клавіатурах:</strong> на
+іспанській клавіатурі Mac немає клавіші <code>|</code>. Цей символ можна
+створити за допомогою:</p>
 <pre><code><span><span class="va">`alt`</span> <span class="op">+</span> <span class="va">`1`</span></span></code></pre>
-</section><section><h2 class="section-heading" id="other-resources">Other Resources<a class="anchor" aria-label="anchor" href="#other-resources"></a>
+</section><section><h2 class="section-heading" id="інші-ресурси">Інші ресурси<a class="anchor" aria-label="anchor" href="#%D1%96%D0%BD%D1%88%D1%96-%D1%80%D0%B5%D1%81%D1%83%D1%80%D1%81%D0%B8"></a>
 </h2>
 <hr class="half-width">
-<p>If you encounter a problem during a workshop, feel free to contact
-the maintainers by email or open an issue.</p>
-<p>For a more in-depth coverage of topics of the workshops, you may want
-to read “<a href="http://r4ds.had.co.nz/" class="external-link">R for Data Science</a>” by
-Hadley Wickham and Garrett Grolemund.</p>
+<p>Якщо під час семінару у вас виникнуть проблеми, не соромтеся
+звертатися до підтримки електронною поштою або <a href="https://github.com/datacarpentry/r-socialsci/issues/new" class="external-link">відкривати
+issue</a>.</p>
+<p>Для глибшого вивчення тем семінару можна прочитати книгу “<a href="http://r4ds.had.co.nz/" class="external-link">R for Data Science</a>” авторів Хедлі
+Вікем (Hadley Wickham) та Гаррета Гролемунда (Garrett Grolemund).</p>
 </section><section id="aggregate-instructor-notes"></section>
 </div>
     </main>
@@ -472,7 +471,7 @@ Hadley Wickham and Garrett Grolemund.</p>
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
 
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/main" class="external-link">sandpaper (0.17.4.9000)</a>, <a href="https://github.com/carpentries/pegboard/tree/main" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.9" class="external-link">varnish (1.0.9)</a></p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/main" class="external-link">sandpaper (0.18.1)</a>, <a href="https://github.com/carpentries/pegboard/tree/main" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.9" class="external-link">varnish (1.0.9)</a></p>
 		</div>
 		</footer>
 </div> <!-- / div.container -->
@@ -495,8 +494,8 @@ Hadley Wickham and Garrett Grolemund.</p>
   "url": "https://ukrainian-carpentries.github.io/r-socialsci/instructor-notes.html",
   "identifier": "https://ukrainian-carpentries.github.io/r-socialsci/instructor-notes.html",
   "dateCreated": "2017-05-25",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06"
+  "dateModified": "2026-01-17",
+  "datePublished": "2026-01-17"
 }
 
   </script><script>
