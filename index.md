@@ -2,49 +2,33 @@
 site: sandpaper::sandpaper_site
 ---
 
-Data Carpentry's aim is to teach researchers basic concepts, skills,
-and tools for working with data so that they can get more done in
-less time, and with less pain. The lessons below were designed for
-those interested in working with social sciences data in R.
+Мета Data Carpentry полягає в тому, щоб навчити дослідників базовим поняттям, навичкам та інструментам роботи з даними, для того щоб вони могли виконувати більше завдань за менший час і з меншими зусиллями. Наведені нижче уроки розроблені для тих, хто зацікавлений у роботі з соціологічними даними у середовищі R.
 
-This is an introduction to R designed for participants with no
-programming experience. These lessons can be taught in a half-day,
-full-day, or over a two-day workshop (see
-[Instructor Notes](https://datacarpentry.org/r-socialsci/instructor/instructor-notes.html)
-for suggested lesson plans).
-They start with some basic information about R syntax, the
-RStudio interface, and move through how to import CSV files, the
-structure of data frames, how to deal with factors, how to add/remove
-rows and columns, how to calculate summary statistics from a data
-frame, and a brief introduction to plotting.
+Це вступ до R, розроблений для учасників без попереднього досвіду програмування. Ці уроки можна проводити протягом півдня, повного дня або дводенного семінару (див. [Примітки для інструктора](https://datacarpentry.org/r-socialsci/instructor/instructor-notes.html) із рекомендованими планами уроків).
+Вони починаються з базової інформації про синтаксис R та інтерфейс RStudio, а далі охоплюють: імпорт CSV-файлів, структуру датафрейму, роботу з факторами, додавання й видалення рядків і стовпців, обчислення описових статистик для датафрейму, а також короткий вступ до побудови графіків.
 
 ::::::::::::::::::::::::::::::::::::::::::  prereq
 
 ## Початок роботи
 
-Data Carpentry's teaching is hands-on, so participants are encouraged to use
-their own computers to ensure the proper setup of tools for an efficient
-workflow.
+Тренінги Data Carpentry мають практичний характер, тому учасників заохочують працювати на власних комп’ютерах, щоб забезпечити правильне налаштування інструментів для ефективного робочого процесу.
 
-**These lessons assume no prior knowledge of the skills or tools.**
+**Ці уроки не передбачають попереднього знання відповідних навичок чи інструментів.**
 
-To get started, follow the directions in the "[Setup](setup.html)" tab to
-download data to your computer and follow any installation instructions.
+Щоб розпочати, дотримуйтесь інструкцій у вкладці "[Setup](setup.html)", щоб завантажити дані на свій комп’ютер і виконати всі інструкції з встановлення.
 
-#### Prerequisites
+#### Передумови
 
-This lesson requires a working copy of **R** and **RStudio**. <br>To most effectively use these materials, please make sure to install
-everything _before_ working through this lesson.
+Для цього уроку потрібна робоча копія **R** та **RStudio**. <br>Щоб максимально ефективно використовувати ці матеріали, будь ласка, переконайтеся, що все необхідне встановлено _до_ початку проходження цього уроку.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::  instructor
 
-## For Instructors
+## Для інструкторів
 
-If you are teaching this lesson in a workshop, please see the
-[Instructor notes](https://datacarpentry.org/r-socialsci/instructor/instructor-notes.html)
-for helpful tips.
+Якщо ви викладаєте цей урок на семінарі, будь ласка, перегляньте
+[Примітки для інструктора](https://datacarpentry.org/r-socialsci/instructor/instructor-notes.html), щоб отримати корисні поради.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 

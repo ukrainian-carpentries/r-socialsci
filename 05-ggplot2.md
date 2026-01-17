@@ -1,5 +1,5 @@
 ---
-title: Data Visualisation with ggplot2
+title: Візуалізація даних за допомогою ggplot2
 teaching: 80
 exercises: 35
 source: Rmd
@@ -9,49 +9,42 @@ source: Rmd
 
 :::: instructor
 
-- This episode is a broad overview of ggplot2 and focuses on (1) getting
-  familiar with the layering system of ggplot2, (2) using the argument `group`
-  in the `aes()` function, (3) basic customization of the plots.
-- The episode depends on data created in the Data Wrangling with tidyr
-  episode. If you did not get to or through all of the tidyr episode,
-  you can have the learners access the data by either downloading it or
-  quickly creating it using the tidyr code below. You will probably want to
-  copy the code into the Etherpad.
-- If you did skip the tidyr episode, you might want to go over the exporting
-  data section in that episode.
+- Цей епізод є загальним оглядом ggplot2 і зосереджується на: (1) ознайомленні з системою шарів у ggplot2, (2) використанні аргументу group у функції aes(), (3) базовому налаштуванні графіків.
+- Епізод залежить від даних, створених в епізоді "Маніпулювання даними за допомогою tidyr". Якщо ви не дійшли або не пройшли увесь епізод про tidyr, ви можете надати учасникам доступ до даних, завантаживши їх або швидко створивши за допомогою наведеного нижче коду tidyr. Ймовірно, ви захочете скопіювати код
+  в Etherpad.
+- Якщо ви пропустили епізод про tidyr, ви можете перейти до розділу експорт даних у тому епізоді.
 
 ::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Produce scatter plots, boxplots, and barplots using ggplot.
-- Set universal plot settings.
-- Describe what faceting is and apply faceting in ggplot.
-- Modify the aesthetics of an existing ggplot plot (including axis labels and colour).
-- Build complex and customized plots from data in a data frame.
-- Recognize the differences between base R, lattice, and ggplot visualizations.
+- Створити точкові, коробкові та стовпчикові діаграми за допомогою ggplot.
+- Задати універсальні параметри графіка.
+- Пояснити, що таке фасетування та застосувати його в ggplot.
+- Змінити естетику наявного графіка ggplot (включно з підписами осей та кольором).
+- Побудувати складні та персоналізовані графіки на основі даних у датафреймі.
+- Визначити відмінності між візуалізаціями базового R, lattice та ggplot.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- What are the components of a ggplot?
-- What are the main differences between R base plots, lattice, and ggplot?
-- How do I create scatterplots, boxplots, and barplots?
-- How can I change the aesthetics (ex. colour, transparency) of my plot?
-- How can I create multiple plots at once?
+- Які компоненти ggplot?
+- Які основні відмінності між базовими графіками R, lattice та ggplot?
+- Як створити діаграми розсіювання, коробкові та стовпчикові?
+- Як змінити естетику (наприклад, колір, прозорість) графіка?
+- Як створити кілька графіків одночасно?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-We start by loading the required package. **`ggplot2`** is also included in the
-**`tidyverse`** package.
+Почнемо із завантаження необхідного пакета. **`ggplot2`** також входить до складу пакету **`tidyverse`**.
 
 
 ``` r
 library(tidyverse)
 ```
 
-If not still in the workspace, load the data we saved in the previous lesson.
+Якщо дані ще не знаходяться в робочій області, завантажте ті, які ми зберегли в попередньому уроці.
 
 
 ``` r
@@ -71,24 +64,22 @@ dttm  (1): interview_date
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
 
-If you were unable to complete the previous lesson or did not save the data,
-then you can create it now. Either download it using `read_csv()` (Option 1)
-or create it with the **dplyr** and **tidyr** code (Option 2).
+Якщо ви не змогли завершити попередній урок або не зберегли дані, ви можете створити їх зараз. Або завантажте за допомогою `read_csv()` (варіант 1), або створіть за допомогою **dplyr** та **tidyr** (варіант 2).
 
 ::: tab
 
-### Option 1: Download the data
+### Варіант 1: Завантажте дані
 
 
 ``` r
 interviews_plotting <- read_csv("https://raw.githubusercontent.com/datacarpentry/r-socialsci/main/episodes/data/interviews_plotting.csv")
 ```
 
-### Option 2: Create the data
+### Варіант 2: Створіть дані
 
 
 ``` r
-## Can be used to load in data from previous lesson!
+## Може бути використано для завантаження даних з попереднього уроку!
 interviews_plotting <- interviews %>%
   ## pivot wider by items_owned
   separate_longer_delim(items_owned, delim = ";") %>%
@@ -111,15 +102,15 @@ interviews_plotting <- interviews %>%
 
 :::
 
-## Visualization Options in R
+## Параметри візуалізації в R
 
-Before we start with **`ggplot2`**, it's helpful to know that there are several ways to create visualizations in R. While **`ggplot2`** is great for building complex and highly customizable plots, there are simpler and quicker alternatives that you might encounter or use depending on the context. Let's briefly explore a few of them:
+Перед тим як почати з **`ggplot2`**, корисно знати, що в R існує кілька способів створювати візуалізації. Хоча **`ggplot2`** чудово підходить для створення складних та висококастомізованих графіків, існують простіші та швидші альтернативи, з якими ви можете зіткнутися або використовувати залежно від контексту. Давайте коротко розглянемо декілька з них:
 
-### R Base Plots
+### Базові графіки R
 
-Base R plots are the simplest form of visualization and are great for quick, exploratory analysis. You can create plots with very little code, but customizing them can be cumbersome compared to **`ggplot2`**.
+Базові графіки R є найпростішою формою візуалізації й чудово підходять для швидкого, дослідницького аналізу. Можна створювати графіки за допомогою невеликої кількості коду, але їхнє налаштування може бути громіздким у порівнянні з **`ggplot2`**.
 
-Example of a simple scatterplot in base R using the `no_membrs` and `liv_count` variables:
+Приклад простого точкового графіка у базовому R з використанням змінних `no_membrs` та `liv_count`:
 
 
 ``` r
@@ -133,9 +124,9 @@ plot(interviews_plotting$no_membrs, interviews_plotting$liv_count,
 
 ### **`Lattice`**
 
-Lattice is another plotting system in R, which allows for creating multi-panel plots easily. It’s different from ggplot2 because you define the entire plot in a single function call, and modifications after plotting are limited.
+Lattice — це ще одна система побудови графіків в R, яка дозволяє легко створювати багато панельні графіки у вигляді решітки. Воно відрізняється від ggplot2 тим, що весь графік визначається одним викликом функції та можливості для змін після побудови графіка обмежені.
 
-Example of a lattice plot using `no_membrs` and `liv_count` split by `village`:
+Приклад графіка **lattice** з використанням змінних `no_membrs` та `liv_count`, розбитих за `village`:
 
 
 ``` r
@@ -152,37 +143,28 @@ xyplot(liv_count ~ no_membrs | village, data = interviews_plotting,
 
 <img src="fig/05-ggplot2-rendered-unnamed-chunk-4-1.png" style="display: block; margin: auto;" />
 
-## Plotting with **`ggplot2`**
+## Побудова графіків за допомогою **`ggplot2`**
 
-**`ggplot2`** is a plotting package that makes it simple to create complex plots
-from data stored in a data frame. It provides a programmatic interface for
-specifying what variables to plot, how they are displayed, and general visual
-properties. Therefore, we only need minimal changes if the underlying data
-change or if we decide to change from a bar plot to a scatterplot. This helps in
-creating publication quality plots with minimal amounts of adjustments and
-tweaking.
+**`ggplot2`** — це пакет для побудови графіків у R, який дозволяє легко створювати складні візуалізації з даних датафрейму. Він забезпечує програмний інтерфейс, який дозволяє задавати, які змінні зображати, як їх показувати та загальні візуальні властивості. Тому нам потрібно внести лише мінімальні зміни, якщо вихідні дані зміняться або якщо ми вирішимо перейти, наприклад, від стовпчикової діаграми до точкової (діаграма розсіювання). Це допомагає створювати графіки публікаційної якості з мінімальною кількістю коригувань і налаштувань.
 
-**`ggplot2`** functions work best with data in the 'long' format, i.e., a column for every
-dimension, and a row for every observation. Well-structured data will save you
-lots of time when making figures with **`ggplot2`**
+Функції **`ggplot2`** найкраще працюють із даними у 'long' форматі, тобто коли кожен вимір представлений окремим стовпцем, а кожне спостереження — окремим рядком. Добре структуровані дані заощадять вам багато часу під час побудови графіків у **`ggplot2`**
 
-ggplot graphics are built step by step by adding new elements. Adding layers in
-this fashion allows for extensive flexibility and customization of plots.
+ggplot графіки будуються крок за кроком шляхом додавання нових елементів. Такий спосіб додавання шарів забезпечує велику гнучкість і дозволяє налаштовувати побудовані графіки.
 
-Each chart built with ggplot2 must include the following
+Кожен графік, побудований за допомогою ggplot2, повинен включати такі елементи
 
-- Data
+- Дані
 
-- Aesthetic mapping (aes)
+- Естетичне відображення (aes)
 
-  - Describes how variables are mapped onto graphical attributes
-  - Visual attribute of data including x-y axes, color, fill, shape, and alpha
+  - Описує як змінні накладаються на графічні атрибути
+  - До таких атрибутів належать осі x і y, колір, заливка, форма точок, прозорість (alpha)
 
-- Geometric objects (geom)
+- Геометричні об'єкти (geom)
 
-  - Determines how values are rendered graphically, as bars (`geom_bar`), scatterplot (`geom_point`), line (`geom_line`), etc.
+  - Визначає, як дані будуть зображені графічно — у вигляді стовпчиків (`geom_bar`), діаграми розсіювання (`geom_point`), лінії (`geom_line`) тощо.
 
-Thus, the template for graphic in ggplot2 is:
+Таким чином, шаблон побудови графіка в ggplot2:
 
 ```
 <DATA> %>%
@@ -190,9 +172,9 @@ Thus, the template for graphic in ggplot2 is:
     <GEOM_FUNCTION>()
 ```
 
-Remember from the last lesson that the pipe operator `%>%` places the result of the previous line(s) into the first argument of the function. **`ggplot`** is a function that expects a data frame to be the first argument. This allows for us to change from specifying the `data =` argument within the `ggplot` function and instead pipe the data into the function.
+Нагадаємо з попереднього уроку, що оператор `%>%` (pipe) передає результат попереднього кроку як вхідні дані для наступної функції. **`ggplot`** — це функція, яка очікує датафрейм як перший аргумент. Це дозволяє не вказувати аргумент `data =` всередині функції `ggplot`, а просто передавати дані через pipe (`%>%`).
 
-- use the `ggplot()` function and bind the plot to a specific data frame.
+- використайте функцію `ggplot()` та прив'яжіть графік до певного датафрейму.
 
 
 ``` r
@@ -200,7 +182,7 @@ interviews_plotting %>%
     ggplot()
 ```
 
-- define a mapping (using the aesthetic (`aes`) function), by selecting the variables to be plotted and specifying how to present them in the graph, e.g. as x/y positions or characteristics such as size, shape, color, etc.
+- визначити відображення (mapping) за допомогою функції `aes()`, обравши змінні для побудови графіка та вказавши, як їх показувати на графіку, наприклад, через позиції по осях x/y або через характеристики, такі як розмір, форма, колір тощо.
 
 
 ``` r
@@ -208,15 +190,13 @@ interviews_plotting %>%
     ggplot(aes(x = no_membrs, y = number_items))
 ```
 
-- add 'geoms' – graphical representations of the data in the plot (points,
-  lines, bars). **`ggplot2`** offers many different geoms; we will use some
-  common ones today, including:
+- додати 'geoms' — графічні представлення даних на графіку (точки, лінії, стовпчики). **`ggplot2`** пропонує багато різних geoms; сьогодні ми використаємо деякі з поширених, зокрема:
 
-  - `geom_point()` for scatter plots, dot plots, etc.
-  - `geom_boxplot()` for, well, boxplots!
-  - `geom_line()` for trend lines, time series, etc.
+  - `geom_point()` для діаграм розсіювання, точкових графіків тощо.
+  - `geom_boxplot()` для коробкових діаграм (boxplots)!
+  - `geom_line()` для ліній тренду, часових рядів тощо.
 
-To add a geom to the plot use the `+` operator. Because we have two continuous variables, let's use `geom_point()` first:
+Щоб додати geom до графіка, використовуйте оператор `+`. Оскільки у нас дві безперервні змінні, спочатку використаємо `geom_point()`:
 
 
 ``` r
@@ -227,54 +207,43 @@ interviews_plotting %>%
 
 <img src="fig/05-ggplot2-rendered-first-ggplot-1.png" style="display: block; margin: auto;" />
 
-The `+` in the **`ggplot2`** package is particularly useful because it allows
-you to modify existing `ggplot` objects. This means you can easily set up plot
-templates and conveniently explore different types of plots, so the above plot
-can also be generated with code like this, similar to the "intermediate steps"
-approach in the previous lesson:
+Символ `+` у пакеті **`ggplot2`** особливо корисний, тому що він дозволяє змінювати вже створені об’єкти ggplot. Це означає, що ви можете легко налаштовувати шаблони графіків і зручно досліджувати різні типи візуалізацій, тому наведений вище графік також можна створити за допомогою такого коду, подібного до підходу "проміжних кроків" у попередньому уроці:
 
 
 ``` r
-# Assign plot to a variable
+# Присвоїти графік змінній
 interviews_plot <- interviews_plotting %>%
     ggplot(aes(x = no_membrs, y = number_items))
 
-# Draw the plot as a dot plot
+# Побудувати точковий графік
 interviews_plot +
     geom_point()
 ```
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
-## Notes
+## Примітки
 
-- Anything you put in the `ggplot()` function can be seen by any geom layers
-  that you add (i.e., these are universal plot settings). This includes the x-
-  and y-axis mapping you set up in `aes()`.
-- You can also specify mappings for a given geom independently of the mapping
-  defined globally in the `ggplot()` function.
-- The `+` sign used to add new layers must be placed at the end of the line
-  containing the _previous_ layer. If, instead, the `+` sign is added at the
-  beginning of the line containing the new layer, **`ggplot2`** will not add
-  the new layer and will return an error message.
+- Усе, що ви вказуєте у функції `ggplot()`, буде доступним для будь-яких шарів geom, які ви додаєте (тобто це універсальні налаштування графіка). Це включає відображення осей x та y, яке ви задали в `aes()`.
+- Ви також можете задавати відображення (mappings) окремо для конкретного geom, незалежно від того, що визначено глобально у функції `ggplot()`.
+- Знак `+`, який використовується для додавання нових шарів, має бути розміщений наприкінці рядка, що містить _попередній_ шар. Якщо ж знак `+` поставити на початку рядка, де додається новий шар, то **`ggplot2`** не додасть цей новий шар і поверне повідомлення про помилку.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
 ``` r
-## This is the correct syntax for adding layers
+## Це правильний синтаксис для додавання шарів
 interviews_plot +
     geom_point()
 
-## This will not add the new layer and will return an error message
+## Це не додасть новий шар і поверне повідомлення про помилку
 interviews_plot
 + geom_point()
 ```
 
-## Building your plots iteratively
+## Побудова графіків крок за кроком
 
-Building plots with **`ggplot2`** is typically an iterative process. We start by
-defining the dataset we'll use, lay out the axes, and choose a geom:
+Побудова графіків у **`ggplot2`** зазвичай відбувається ітеративно. Спочатку ми визначаємо набір даних, який будемо використовувати, розмічаємо осі та обираємо geom:
 
 
 ``` r
@@ -285,32 +254,17 @@ interviews_plotting %>%
 
 <img src="fig/05-ggplot2-rendered-create-ggplot-object-1.png" alt="Scatter plot of number of items owned versus number of household members." style="display: block; margin: auto;" />
 
-Then, we start modifying this plot to extract more information from it. For
-instance, when inspecting the plot we notice that points only appear at the
-intersection of whole numbers of `no_membrs` and `number_items`. Also, from a
-rough estimate, it looks like there are far fewer dots on the plot than there
-rows in our dataframe. This should lead us to believe that there may be multiple
-observations plotted on top of each other (e.g. three observations where
-`no_membrs` is 3 and `number_items` is 1).
+Потім ми починаємо модифікувати цей графік, щоб витягти з нього більше інформації. Наприклад, при перегляді графіка ми помічаємо, що точки з’являються лише на перетині цілих чисел змінних `no_membrs` та `number_items`. Також, за приблизною оцінкою, здається, що на графіку значно менше точок, ніж рядків у нашому датафреймі. Це повинно нас привести до думки, що може бути кілька спостережень, накладених одне на одне (наприклад, три спостереження, де `no_membrs` = 3 і `number_items` = 1).
 
-There are two main ways to alleviate overplotting issues:
+Існує два основні способи розв'язання проблеми накладення точок (overplotting):
 
-1. changing the transparency of the points
-2. jittering the location of the points
+1. зміна прозорості точок
+2. злегка зсунути розташування точок
 
-Let's first explore option 1, changing the transparency of the points. What we
-mean when we say "transparency" we mean the opacity of point, or your ability to
-see through the point. We can control the transparency of the points with the
-`alpha` argument to `geom_point`. Values of `alpha` range from 0 to 1, with
-lower values corresponding to more transparent colors (an `alpha` of 1 is the
-default value). Specifically, an alpha of 0.1, would make a point one-tenth as
-opaque as a normal point. Stated differently ten points stacked on top of
-each other would correspond to a normal point.
+Спочатку розглянемо варіант 1 — зміну прозорості точок. Під "прозорістю" ми маємо на увазі непрозорість точки, тобто вашу здатність бачити крізь точку. Ми можемо керувати прозорістю точок за допомогою аргументу `alpha` у `geom_point`. Значення `alpha` варіюються від 0 до 1, причому менші значення роблять колір більш прозорим (`alpha = 1` — значення за замовчуванням). Зокрема, alpha = 0.1 робить точку у десять разів прозорішою, ніж звичайна точка. Інакше кажучи, десять точок, накладених одна на одну, виглядатимуть як звичайна точка.
 
-Here, we change the `alpha` to 0.5, in an attempt to help fix the overplotting.
-While the overplotting isn't solved, adding transparency begins to address this
-problem, as the points where there are overlapping observations are darker (as
-opposed to lighter gray):
+Тут ми змінюємо alpha на `alpha`, намагаючись зменшити ефект накладення точок.
+Хоча проблему накладення точок повністю не вирішено, додавання прозорості починає її зменшувати, оскільки точки, де спостереження накладаються, виглядають темнішими (на відміну від світло-сірих):
 
 
 ``` r
@@ -321,18 +275,9 @@ interviews_plotting %>%
 
 <img src="fig/05-ggplot2-rendered-adding-transparency-1.png" alt="Scatter plot of number of items owned versus number of household members, with transparency added to points." style="display: block; margin: auto;" />
 
-That only helped a little bit with the overplotting problem, so let's try option
-two. We can jitter the points on the plot, so that we can see each point in the
-locations where there are overlapping points. Jittering introduces a little bit
-of randomness into the position of our points. You can think of this process as
-taking the overplotted graph and giving it a tiny shake. The points will move a
-little bit side-to-side and up-and-down, but their position from the original
-plot won't dramatically change. Note that this solution is suitable for plotting
-integer figures, while for numeric figures with decimals, geom_jitter() becomes
-inappropriate because it obscures the true value of the observation.
+Це лише трохи допомогло з проблемою накладення точок, тому спробуємо другий варіант. Ми можемо злегка змістити точки на графіку, щоб бачити кожну точку навіть у місцях, де вони накладаються. Це зміщення додає трохи випадковості у розташування наших точок. Можна уявити цей процес як легке струшування графіка з накладеними точками. Точки трохи зсуватимуться вліво-вправо та вгору-вниз, але їхнє положення на графіку значно не зміниться. Зверніть увагу, що цей спосіб підходить для цілих чисел, а для чисел з десятковими знаками geom_jitter() не підходить, оскільки спотворює справжнє значення спостереження.
 
-We can jitter our points using the `geom_jitter()` function instead of the
-`geom_point()`  function, as seen below:
+Ми можемо зсунути точки за допомогою функції `geom_jitter()` замість `geom_point()`, як показано нижче:
 
 
 ``` r
@@ -343,12 +288,7 @@ interviews_plotting %>%
 
 <img src="fig/05-ggplot2-rendered-adding-jitter-1.png" alt="Scatter plot of number of items owned versus number of household members, showing jitter." style="display: block; margin: auto;" />
 
-The `geom_jitter()` function allows for us to specify the amount of random
-motion in the jitter, using the `width` and `height` arguments. When we don't
-specify values for `width` and `height`, `geom_jitter()` defaults to 40% of the
-resolution of the data (the smallest change that can be measured). Hence, if we
-would like _less_ spread in our jitter than was default, we should pick values
-between 0.1 and 0.4. Experiment with the values to see how your plot changes.
+Функція `geom_jitter()` дозволяє задати величину випадкового зсуву за допомогою аргументів `width` і `height`. Якщо не вказувати значення для `width` і `height`, `geom_jitter()` за замовчуванням використовує 40% від роздільної здатності даних (найменша зміна, яку можна виміряти). Тому, якщо ми хочемо _менший_ зсув (jitter), ніж за замовчуванням, слід обрати значення між 0.1 та 0.4. Експериментуйте зі значеннями, щоб побачити, як змінюється ваш графік.
 
 
 ``` r
@@ -361,8 +301,7 @@ interviews_plotting %>%
 
 <img src="fig/05-ggplot2-rendered-adding-width-height-1.png" alt="Scatter plot of number of items owned versus number of household members, with jitter and transparency." style="display: block; margin: auto;" />
 
-For our final change, we can also add colours for all the points by specifying
-a `color` argument inside the `geom_jitter()` function:
+Для останньої зміни ми можемо також додати кольори всім точкам, вказавши аргумент `color` всередині функції `geom_jitter()`:
 
 
 ``` r
@@ -376,18 +315,7 @@ interviews_plotting %>%
 
 <img src="fig/05-ggplot2-rendered-adding-colors-1.png" alt="Scatter plot of number of items owned versus number of household members, showing points as blue." style="display: block; margin: auto;" />
 
-To colour each village in the plot differently, you could use a vector as an input
-to the argument **`color`**.  However, because we are now mapping features of the
-data to a colour, instead of setting one colour for all points, the colour of the
-points now needs to be set inside a call to the **`aes`** function. When we map
-a variable in our data to the colour of the points, **`ggplot2`** will provide a
-different colour corresponding to the different values of the variable. We will
-continue to specify the value of **`alpha`**, **`width`**, and **`height`**
-outside of the **`aes`** function because we are using the same value for
-every point. ggplot2 understands both the Commonwealth English and
-American English spellings for colour, i.e., you can use either `color`
-or `colour`. Here is an example where we color points by the **`village`**
-of the observation:
+Щоб по-різному зафарбувати кожне село на графіку, можна передати в аргумент **`color`** вектор.  Однак, оскільки ми тепер відображаємо ознаки даних через колір, замість того, щоб встановлювати один колір для всіх точок, колір точок слід вказувати всередині функції **`aes`**. Коли ми відображаємо змінну через колір точок, **`ggplot2`** автоматично надає різні кольори для різних значень цієї змінної. Ми продовжимо задання значень **`alpha`**, **`width`** та **`height`** поза функцією **`aes`**, оскільки використовуємо одне й те саме значення для всіх точок. ggplot2 розуміє як британське, так і американське написання слова колір, тобто можна використовувати або `color`, або `colour`. Ось приклад, де ми фарбуємо точки залежно від **`village`** (села) спостереження:
 
 
 ``` r
@@ -398,20 +326,13 @@ interviews_plotting %>%
 
 <img src="fig/05-ggplot2-rendered-color-by-species-1.png" style="display: block; margin: auto;" />
 
-There appears to be a positive trend between number of household
-members and number of items owned (from the list provided). Additionally,
-this trend does not appear to be different by village.
+Схоже, що існує позитивна залежність між кількістю членів домогосподарства та кількістю придбаних предметів (з наведеного списку). Крім того, ця залежність, здається, не відрізняється між селами.
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
-## Notes
+## Примітки
 
-As you will learn, there are multiple ways to plot the a relationship
-between variables. Another way to plot data with overlapping points is
-to use the `geom_count` plotting function. The `geom_count()`  function
-makes the size of each point representative of the number of data items
-of that type and the legend gives point sizes associated to particular
-numbers of items.
+Як ви дізнаєтеся, існує кілька способів зобразити залежність між змінними. Ще один спосіб побудови графіка з накладенням точок — використовувати функцію `geom_count`. Функція `geom_count()` робить розмір кожної точки пропорційним кількості елементів даних цього типу, а легенда показує, які розміри точок відповідають певній кількості елементів.
 
 
 ``` r
@@ -426,16 +347,14 @@ interviews_plotting %>%
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Exercise
+## Завдання
 
-Use what you just learned to create a scatter plot of `rooms` by `village`
-with the `respondent_wall_type` showing in different colours. Does this
-seem like a good way to display the relationship between these variables?
-What other kinds of plots might you use to show this type of data?
+Використайте щойно вивчене, щоб створити діаграму розсіювання (scatter plot) для `rooms` за `village`, де `respondent_wall_type` буде зображатися різними кольорами. Чи здається вам, що це гарний спосіб показати залежність між цими змінними?
+Які ще типи графіків можна використати для зображення такого типу даних?
 
 :::::::::::::::  solution
 
-## Solution
+## Відповідь
 
 
 ``` r
@@ -449,18 +368,15 @@ interviews_plotting %>%
 
 <img src="fig/05-ggplot2-rendered-scatter-challenge-1.png" alt="Scatter plot showing positive trend between number of household members and number of items owned." style="display: block; margin: auto;" />
 
-This is not a great way to show this type of data because it is difficult to
-distinguish between villages. What other plot types could help you visualize
-this relationship better?
+Це не дуже зручний спосіб показати такі дані, оскільки важко розрізнити села. Які ще типи графіків могли б краще допомогти вам візуалізувати цю залежність?
 
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Boxplot
+## Коробковий графік (boxplot)
 
-We can use boxplots to visualize the distribution of rooms for each
-wall type:
+Ми можемо використовувати коробкові графіки (boxplots), щоб візуалізувати розподіл кімнат для кожного типу стін:
 
 
 ``` r
@@ -471,8 +387,7 @@ interviews_plotting %>%
 
 <img src="fig/05-ggplot2-rendered-boxplot-1.png" alt="Box plot of number of rooms by wall type." style="display: block; margin: auto;" />
 
-By adding points to a boxplot, we can have a better idea of the number of
-measurements and of their distribution:
+Додавши точки на boxplot, ми можемо краще уявити кількість вимірювань та їх розподіл:
 
 
 ``` r
@@ -487,26 +402,21 @@ interviews_plotting %>%
 
 <img src="fig/05-ggplot2-rendered-boxplot-with-jitter-1.png" alt="Previous plot with dot plot added as additional layer to show individual values. Boxplot layer is transparent." style="display: block; margin: auto;" />
 
-We can see that muddaub houses and sunbrick houses tend to be smaller than
-burntbrick houses.
+Ми бачимо, що будинки з глини (muddaub) та сонячної цегли (sunbrick) зазвичай менші за будинки з обпаленої цегли (burntbrick).
 
-Notice how the  boxplot layer is behind the jitter layer? What do you need to
-change in the code to put the boxplot layer in front of the jitter layer?
+Зверніть увагу, як шар boxplot знаходиться позаду шару jitter? Що потрібно змінити в коді, щоб шар boxplot був попереду шару jitter?
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Exercise
+## Завдання
 
-Boxplots are useful summaries, but hide the _shape_ of the distribution. For
-example, if the distribution is bimodal, we would not see it in a
-boxplot. An alternative to the boxplot is the violin plot, where the shape
-(of the density of points) is drawn.
+Boxplot корисні для підсумкової інформації, але вони приховують форму розподілу. Наприклад, якщо розподіл бімодальний, ми цього не побачимо у boxplot. Альтернатива boxplot — це violin plot (скрипковий графік), де зображається форма розподілу точок (щільність даних).
 
-- Replace the box plot with a violin plot; see `geom_violin()`.
+- Замініть коробковий графік (boxplot) на скрипковий (violin plot); використайте `geom_violin()`.
 
 :::::::::::::::  solution
 
-## Solution
+## Відповідь
 
 
 ``` r
@@ -525,16 +435,13 @@ Warning: Groups with fewer than two datapoints have been dropped.
 
 :::::::::::::::::::::::::
 
-So far, we've looked at the distribution of room number within wall type. Try
-making a new plot to explore the distribution of another variable within wall
-type.
+До цього моменту ми розглядали розподіл кількості кімнат у залежності від типу стін. Спробуйте створити новий графік, щоб дослідити розподіл іншої змінної залежно від типу стін.
 
-- Create a boxplot for `liv_count` for each wall type. Overlay the boxplot
-  layer on a jitter layer to show actual measurements.
+- Створіть boxplot для `liv_count` для кожного типу стін. Накладіть шар boxplot на шар jitter, щоб показати фактичні вимірювання.
 
 :::::::::::::::  solution
 
-## Solution
+## Відповідь
 
 
 ``` r
@@ -548,12 +455,11 @@ interviews_plotting %>%
 
 :::::::::::::::::::::::::
 
-- Add colour to the data points on your boxplot according to whether the
-  respondent is a member of an irrigation association (`memb_assoc`).
+- Додайте колір до точок на boxplot залежно від того, чи є респондент членом іригаційної асоціації (`memb_assoc`).
 
 :::::::::::::::  solution
 
-## Solution
+## Відповідь
 
 
 ``` r
@@ -569,11 +475,9 @@ interviews_plotting %>%
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Barplots
+## Стовпчасті діаграми (barplots)
 
-Barplots are also useful for visualizing categorical data. By default,
-`geom_bar` accepts a variable for x, and plots the number of instances each
-value of x (in this case, wall type) appears in the dataset.
+Стовпчасті діаграми (barplots) також корисні для візуалізації категоріальних даних. За замовчуванням `geom_bar` приймає змінну для осі x і показує кількість випадків, з якими кожне значення x (у цьому випадку — тип стін) зустрічається в наборі даних.
 
 
 ``` r
@@ -584,8 +488,7 @@ interviews_plotting %>%
 
 <img src="fig/05-ggplot2-rendered-barplot-1-1.png" alt="Bar plot showing counts of respondent wall types." style="display: block; margin: auto;" />
 
-We can use the `fill` aesthetic for the `geom_bar()` geom to colour bars by
-the portion of each count that is from each village.
+Ми можемо використати естетику `fill` у `geom_bar()`, щоб зафарбувати стовпчики відповідно до частки кожного підрахунку з кожного села.
 
 
 ``` r
@@ -596,10 +499,7 @@ interviews_plotting %>%
 
 <img src="fig/05-ggplot2-rendered-barplot-stack-1.png" alt="Stacked bar plot of wall types showing each village as a different color." style="display: block; margin: auto;" />
 
-This creates a stacked bar chart. These are generally more difficult to read
-than side-by-side bars. We can separate the portions of the stacked bar that
-correspond to each village and put them side-by-side by using the `position`
-argument for `geom_bar()` and setting it to "dodge".
+Це створює стовпчасту діаграму. Як правило, їх складніше читати, ніж стовпчики розташовані поруч. Ми можемо розділити частини складеної стовпчастої діаграми, що відповідають кожному селу і розмістити їх поруч, використавши аргумент position у `geom_bar()` та встановивши його значення "dodge".
 
 
 ``` r
@@ -610,13 +510,7 @@ interviews_plotting %>%
 
 <img src="fig/05-ggplot2-rendered-barplot-dodge-1.png" alt="Bar plot of respondent wall types with each village as a separate bar." style="display: block; margin: auto;" />
 
-This is a nicer graphic, but we're more likely to be interested in the
-proportion of each housing type in each village than in the actual count of
-number of houses of each type (because we might have sampled different numbers
-of households in each village). To compare proportions, we will first create a
-new data frame (`percent_wall_type`) with a new column named "percent"
-representing the percent of each house type in each village. We will remove
-houses with cement walls, as there was only one in the dataset.
+Це більш наочний графік, але нас, ймовірно, більше цікавить частка кожного типу житла в кожному селі, ніж фактична кількість будинків кожного типу (оскільки в різних селах могла бути опитана різна кількість домогосподарств). Щоб порівняти частки, ми спочатку створимо новий датафрейм (`percent_wall_type`) з новим стовпцем "percent", який представляє відсоток кожного типу будинку в кожному селі. Також ми виключимо будинки з цементними стінами, оскільки в наборі даних був лише один такий будинок.
 
 
 ``` r
@@ -628,8 +522,7 @@ percent_wall_type <- interviews_plotting %>%
     ungroup()
 ```
 
-Now we can use this new data frame to create our plot showing the
-percentage of each house type in each village.
+Тепер ми можемо використати цей новий датафрейм, щоб побудувати графік, який показує відсоток кожного типу будинку в кожному селі.
 
 
 ``` r
@@ -642,17 +535,13 @@ percent_wall_type %>%
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Exercise
+## Завдання
 
-Create a bar plot showing the proportion of respondents in each
-village who are or are not part of an irrigation association
-(`memb_assoc`). Include only respondents who answered that question
-in the calculations and plot. Which village had the lowest proportion of
-respondents in an irrigation association?
+Створіть стовпчасту діаграму, яка показує частку респондентів у кожному селі, які є або не є членами іригаційної асоціації (`memb_assoc`). У розрахунках і на графіку враховуйте лише тих респондентів, які відповіли на це запитання. Яке село має найменшу частку респондентів, що є членами іригаційної асоціації?
 
 :::::::::::::::  solution
 
-## Solution
+## Відповідь
 
 
 ``` r
@@ -670,27 +559,22 @@ percent_memb_assoc %>%
 
 <img src="fig/05-ggplot2-rendered-barplot-memb-assoc-1.png" alt="Bar plot showing percent of respondents in each village who were part of association." style="display: block; margin: auto;" />
 
-Ruaca had the lowest proportion of members in an irrigation association.
+Село Ruaca мало найменшу частку респондентів, які є членами іригаційної асоціації.
 
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Adding Labels and Titles
+## Додавання підписів і заголовків
 
-By default, the axes labels on a plot are determined by the name of the variable
-being plotted. However, **`ggplot2`** offers lots of customization options,
-like specifying the axes labels, and adding a title to the plot with
-relatively few lines of code. We will add more informative x-and y-axis
-labels to our plot, a more explanatory label to the legend, and a plot title.
+За замовчуванням підписи осей на графіку беруться з назв змінних, які ми зображаємо. Проте, **`ggplot2`** пропонує багато можливостей для налаштування: можна задавати власні підписи осей, додавати заголовок до графіка за допомогою відносно невеликої кількості коду. Ми додамо більш інформативні підписи для осей x та y, пояснювальний підпис для легенди та заголовок до графіка.
 
-The `labs` function takes the following arguments:
+Функція `labs` приймає такі аргументи:
 
-- `title` -- to produce a plot title
-- `subtitle` -- to produce a plot subtitle (smaller text placed beneath the title)
-- `caption` -- a caption for the plot
-- `...` -- any pair of name and value for aesthetics used in the plot (e.g.,
-  `x`, `y`, `fill`, `color`, `size`)
+- `title` -- заголовок графіку
+- `subtitle` -- підзаголовок (текст меншим шрифтом під заголовком)
+- `caption` -- підпис до графіка
+- `...` -- будь-які пари імені та значення для естетики, які використовуються у графіку (наприклад, `x`, `y`, `fill`, `color`, `size`)
 
 
 ``` r
@@ -705,19 +589,11 @@ percent_wall_type %>%
 
 <img src="fig/05-ggplot2-rendered-barplot-wall-types-labeled-1.png" alt="Previous plot with plot title and labells added." style="display: block; margin: auto;" />
 
-## Faceting
+## Фасетування
 
-Rather than creating a single plot with side-by-side bars for each
-village, we may want to create multiple plot, where each plot shows the
-data for a single village. This would be especially useful if we had
-a large number of villages that we had sampled, as a large number of
-side-by-side bars will become more difficult to read.
+Замість того, щоб створювати один графік зі стовпчиками поруч для кожної громади, ми можемо створити кілька графіків, де кожен показує дані для однієї громади. Це особливо корисно, якщо у нас велика кількість громад у вибірці, адже багато стовпчиків поруч важко читати.
 
-**`ggplot2`** has a special technique called _faceting_ that allows the
-user to split one plot into multiple plots based on a factor included
-in the dataset. We will use it to split our barplot of housing type
-proportion by village so that each village has its own panel in a
-multi-panel plot:
+У **`ggplot2`** є спеціальна техніка, яка називається _faceting_ (фасетування), яка дозволяє розбити один графік на кілька графіків на основі факторної змінної у наборі даних. Ми використаємо її, щоб розбити наш стовпчастий графік пропорцій типів будинків за громадами так, щоб для кожної громади був власна панель у багатопанельному графіку:
 
 
 ``` r
@@ -732,12 +608,9 @@ percent_wall_type %>%
 
 <img src="fig/05-ggplot2-rendered-barplot-faceting-1.png" alt="Bar plot showing percent of each wall type in each village." style="display: block; margin: auto;" />
 
-Click the "Zoom" button in your RStudio plots pane to view a larger
-version of this plot.
+Натисніть кнопку "Zoom" у панелі графіків RStudio, щоб переглянути більшу версію цього графіка.
 
-Usually plots with white background look more readable when printed.  We can set
-the background to white using the function `theme_bw()`. Additionally, you can remove
-the grid:
+Зазвичай графіки на білому фоні легше читати при друку.  Ми можемо встановити білий фон за допомогою функції `theme_bw()`. Крім того, можна прибрати сітку:
 
 
 ``` r
@@ -754,11 +627,7 @@ percent_wall_type %>%
 
 <img src="fig/05-ggplot2-rendered-barplot-theme-bw-1.png" alt="Bar plot showing percent of each wall type in each village, with black and white theme applied." style="display: block; margin: auto;" />
 
-What if we wanted to see the proportion of respondents in each village
-who owned a particular item? We can calculate the percent of people
-in each village who own each item and then create a faceted series of
-bar plots where each plot is a particular item. First we need to
-calculate the percentage of people in each village who own each item:
+А що як ми хочемо побачити частку респондентів у кожному селі, які володіють певним предметом? Ми можемо порахувати відсоток людей у кожному селі, які мають кожен предмет, а потім створити серію фасетованих стовпчикових діаграм, де кожна діаграма відповідає окремому предмету. Спершу потрібно обчислити відсоток людей у кожному селі, які володіють кожним предметом:
 
 
 ``` r
@@ -768,27 +637,15 @@ percent_items <- interviews_plotting %>%
     pivot_longer(bicycle:no_listed_items, names_to = "items", values_to = "percent")
 ```
 
-To calculate this percentage data frame, we needed to use the `across()`
-function within a `summarize()` operation. Unlike the previous example with a
-single wall type variable, where each response was exactly one of the types
-specified, people can (and do) own more than one item. So there are multiple
-columns of data (one for each item), and the percentage calculation needs to be
-repeated for each column.
+Щоб обчислити цей датафрейм із відсотками, нам потрібно було використати функцію `across()` всередині операції `summarize()`. На відміну від попереднього прикладу з однією змінною типу стіни, де кожна відповідь належала лише до одного з типів, люди можуть (і часто мають) більше ніж один предмет. Тому у нас є кілька стовпців даних (по одному на кожен предмет) і обчислення відсотка потрібно повторити для кожної колонки.
 
-Combining `summarize()` with `across()` allows us to specify first, the columns
-to be summarized (`bicycle:no_listed_items`) and then the calculation. Because
-our calculation is a bit more complex than is available in a built-in function,
-we define a new formula:
+Поєднання `summarize()` з `across()` дозволяє спочатку вказати стовпці, які потрібно підсумувати (`bicycle:no_listed_items`), а потім — обчислення. Оскільки наше обчислення трохи складніше, ніж доступні вбудовані функції, ми визначаємо нову формулу:
 
-- `~` indicates that we are defining a formula,
-- `sum(.x)` gives the number of people owning that item by counting the number of `TRUE`
-  values (`.x` is shorthand for the column being operated on),
-- and `n()` gives the current group size.
+- `~` вказує, що ми визначаємо формулу,
+- `sum(.x)` рахує кількість людей, які мають цей предмет, враховуючи значення `TRUE`(`.x` — це скорочення для стовпця, над яким виконується операція),
+- і `n()` повертає розмір поточної групи.
 
-After the `summarize()` operation, we have a table of percentages with each item
-in its own column, so a `pivot_longer()` is required to transform the table into
-an easier format for plotting. Using this data frame, we can now create a
-multi-paneled bar plot.
+Після операції `summarize()` ми отримуємо таблицю відсотків, де кожен предмет у власному стовпці, тому потрібне застосування `pivot_longer()`, щоб перетворити таблицю у зручніший формат для побудови графіка. Використовуючи цей датафрейм, ми можемо створити багатопанельну стовпчасту діаграму.
 
 
 ``` r
@@ -802,38 +659,26 @@ percent_items %>%
 
 <img src="fig/05-ggplot2-rendered-percent-items-barplot-1.png" alt="Multi-panel bar chart showing percent  of respondents in each village and who owned each item, with no grids behid bars." style="display: block; margin: auto;" />
 
-## **`ggplot2`** themes
+## Теми в **`ggplot2`**
 
-In addition to `theme_bw()`, which changes the plot background to white,
-**`ggplot2`** comes with several other themes which can be useful to quickly
-change the look of your visualization. The complete list of themes is available
-at [https://ggplot2.tidyverse.org/reference/ggtheme.html](https://ggplot2.tidyverse.org/reference/ggtheme.html). `theme_minimal()` and
-`theme_light()` are popular, and `theme_void()` can be useful as a starting
-point to create a new hand-crafted theme.
+Окрім `theme_bw()`, яка змінює фон графіка на білий, **`ggplot2`** має кілька інших тем, що дозволяють швидко змінювати вигляд візуалізації. Повний список тем доступний за посиланням: [https://ggplot2.tidyverse.org/reference/ggtheme.html](https://ggplot2.tidyverse.org/reference/ggtheme.html). `theme_minimal()` і `theme_light()` є популярними, а `theme_void()` може стати корисною відправною точкою для створення власної, ручної теми.
 
-The
-[ggthemes](https://jrnold.github.io/ggthemes/reference/index.html)
-package provides a wide variety of options (including an Excel 2003 theme). The
-[**`ggplot2`** extensions website](https://exts.ggplot2.tidyverse.org/) provides a list
-of packages that extend the capabilities of **`ggplot2`**, including additional
-themes.
+Пакет [ggthemes](https://jrnold.github.io/ggthemes/reference/index.html)
+пропонує великий вибір тем (включно з темою Excel 2003). [Сайт розширень **`ggplot2`**](https://exts.ggplot2.tidyverse.org/) пропонує список пакетів, які розширюють можливості **`ggplot2`**, включно з додатковими темами.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Exercise
+## Завдання
 
-Experiment with at least two different themes. Build the previous plot
-using each of those themes. Which do you like best?
+Спробуйте використати щонайменше дві різні теми. Побудуйте попередній графік з кожною з цих тем. Яка вам подобається більше?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Customization
+## Налаштування
 
-Take a look at the ,
-and think of ways you could improve the plot.
+Подивіться на [**`ggplot2`** шпаргалку](https://github.com/rstudio/cheatsheets/blob/main/data-visualization-2.1.pdf) та подумайте, як можна покращити графік.
 
-Now, let's change names of axes to something more informative than 'village' and
-'percent' and add a title to the figure:
+Тепер нумо змінимо назви осей на більш інформативні замість 'village' та 'percent' і додамо заголовок до графіка:
 
 
 ``` r
@@ -849,8 +694,7 @@ percent_items %>%
 
 <img src="fig/05-ggplot2-rendered-ggplot-customization-1.png" style="display: block; margin: auto;" />
 
-The axes have more informative names, but their readability can be improved by
-increasing the font size:
+Назви осей стали більш інформативними, але їхню читабельність можна покращити, збільшивши розмір шрифту:
 
 
 ``` r
@@ -867,16 +711,9 @@ percent_items %>%
 
 <img src="fig/05-ggplot2-rendered-ggplot-customization-font-size-1.png" style="display: block; margin: auto;" />
 
-Note that it is also possible to change the fonts of your plots. If you are on
-Windows, you may have to install the , and follow the instructions included
-in the README for this package.
+Зверніть увагу, що також можна змінювати шрифти на графіках. Якщо ви користуєтеся Windows, можливо, доведеться встановити [пакет **`extrafont`**](https://github.com/wch/extrafont) та дотримуватися інструкцій у README цього пакета.
 
-After our manipulations, you may notice that the values on the x-axis are still
-not properly readable. Let's change the orientation of the labels and adjust
-them vertically and horizontally so they don't overlap. You can use a 90-degree
-angle, or experiment to find the appropriate angle for diagonally oriented
-labels. With a larger font, the title also runs off. We can add "\\n" in the string
-for the title to insert a new line:
+Після наших змін можна помітити, що значення на осі x все ще не зовсім зручні для читання. Змінімо орієнтацію підписів і відрегулюємо їх вертикально та горизонтально, щоб вони не перекривалися. Можна використати кут 90 градусів або підібрати відповідний кут для діагонального розташування підписів. З більшим шрифтом заголовок теж може виходити за межі графіка. Ми можемо додати "\\n" у рядок заголовка, щоб вставити новий рядок:
 
 
 ``` r
@@ -896,9 +733,8 @@ percent_items %>%
 
 <img src="fig/05-ggplot2-rendered-ggplot-customization-label-orientation-1.png" alt="Multi-panel bar charts showing percent of respondents in each village and who owned each item, with grids behind the bars." style="display: block; margin: auto;" />
 
-If you like the changes you created better than the default theme, you can save
-them as an object to be able to easily apply them to other plots you may create.
-We can also add `plot.title = element_text(hjust = 0.5)` to centre the title:
+Якщо вам більше подобаються створені зміни у порівнянні з темою за замовчуванням, їх можна зберегти як об’єкт, щоб легко застосовувати до інших графіків, які ви створюватимете.
+Також можна додати `plot.title = element_text(hjust = 0.5)`, щоб вирівняти заголовок по центру:
 
 
 ``` r
@@ -924,24 +760,20 @@ percent_items %>%
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Exercise
+## Завдання
 
-With all of this information in hand, please take another five minutes to
-either improve one of the plots generated in this exercise or create a
-beautiful graph of your own. Use the RStudio [**`ggplot2`** cheat sheet](https://github.com/rstudio/cheatsheets/blob/main/data-visualization-2.1.pdf)
-for inspiration. Here are some ideas:
+Маючи всю цю інформацію, виділіть ще п’ять хвилин, щоб покращити один із графіків, створених у цьому завданні або створити власний гарний графік. Використайте RStudio [шпаргалку **`ggplot2`**](https://github.com/rstudio/cheatsheets/blob/main/data-visualization-2.1.pdf) для натхнення. Ось кілька ідей:
 
-- See if you can make the bars white with black outline.
-- Try using a different colour palette (see
-  [http://www.cookbook-r.com/Graphs/Colors\_(ggplot2)/](https://www.cookbook-r.com/Graphs/Colors_\\(ggplot2\\)/)).
+- Спробуйте зробити стовпці білими з чорним контуром.
+- Спробуйте використати іншу кольорову палітру (див. [http://www.cookbook-r.com/Graphs/Colors\_(ggplot2)/](https://www.cookbook-r.com/Graphs/Colors_\\(ggplot2\\)/)).
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-After creating your plot, you can save it to a file in your favourite format. The Export tab in the **Plot** pane in RStudio will save your plots at low resolution, which will not be accepted by many journals and will not scale well for posters.
+Після створення графіка його можна зберегти у файл у потрібному форматі. Вкладка Export у вікні **Plot** в RStudio зберігає графіки у низькій роздільній здатності, що не підійде для більшості журналів і погано масштабується для постерів.
 
-Instead, use the `ggsave()` function, which allows you to easily change the dimension and resolution of your plot by adjusting the appropriate arguments (`width`, `height` and `dpi`).
+Замість цього використовуйте функцію `ggsave()`, яка дозволяє легко змінювати розмір і роздільну здатність графіка, налаштовуючи відповідні аргументи (`width`, `height` і `dpi`).
 
-Make sure you have the `fig_output/` folder in your working directory.
+Переконайтеся, що у вашій робочій директорії є тека `fig_output/`.
 
 
 ``` r
@@ -962,16 +794,16 @@ my_plot <- percent_items %>%
 ggsave("fig_output/name_of_file.png", my_plot, width = 15, height = 10)
 ```
 
-Note: The parameters `width` and `height` also determine the font size in the saved plot.
+Примітка: параметри `width` і `hight` також визначають розмір шрифту на збереженому графіку.
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- `ggplot2` is a flexible and useful tool for creating plots in R.
-- The data set and coordinate system can be defined using the `ggplot` function.
-- Additional layers, including geoms, are added using the `+` operator.
-- Boxplots are useful for visualizing the distribution of a continuous variable.
-- Barplots are useful for visualizing categorical data.
-- Faceting allows you to generate multiple plots based on a categorical variable.
+- `ggplot2` є гнучким та корисним інструментом для створення графіків у R.
+- Набір даних і систему координат можна визначити за допомогою функції `ggplot`.
+- Додаткові шари, включно з geoms, додаються за допомогою оператора `+`.
+- Boxplot (коробковий графік) корисний для візуалізації розподілу числової змінної.
+- Barplot (стовпчастий графік) зручний для візуалізації категоріальних даних.
+- Faceting (фасетування) дозволяє створювати кілька графіків на основі категоріальної змінної.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 

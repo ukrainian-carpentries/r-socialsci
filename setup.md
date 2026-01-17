@@ -1,115 +1,80 @@
 ---
-title: Setup
+title: Налаштування
 ---
 
 ## Інструкції з налаштування
 
-**R** and **RStudio** are separate downloads and installations. R is the
-underlying statistical computing environment, but using R alone is no
-fun. RStudio — це графічне інтегроване середовище розробки (IDE), яке робить роботу з R значно простішою та більш інтерактивною. Перед встановленням RStudio необхідно встановити R. Once installed, because RStudio is an IDE, RStudio will run R in
-the background.  You do not need to run it separately.
+**R** та **RStudio** встановлюються окремо. R — це базове середовище для статистичних обчислень, але працювати лише з R не дуже зручно. RStudio — це графічне інтегроване середовище розробки (IDE), яке робить роботу з R значно простішою та більш інтерактивною. Перед встановленням RStudio необхідно встановити R. R буде автоматично запускатися у фоновому режимі під час користування RStudio.  Окремо запускати R не потрібно.
 
-After installing both programs,
-you will need to install the **`tidyverse`** package from within RStudio. The
-**`tidyverse`** package is a powerful collection of data science tools within **R**
-see the [**`tidyverse`** website](https://tidyverse.tidyverse.org) for more details.
-Follow the instructions below for your operating system, and then follow the
-instructions to install **`tidyverse`**.
+Після встановлення обох програм вам потрібно встановити пакет **`tidyverse`** безпосередньо з RStudio. Пакет **`tidyverse`** — це потужна колекція інструментів для аналізу даних у **R** (докладніше дивіться на [сайті **`tidyverse`**](https://tidyverse.tidyverse.org)).
+Дотримуйтесь інструкцій нижче для вашої операційної системи, а потім виконайте інструкції зі встановлення **`tidyverse`**.
 
 ### Windows
 
-#### If you already have R and RStudio installed
+#### Якщо у вас уже встановлені R та RStudio
 
-- Open RStudio, and click on "Help" > "Check for updates". If a new version is
-  available, quit RStudio, and download the latest version for RStudio.
-- To check which version of R you are using, start RStudio and the first thing
-  that appears in the console indicates the version of R you are
-  running. Alternatively, you can type `sessionInfo()`, which will also display
-  which version of R you are running. Go on
-  the [CRAN website](https://cran.r-project.org/bin/windows/base/) and check
-  whether a more recent version is available. If so, you can update R using
-  the `installr` package, by running:
+- Відкрийте RStudio та натисніть “Help” > “Check for updates”. Якщо доступна нова версія, закрийте RStudio та завантажте найновішу версію RStudio.
+- Щоб перевірити, яку версію R ви використовуєте, запустіть RStudio — версія R буде показана в першому повідомленні в консолі. Або ж ви можете ввести `sessionInfo()`, що також покаже версію R, яку ви використовуєте. Перейдіть на [сайт CRAN](https://cran.r-project.org/bin/windows/base/) і перевірте, чи доступна новіша версія. Якщо так, ви можете оновити R за допомогою пакета `installr`, виконавши:
 
 ```r
 if( !("installr" %in% installed.packages()) ){install.packages("installr")}
 installr::updateR(TRUE)
 ```
 
-#### If you don't have R and RStudio installed
+#### Якщо у вас не встановлено R та RStudio
 
-- Download R from
-  the [CRAN website](http://cran.r-project.org/bin/windows/base/release.htm).
-- Run the `.exe` file that was just downloaded.
-- Go to the [RStudio download page](https://posit.co/download/rstudio-desktop/).
-- Under _Installers_ select **RStudio x.yy.zzz - Windows.
-  Vista/7/8/10** (where x, y, and z represent version numbers).
-- Double click the file to install it.
-- Once it's installed, open RStudio to make sure it works and you don't get any
-  error messages.
+- Завантажте R з
+  [сайту CRAN](http://cran.r-project.org/bin/windows/base/release.htm).
+- Запустіть файл `.exe`, який був щойно завантажений.
+- Перейдіть на [сторінку завантаження RStudio](https://posit.co/download/rstudio-desktop/).
+- У розділі _Installers_ виберіть **RStudio x.yy.zzz - Windows.
+  Vista/7/8/10** (де x, y та z — номери версій).
+- Двічі клацніть на файлі, щоб установити його.
+- Після встановлення відкрийте RStudio, щоб переконатися, що він працює коректно і не з’являються повідомлення про помилки.
 
 ### macOS
 
-#### If you already have R and RStudio installed
+#### Якщо у вас уже встановлені R та RStudio
 
-- Open RStudio, and click on "Help" > "Check for updates". If a new version is
-  available, quit RStudio, and download the latest version for RStudio.
-- To check the version of R you are using, start RStudio and the first thing
-  that appears on the terminal indicates the version of R you are running. Alternatively, you can type `sessionInfo()`, which will also display which version of R you are running. Go on
-  the [CRAN website](https://cran.r-project.org/bin/macosx/) and check
-  whether a more recent version is available. If so, please download and install
-  it. In any case, make sure you have at least R 3.2.
+- Відкрийте RStudio та натисніть “Help” > “Check for updates”. Якщо доступна нова версія, закрийте RStudio та завантажте найновішу версію RStudio.
+- Щоб перевірити, яку версію R ви використовуєте, запустіть RStudio — версія R буде показана в першому повідомленні в консолі. Або ж ви можете ввести `sessionInfo()`, що також покаже версію R, яку ви використовуєте. Перейдіть на [сайт CRAN](https://cran.r-project.org/bin/macosx/) і перевірте, чи доступна новіша версія. Якщо так, будь ласка, завантажте та встановіть її. У будь-якому випадку переконайтеся, що у вас встановлена версія R не нижче 3.2.
 
-#### If you don't have R and RStudio installed
+#### Якщо у вас не встановлено R та RStudio
 
-- Download R from
-  the [CRAN website](http://cran.r-project.org/bin/macosx/).
-- Select the `.pkg` file for the latest R version.
-- Double click on the downloaded file to install R.
-- It is also a good idea to install [XQuartz](https://www.xquartz.org/) (needed
-  by some packages).
-- Go to the [RStudio download page](https://posit.co/download/rstudio-desktop/).
-- Under _Installers_ select **RStudio x.yy.zzz - Mac OS X 10.6+ (64-bit)**
-  (where x, y, and z represent version numbers).
-- Double click the file to install RStudio.
-- Once it's installed, open RStudio to make sure it works and you don't get any
-  error messages.
+- Завантажте R з
+  [сайту CRAN](http://cran.r-project.org/bin/macosx/).
+- Виберіть файл '.pkg' для останньої версії R.
+- Двічі клацніть на завантаженому файлі для встановлення R.
+- Також непогана ідея встановити [XQuartz](https://www.xquartz.org/) (потрібно для деяких пакетів).
+- Перейдіть на [сторінку завантаження RStudio](https://posit.co/download/rstudio-desktop/).
+- У розділі _Installers_ виберіть **RStudio x.yy.zzz - Mac OS X 10.6+ (64-bit)** (де x, y та z — номери версій).
+- Двічі клацніть на файлі, щоб установити його.
+- Після встановлення відкрийте RStudio, щоб переконатися, що він працює коректно і не з’являються повідомлення про помилки.
 
 ### Linux
 
-- Follow the instructions for your distribution
-  from [CRAN](https://cloud.r-project.org/bin/linux), they provide information
-  to get the most recent version of R for common distributions. For most
-  distributions, you could use your package manager (e.g., for Debian/Ubuntu run
-  `sudo apt-get install r-base`, and for Fedora `sudo yum install R`), but we
-  don't recommend this approach as the versions provided by this approach are
-  usually out of date. In any case, make sure you have at least R 3.2.
-- Go to the
-  [RStudio download page](https://posit.co/download/rstudio-desktop/).
-- Under _Installers_ select the version that matches your distribution, and
-  install it with your preferred method (e.g., with Debian/Ubuntu `sudo dpkg -i rstudio-x.yy.zzz-amd64.deb` at the terminal).
-- Once it's installed, open RStudio to make sure it works and you don't get any
-  error messages.
-- Before installing the `tidyverse` package, **Ubuntu** (and related) users may
-  need to install the following dependencies: `libcurl4-openssl-dev libssl-dev libxml2-dev`
-  (e.g. `sudo apt install libcurl4-openssl-dev libssl-dev libxml2-dev`).
+- Дотримуйтесь інструкцій для вашого дистрибутива
+  від [CRAN](https://cloud.r-project.org/bin/linux), там наведено інформацію про встановлення найновішої версії R для поширених дистрибутивів. Для більшості дистрибутивів можна скористатися менеджером пакетів (наприклад, для Debian/Ubuntu виконати `sudo apt-get install r-base`, а для Fedora `sudo yum install R`), але ми не рекомендуємо цей спосіб, оскільки версії R, встановлені таким чином, зазвичай застарілі. У будь-якому разі переконайтеся, що у вас встановлена версія R не нижче 3.2.
+- Перейдіть на [сторінку завантаження RStudio](https://posit.co/download/rstudio-desktop/).
+- У меню _Installers_ виберіть версію, яка відповідає вашому дистрибутиву і встановіть її вашим обраним методом (наприклад, у Debian/Ubuntu виконайте `sudo dpkg -i rstudio-x.yy.zzz-amd64.deb` у терміналі).
+- Після встановлення відкрийте RStudio, щоб переконатися, що він працює коректно і не з’являються повідомлення про помилки.
+- Перед встановленням пакета "tidyverse", користувачам **Ubuntu** (та споріднених дистрибутивів) може знадобитися встановити наступні залежності: `libcurl4-openssl-dev libssl-dev libxml2-dev`
+  (наприклад: `sudo apt install libcurl4-openssl-dev libssl-dev libxml2-dev`).
 
-### For everyone
+### Для всіх операційних систем
 
-**After installing R and RStudio, you need to install the `tidyverse` and `here` packages.**
+\*\*Після встановлення R і RStudio вам потрібно встановити пакети `tidyverse` та `here`. \*\*
 
-- After starting RStudio, at the console type:
-  `install.packages("tidyverse")` followed by the enter key. Once this has installed, type
-  `install.packages("here")` followed by the enter key. Both packages should now be installed.
+- Після запуску RStudio на консолі введіть:
+  `install.packages ("tidyverse")`, а потім натисніть клавішу Enter. Коли пакет буде встановлено, введіть
+  `install.packages ("here")`, а потім клавішу Enter. Обидва пакети тепер повинні бути встановлені.
 
-- For reference, the lesson uses `SAFI_clean.csv`. The direct download link for
-  this file is: [https://github.com/datacarpentry/r-socialsci/blob/main/episodes/data/SAFI_clean.csv](https://github.com/datacarpentry/r-socialsci/blob/main/episodes/data/SAFI_clean.csv).
-  This data is a slightly cleaned up version of the SAFI Survey Results available on
-  [figshare](https://figshare.com/articles/dataset/SAFI_Survey_Results/6262019).
-  Instructions for downloading the data with R are provided in the
-  [Before we start episode](https://datacarpentry.org/r-socialsci/00-intro.html).
+- Зауважте, що у цьому уроці використовується файл `SAFI_clean.csv`. Пряме посилання для завантаження
+  цього файлу: [https://github.com/datacarpentry/r-socialsci/blob/main/episodes/data/SAFI_clean.csv](https://github.com/datacarpentry/r-socialsci/blob/main/episodes/data/SAFI_clean.csv).
+  Ці дані є дещо очищеною версією результатів опитування SAFI Survey Results, доступних на [figshare](https://figshare.com/articles/dataset/SAFI_Survey_Results/6262019).
+  Інструкції щодо завантаження даних за допомогою R наведені в епізоді [Перед тим як почати](https://datacarpentry.org/r-socialsci/00-intro.html).
 
-- The [json episode](https://datacarpentry.org/r-socialsci/07-json.html) uses
-  `SAFI.json`. The file is available on GitHub
-  [here](https://github.com/datacarpentry/r-socialsci/blob/main/episodes/data/SAFI.json).
+- Епізод [json](https://datacarpentry.org/r-socialsci/07-json.html) використовує `SAFI.json`. Цей файл доступний на GitHub
+  [тут](https://github.com/datacarpentry/r-socialsci/blob/main/episodes/data/SAFI.json).
 
 

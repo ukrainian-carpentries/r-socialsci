@@ -1,5 +1,5 @@
 ---
-title: Processing JSON data (Optional)
+title: Обробка даних JSON (необов'язково)
 teaching: 30
 exercises: 15
 source: Rmd
@@ -9,16 +9,14 @@ source: Rmd
 
 :::: instructor
 
-- This is an optional lessons intended to introduce learners to JSON data, as well as how to
-  read JSON data into R and how to convert the data into a data frame or array.
-- Note that his lesson was community-contributed and remains a work in progress. As such, it could
-  benefit from feedback from instructors and/or workshop participants.
+- Цей урок необов’язковий і призначений для ознайомлення з даними у форматі JSON, зокрема з тим, як зчитувати JSON у R та конвертувати ці дані у датафрейм або масив.
+- Зауважте, що урок був створений спільнотою і досі знаходиться у процесі доопрацювання. Тому він може покращитися завдяки відгукам викладачів та/або учасників семінару.
 
 ::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Describe the JSON data format
+- Опис формату даних JSON
 - Understand where JSON is typically used
 - Appreciate some advantages of using JSON over tabular data
 - Appreciate some disadvantages of processing JSON documents

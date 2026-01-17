@@ -2,97 +2,96 @@
 {}
 ---
 
-## Glossary
+## Словник термінів
 
-Cheat sheet of functions used in the lessons
+Шпаргалка функцій, які використовуються у цих уроках
 
-### Lesson 1 -- Introduction to R
+### Урок 1 -- Введення у R
 
-- `sqrt()`    # calculate the square root
-- `round()`   # round a number
-- `args()`    # find what arguments a function takes
-- `length()`  # how many elements are in a particular vector
-- `class() `  # the class (the type of element) of an object
-- `str() `    # an overview of the object and the elements it contains
-- `typeof`    # determines the (R internal) type or storage mode of any object
-- `c() `      # create vector; add elements to vector
-- `[  ]`    # extract and subset vector
-- `%in% `     # to test if a value is found in a vector
-- `is.na()`   # test if there are missing values
-- `na.omit()` # Returns the object with incomplete cases removed
-- `complete.cases()`\# elements which are complete cases
+- `sqrt()`    # обчислює квадратний корінь
+- `round()`   # округлює число
+- `args()`    # показує, які аргументи приймає функція
+- `length()`  # кількість елементів у векторі
+- `class()`  # клас (тип елемента) об’єкта
+- `str()`    # огляд об’єкта та його елементів
+- `typeof()`    # визначає внутрішній тип або режим зберігання об’єкта в R
+- `c()`      # створює вектор; додає елементи до вектора
+- `[  ]`    # витягує підмножину вектора
+- `%in%`     # перевіряє, чи є значення у векторі
+- `is.na()`   # перевіряє наявність пропущених значень
+- `na.omit()` # повертає об’єкт без пропущених елементів
+- `complete.cases()`\# елементи, які є повними випадками
 
-### Lesson 2 -- Starting with Data
+### Урок 2 -- Починаємо з даних
 
-- `download.file() ` # download files from the internet to your computer
-- `read_csv() `   # load CSV file into R memory
-- `head() `       # shows the first 6 rows
-- `view()`        # invoke a spreadsheet-style data viewer
-- `read_delim()`  # load a file in table format into R memory
-- `str() `        # check structure of the object and information about the class, length and content of each column
-- `dim() `        # check dimension of data frame
-- `nrow() `       # returns the number of rows
-- `ncol() `       # returns the number of  columns
-- `tail() `       # shows the last 6 rows
-- `names() `      # returns the column names (synonym of colnames() for data frame objects)
-- `rownames() `   # returns the row names
-- `summary() `    # summary statistics for each column
-- `glimpse`       # like `str()` applied to a data frame but tries to show as much data as possible
-- `factor() `      # create factors
-- `levels() `      # check levels of a factor
-- `nlevels() `     # check number of levels of a factor
-- `as.character()` # convert an object to a character vector
-- `as.numeric()`   # convert an object to a numeric vector
-- `as.numeric(as.character(x))` # convert factors where the levels appear as characters to a numeric vector
-- `as.numeric(levels(x))[x]` # convert factors where the levels appear as numbers  to a numeric vector
-- `plot()`  # plot an object
-- `addNA()` # convert NA into a factor level
-- `data.frame()`  # create a data.frame object
-- `ymd()` # convert a vector representing year, month, and day to a Date vector
-- `paste()` # concatenate vectors after converting to character
+- `download.file()` # завантажує файли з Інтернету на комп’ютер
+- `read_csv()` # завантажує CSV-файл у пам’ять R
+- `head()`       # показує перші 6 рядків
+- `view()`        # відкриває переглядач даних у вигляді електронної таблиці
+- `read_delim()`  # завантажує файл у табличному форматі у пам’ять R
+- `str()`        # перевіряє структуру об’єкта та інформацію про клас, довжину та вміст кожної колонки
+- `dim()`        # показує розмірність датафрейму
+- `nrow()`       # повертає кількість рядків
+- `ncol()`       # повертає кількість стовпців
+- `tail()`       # показує останні 6 рядків
+- `names()`      # повертає назви стовпців (синонім colnames() для об’єктів датафрейму)
+- `rownames()`   # повертає назви рядків
+- `summary()`    # описова статистика для кожного стовпця
+- `glimpse()`       # схоже на `str()`, застосоване до датафрейму, але показує якомога більше даних
+- `factor()`      # створює фактори
+- `levels()`      # перевіряє рівні фактора
+- `nlevels()`     # перевіряє кількість рівнів фактора
+- `as.character()` # конвертує об’єкт у вектор символів
+- `as.numeric()`   # конвертує об’єкт у числовий вектор
+- `as.numeric(as.character(x))` # конвертує фактори, де рівні виглядають як символи, у числовий вектор
+- `as.numeric(levels(x))[x]` # конвертує фактори, де рівні виглядають як числа, у числовий вектор
+- `plot()`  # будує графік об’єкта
+- `addNA()` # перетворює NA на рівень фактора
+- `data.frame()`  # створює датафрейм
+- `ymd()` # конвертує вектор з роком, місяцем і днем у вектор Date
+- `paste()` # об’єднує вектори після перетворення у символи
 
-### Lesson 3 -- Data Wrangling with dplyr and tidyr
+### Урок 3 -- Маніпулювання даними за допомогою dplyr та tidyr
 
-- `str()` # check structure of the object and information about the class, length and content of each column
-- `view()` # invoke a spreadsheet-style data viewer
-- `select() `          # select columns of a data frame
-- `filter() `          # allows you to select a subset of rows in a data frame
-- `%>% `               # pipes to select and filter at the same time
-- `mutate() `          # create new columns based on the values in existing columns
-- `head() `       # shows the first 6 rows
-- `group_by() `        # split the data into groups, apply some analysis to each group, and then combine the results.
-- `summarize() `       # collapses each group into a single-row summary of that group
-- `mean()` # calculate the mean value of a vector
-- `!is.na()`   # test if there are no missing values
-- `print()` # print values to the console
-- `min()` # return the minimum value of a vector
-- `arrange()` # arrange rows by variables
-- `desc()` # transform a vector into a format that will be sorted in descending order
-- `count()` # counts the total number of records for each category
-- `pivot_wider()` # reshape a data frame by a key-value pair across multiple columns
-- `pivot_longer()` # reshape a data frame by collapsing into a key-value pair
-- `replace_na()`  # Replace NAs with specified values
-- `n_distinct()` # get a count of unique values
-- `write_csv()` # save to a csv formatted file
+- `str()` # перевіряє структуру об’єкта та інформацію про клас, довжину і вміст кожного стовпця
+- `view()` # відкриває перегляд даних у вигляді електронної таблиці
+- `select()`          # вибирає колонки з датафрейму
+- `filter()`          # дозволяє вибрати підмножину рядків у датафреймі
+- `%>% `               # для одночасного вибору та фільтрування
+- `mutate()`          # створює нові стовпці на основі значень стовпців, які вже існують
+- `head()`       # показує перші 6 рядків
+- `group_by()`        # розбиває дані на групи, застосовує аналіз до кожної групи та об’єднує результати.
+- `summarize()`       # зводить кожну групу до одного рядка з підсумковими показниками
+- `mean()` # обчислює середнє значення вектора
+- `!is.na()`   # перевіряє, чи немає відсутніх значень
+- `print()` # виводить значення в консоль
+- `min()` # повертає мінімальне значення вектора
+- `arrange()` # впорядковує рядки за змінними
+- `desc()` # перетворює вектор у формат, який буде відсортовано за зменшенням
+- `count()` # підраховує кількість записів для кожної категорії
+- `pivot_wider()` # змінює формат даних, розгортаючи ключ-значення у кілька стовпців
+- `pivot_longer()` # змінює формат даних, згортаючи кілька стовпців у пару ключ-значення
+- `replace_na()`  # замінює пропущені значення (NA) на задані
+- `n_distinct()` # повертає кількість унікальних значень
+- `write_csv()` # зберігає у файл формату csv
 
-### Lesson 4 -- Data Visualization with ggplot2
+### Урок 4 -- Візуалізація даних за допомогою ggplot2
 
-- `read_csv()` # load a csv formatted file into R memory
-- `ggplot2(data= , aes(x= , y= )) + geom_point( ) + facet_wrap () + theme_bw() + theme() ` # skeleton for creating plot layers
-- `aes()` # by selecting the variables to be plotted and the variables to
-  define the presentation such as plotting size, shape color, etc.
-- `geom_` # graphical representation of the data in the plot (points, lines, bars). To add a geom to the plot use + operator
-- `facet_wrap()` # allows to split one plot into multiple plots based on a factor included in the dataset
-- `labs()` # set labels to plot
-- `theme_bw()`   # set the background to white
-- `theme()`      # used to locally modify one or more theme elements in a specific ggplot object
-- `+`  # arrange ggplots horizontally
-- `/`   # arrange ggplots vertically
-- `plot_layout()`  # set width and height of individual plots in a patchwork of plots
-- `ggsave()` # save a ggplot
+- `read_csv()` # завантажує csv-файл у пам’ять R
+- `ggplot2(data= , aes(x= , y= )) + geom_point( ) + facet_wrap () + theme_bw() + theme()` # шаблон для графіка з шарами
+- `aes()` # вибір змінних, які будуть відображатися на графіку та змінних, що визначатимуть спосіб їх подання розмір, форма, колір тощо.
+- `geom_` # геометричне представлення даних на графіку (точки, лінії, стовпчики). Щоб додати geom до графіка, використовуйте оператор +
+- `facet_wrap()` # дозволяє розбити один графік на кілька підграфіків за факторною змінною з набору даних
+- `labs()` # задає підписи до графіка
+- `theme_bw()`   # встановлює білий фон графіка
+- `theme()`      # використовується для локальної зміни одного або кількох елементів теми в конкретному ggplot об’єкті
+- `+`  # розміщує ggplot графіки горизонтально
+- `/`   # розміщує ggplot графіки вертикально
+- `plot_layout()`  # задає ширину та висоту окремих графіків у композиції (patchwork)
+- `ggsave()` # зберігає ggplot графік
 
-### Lesson 5 -- Processing JSON data
+### Урок 5 -- Обробка даних JSON
 
-- `read_json()` # load json object to an R object
+- `read_json()`# завантажити об'єкт json до об'єкта R
 
 

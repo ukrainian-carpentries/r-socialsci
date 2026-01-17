@@ -9,22 +9,22 @@ source: Rmd
 
 :::: instructor
 
-- This lesson works better if you have graphics demonstrating dplyr commands.
-  You can modify [this Google Slides deck](https://docs.google.com/presentation/d/1A9abypFdFp8urAe9z7GCMjFr4aPeIb8mZAtJA2F7H0w/edit#slide=id.g652714585f_0_114) and use it for your workshop.
-- For this lesson make sure that learners are comfortable using pipes.
-- There is also sometimes some confusion on what the arguments of `group_by`
-  should be, and when to use `filter()` and `select()`.
+- Цей урок буде зрозумілішим, якщо використовувати графіки, які наочно демонструють роботу команд dplyr.
+  Ви можете змінити [цю презентацію Google Slides](https://docs.google.com/presentation/d/1A9abypFdFp8urAe9z7GCMjFr4aPeIb8mZAtJA2F7H0w/edit#slide=id.g652714585f_0_114) та використати для свого семінару.
+- Для цього уроку переконайтеся, що учні впевнено користуються оператором pipe (%>%).
+- Також іноді виникає деяка плутанина щодо того, якими мають бути аргументи `group_by`
+  , а також коли використовувати `filter ()` та `select ()`.
 
 ::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Describe the purpose of an R package and the **`dplyr`** package.
-- Select certain columns in a dataframe with the **`dplyr`** function `select`.
-- Select certain rows in a dataframe according to filtering conditions with the **`dplyr`** function `filter`.
-- Link the output of one **`dplyr`** function to the input of another function with the 'pipe' operator `%>%`.
-- Add new columns to a dataframe that are functions of existing columns with `mutate`.
-- Use the split-apply-combine concept for data analysis.
+- Описати призначення пакета R та пакету **`dplyr`**.
+- Вибрати певні стовпці датафрейму за допомогою функції `select` з пакета **`dplyr`**.
+- Вибрати певні рядки датафрейму відповідно до умов фільтрації за допомогою функції `filter` з пакета **`dplyr`**.
+- Поєднати результат однієї з функції **`dplyr`** з введенням іншої функції з оператором 'pipe' `%>%`.
+- Додати нові стовпці до датафрейму, які є функціями наявних стовпців за допомогою `mutate`.
+- Використати концепцію розділення-застосування-комбінування для аналізу даних.
 - Use `summarize`, `group_by`, and `count` to split a dataframe into groups of observations, apply a summary statistics for each group, and then combine the results.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::

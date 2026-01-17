@@ -1,5 +1,5 @@
 ---
-title: Introduction to R
+title: Введення до R
 teaching: 50
 exercises: 30
 source: Rmd
@@ -9,43 +9,41 @@ source: Rmd
 
 :::: instructor
 
-- The main goal is to introduce users to the various objects in R, from atomic types
-  to creating your own objects.
-- While this epsiode is foundational, be careful not to get caught in the weeds as the
-  variety of types and operations can be overwhelming for new users, especially before
-  they understand how this fits into their own "workflow."
+- Основна мета - познайомити користувачів з різними об'єктами в R, від елементарних типів
+  до створення власних об'єктів.
+- Хоча цей розділ є базовим, будьте обережні, щоб не "загрузнути в деталях", адже різноманіття типів і операцій може бути надто складним для новачків — особливо до того, як вони зрозуміють, як усе це вписується у їх власний "робочий процес".
 
 ::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Define the following terms as they relate to R: object, assign, call, function, arguments, options.
-- Assign values to names in R.
-- Learn how to name objects.
-- Use comments to inform script.
-- Solve simple arithmetic operations in R.
-- Call functions and use arguments to change their default options.
-- Inspect the content of vectors and manipulate their content.
-- Subset values from vectors.
-- Analyze vectors with missing data.
+- Визначити такі терміни, як вони стосуються R: об'єкт, призначення, виклик, функція, аргументи, параметри.
+- Призначити значення іменам у R.
+- Дізнатися, як називати об'єкти.
+- Використовувати коментарі для інформування сценарію.
+- Розв'язувати прості арифметичні операції в R.
+- Викликати функції та використовувати аргументи, щоб змінити їх параметри за замовчуванням.
+- Оглянути вміст векторів і маніпулювати їх вмістом.
+- Значення підмножини з векторів.
+- Аналізувати вектори з відсутніми даними.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- What data types are available in R?
-- What is an object?
-- How can objects of different data types be assigned to names?
-- What arithmetic and logical operators can be used?
-- How can subsets be extracted from vectors?
-- How does R treat missing values?
-- How can we deal with missing values in R?
+- Які типи даних доступні в R?
+- Що таке об'єкт?
+- Як можна присвоювати іменам об'єкти різних типів даних?
+- Які арифметичні та логічні оператори можна використовувати?
+- Як можна отримати підмножини з векторів?
+- Як в R трактувати відсутні значення?
+- Як ми можемо впоратися з відсутніми значеннями в R?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Creating objects in R
+## Створення об'єктів в R
 
-You can get output from R simply by typing math in the console:
+Ви можете використовувати R для простих математичних обчислень, друкуючи формули у консолі:
 
 
 ``` r
@@ -64,78 +62,72 @@ You can get output from R simply by typing math in the console:
 [1] 1.714286
 ```
 
-Everything that exists in `R` is an objects: from simple numerical values, to strings, to more complex objects like vectors, matrices, and lists. Even expressions and functions are objects in `R`.
+Все, що існує в `R` - це об'єкти: від простих числових значень та рядків до складніших об'єктів, таких як вектори, матриці та списки. Навіть вирази й функції є об'єктами в `R`.
 
-However, to do useful and interesting things, we need to name objects. To do so, we need to give a _name_ followed by the assignment operator `<-`, and the _object_ we want to be named:
+Однак, щоб робити корисні та цікаві речі, нам потрібно звертатися до об'єктів. Для цього нам потрібно вказати _ім'я_, за яким слідує оператор присвоєння `<-`, і _об'єкт_, який ми хочемо назвати:
 
 
 ``` r
 areaHectares <- 1.0
 ```
 
-`<-` is the assignment operator. It assigns values (objects) on the right to names (also called _symbols_) on
-the left. So, after executing `x <- 3`, the value of `x` is `3`. The arrow can
-be read as 3 **goes into** `x`.  For historical reasons, you can also use `=`
-for assignments, but not in every context. Because of the
-[slight differences](https://blog.revolutionanalytics.com/2008/12/use-equals-or-arrow-for-assignment.html)
-in syntax, it is good practice to always use `<-` for assignments. More
-generally we prefer the `<-` syntax over `=` because it makes it clear what
-direction the assignment is operating (left assignment), and it increases the
-read-ability of the code.
+`<-` - оператор присвоєння. Він призначає значення (об'єкти) праворуч іменам (також званим _символами_) на
+ліворуч. Отже, після виконання `x <- 3` значення `x` дорівнює `3`. Стрілку
+можна прочитати як 3 **переходить в** `x`.  З історичних причин ви також можете використовувати `=`
+для присвоєння, але не в кожному контексті. Через
+[незначні відмінності](https://blog.revolutionanalytics.com/2008/12/use-equals-or-arrow-for-assignment.html)
+у синтаксисі, рекомендується завжди використовувати `<-` для присвоєння. Більше
+загалом ми віддаємо перевагу синтаксису `<-` перед `=`, оскільки він дає зрозуміти, в якому напрямку
+працює призначення (ліве призначення), і це збільшує читабельність коду.
 
-In RStudio, typing <kbd>Alt</kbd> + <kbd>\-</kbd> (push <kbd>Alt</kbd> at the
-same time as the <kbd>\-</kbd> key) will write `<- ` in a single keystroke in a
-PC, while typing <kbd>Option</kbd> + <kbd>\-</kbd> (push <kbd>Option</kbd> at the
-same time as the <kbd>\-</kbd> key) does the same in a Mac.
+У RStudio ввівши <kbd>Alt</kbd> + <kbd>\-</kbd> (натискайте <kbd>Alt</kbd>
+одночасно з клавішею <kbd>\-</kbd>) запише `<- ` за допомогою лише однієї комбінації швидких клавіш у Windows. На Mac, те ж саме можна зробити, вводячи <kbd>Option</kbd> + <kbd>\-</kbd> (натискайте <kbd>Option</kbd> одночасно з клавішею <kbd>\-</kbd>).
 
-Objects can be given any name such as `x`, `current_temperature`, or
-`subject_id`. You want your object names to be explicit and not too long. They
-cannot start with a number (`2x` is not valid, but `x2` is). R is case sensitive
-(e.g., `age` is different from `Age`). There are some names that
-cannot be used because they are the names of fundamental objects in R (e.g.,
-`if`, `else`, `for`, see
-[here](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html)
-for a complete list). In general, even if it's allowed, it's best to not use
-them (e.g., `c`, `T`, `mean`, `data`, `df`, `weights`). If in
-doubt, check the help to see if the name is already in use. It's also best to
-avoid dots (`.`) within an object name as in `my.dataset`. There are many
-objects in R with dots in their names for historical reasons, but because dots
-have a special meaning in R (for methods) and other programming languages, it's
-best to avoid them. The recommended writing style is called snake\_case, which
-implies using only lowercaseletters and numbers and separating each word with
-underscores (e.g., animals\_weight, average\_income). It is also recommended to use nouns for object names, and
-verbs for function names. It's important to be consistent in the styling of your
-code (where you put spaces, how you name objects, etc.). Using a consistent
-coding style makes your code clearer to read for your future self and your
-collaborators. In R, three popular style guides are
-[Google's](https://google.github.io/styleguide/Rguide.xml), Jean
-Fan's and the
-[tidyverse's](https://style.tidyverse.org/). The tidyverse's is very
-comprehensive and may seem overwhelming at first. You can install the
-[**`lintr`**](https://github.com/jimhester/lintr) package to automatically check
-for issues in the styling of your code.
+Об'єктам можна дати будь-яку назву, наприклад `x`, `current_temperature` або
+`subject_id`. Ви хочете, щоб ваші назви об'єктів були явними й не надто довгими. Вони
+не можуть починатися з числа (`2x` не є дійсним, але `x2` є). R чутливий до регістру
+(наприклад, `age` відрізняється від `Age`). Є деякі назви, які
+не можна використовувати, оскільки вони є назвами фундаментальних об'єктів у R (наприклад,
+`if`, `else`, `for`, див.
+[тут](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html)
+для повного списку). Загалом, навіть якщо це дозволено, краще не використовувати їх
+(наприклад, `c`, `T`, `mean`, `data`, `df`, `weights`). Якщо ви
+сумніваєтесь, перевірте довідку, щоб побачити, чи ім'я вже використовується. Також краще
+уникати крапок (`.`) у назві об'єкта, як у `my.dataset`. Існує багато об'єктів
+в R з крапками в назвах з історичних причин, але оскільки точки
+мають особливе значення в R (для методів) та інших мовах програмування,
+краще уникати їх. Рекомендований стиль написання називається snake\ _case, що
+передбачає використання лише малих літер та цифр та розділення кожного слова підкресленням
+(наприклад, animal\ _weight, average\ _income). Також рекомендується використовувати іменники для назв об'єктів, а дієслова
+для назв функцій. Важливо бути послідовним у стилізації вашого коду
+(де ви розміщуєте пробіли, як ви називаєте об'єкти тощо). Використання послідовного стилю кодування
+робить ваш код зрозумілішим для читання для вас та ваших співробітників. У R три популярні посібники зі стилю:
+[Google](https://google.github.io/styleguide/Rguide.xml), Jean
+Fan's та
+[tidyverse](https://style.tidyverse.org/). Tidyverse дуже вичерпний
+і спочатку може здатися приголомшливим. Ви можете встановити пакет
+[**`lintr`**](https://github.com/jimhester/lintr), щоб автоматично перевіряти
+на наявність проблем у стилі вашого коду.
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
-## Objects vs. variables
+## Об'єкти проти змінних
 
-The naming of objects in `R` is somehow related to `variables` in many other
-programming languages. In many programming languages, a variable has three aspects: a name, a memory location, and the current value stored in this location. `R` abstracts from modifiable memory locations. In `R` we only have objects which cn be named.
-Depending on the context, `name (of an object)` and `variable` can
-have drastically different meanings. However, in this lesson, the two words
-are used synonymously. For more information see:
+Іменування об'єктів у `R` якось пов'язане з `змінними` у багатьох інших мовах програмування. У багатьох мовах програмування змінна має три аспекти: ім'я, місце розташування пам'яті та поточне значення, що зберігається в цьому місці. `R` абстракції з модифікованих місць пам'яті. У `R` ми маємо лише об'єкти, які можна назвати.
+Залежно від контексту `name (of a object) `і `variable`
+можуть мати різко різні значення. Однак у цьому уроці два слова
+використовуються як синоніми. Для отримання додаткової інформації див.:
 [https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Objects](https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Objects)
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-When assigning an value to a name, R does not print anything. You
-can force R to print the value by using parentheses or by typing
-the object name:
+При присвоюванні значення назви, R не друкує нічого. Ви можете змусити R надрукувати значення за допомогою дужок або ввівши
+назву об'єкта:
 
 
 ``` r
-area_hectares <- 1.0    # doesn't print anything
-(area_hectares <- 1.0)  # putting parenthesis around the call prints the value of `area_hectares`
+area_hectares <- 1.0    # не виводить нічого
+(area_hectares <- 1.0)  # якщо взяти вираз у дужки — він надрукує значення `area_hectares`
 ```
 
 ``` output
@@ -143,15 +135,14 @@ area_hectares <- 1.0    # doesn't print anything
 ```
 
 ``` r
-area_hectares         # and so does typing the name of the object
+area_hectares           # друкує значення також, якщо просто ввести назву об’єкта
 ```
 
 ``` output
 [1] 1
 ```
 
-Now that R has `area_hectares` in memory, we can do arithmetic with it. For
-instance, we may want to convert this area into acres (area in acres is 2.47 times the area in hectares):
+Тепер, коли R має `area_hectares` в пам'яті, ми можемо робити з ним арифметичні операції. Наприклад, ми можемо захотіти перетворити цю площу на гектари (площа в акрах дорівнює 2,47 р. більше площі в гектарах):
 
 
 ``` r
@@ -162,7 +153,7 @@ instance, we may want to convert this area into acres (area in acres is 2.47 tim
 [1] 2.47
 ```
 
-We can also change an the value assigned to an name by assigning it a new one:
+Ми також можемо змінити значення, присвоєне імені, призначивши йому нове:
 
 
 ``` r
@@ -174,16 +165,15 @@ area_hectares <- 2.5
 [1] 6.175
 ```
 
-This means that assigning a value to one name does not change the values of
-other names. For example, let's name the plot's area in acres
-`area_acres`:
+Це означає, що присвоєння значення одному імені не змінює значення інших імен. Наприклад, назвемо площу ділянки в акрах
+`areaAcres`:
 
 
 ``` r
 area_acres <- 2.47 * area_hectares
 ```
 
-and then change (reassign) `area_hectares` to 50.
+потім змінити (перепризначити) `area_hectares` на 50.
 
 
 ``` r
@@ -192,14 +182,14 @@ area_hectares <- 50
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Exercise
+## Завдання
 
-What do you think is the current value of `area_acres`? 123.5 or
+Як ви думаєте, яке поточне значення `area_acres`? 123.5 або
 6\.175?
 
 :::::::::::::::  solution
 
-## Solution
+## Рішення
 
 The value of `area_acres` is still 6.175 because you have not
 re-run the line `area_acres <- 2.47 * area_hectares` since

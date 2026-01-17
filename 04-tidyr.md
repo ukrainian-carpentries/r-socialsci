@@ -1,5 +1,5 @@
 ---
-title: Data Wrangling with tidyr
+title: Маніпулювання даними за допомогою пакету tidyr
 teaching: 25
 exercises: 15
 source: Rmd
@@ -9,72 +9,63 @@ source: Rmd
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Describe the concept of a wide and a long table format and for which purpose those formats are useful.
-- Describe the roles of variable names and their associated values when a table is reshaped.
-- Reshape a dataframe from long to wide format and back with the `pivot_wider` and `pivot_longer` commands from the **`tidyr`** package.
-- Export a dataframe to a csv file.
+- Описати концепцію широкого та довгого форматів таблиць, а також цілі, для яких ці формати корисні.
+- Описати ролі назв змінних та пов'язаних із ними значень під час зміни форми таблиці.
+- Переформатувати датафрейм з довгого формату на широкий і назад за допомогою команд `pivot_wider` та `pivot_longer` з пакета **`tidyr`**.
+- Експортувати дата фрейм у файл csv.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- How can I reformat a data frame to meet my needs?
+- Як я можу переформатувати датафрейм відповідно до своїх потреб?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-**`dplyr`** pairs nicely with **`tidyr`** which enables you to swiftly
-convert between different data formats (long vs. wide) for plotting and analysis.
-To learn more about **`tidyr`** after the workshop, you may want to check out this
-handy data tidying with .
+**`dplyr`** чудово поєднується з **`tidyr`**, що дає змогу швидко
+перетворювати дані між різними форматами (довгим і широким) для візуалізації та аналізу.
+Щоб дізнатися більше про **`tidyr`** курсу, ви можете переглянути цю
+[зручну шпаргалку з маніпулювання даними за допомогою **`tidyr`**](https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf).
 
-To make sure everyone will use the same dataset for this lesson, we'll read
-again the SAFI dataset that we downloaded earlier.
+Щоб переконатися, що всі використовуватимуть один і той самий набір даних для цього уроку, ми знову зчитаємо набір даних SAFI, який завантажили раніше.
 
 
 ``` r
-## load the tidyverse
+## завантажити бібліотеку tidyverse
 library(tidyverse)
 library(here)
 
 interviews <- read_csv(here("data", "SAFI_clean.csv"), na = "NULL")
 
-## inspect the data
+## перевірте дані
 interviews
 
-## preview the data
+## попередній перегляд даних
 # view(interviews)
 ```
 
-## Reshaping with pivot\_wider() and pivot\_longer()
+## Переформатування даних за допомогою pivot\_wider() і pivot\_longer()
 
-There are essentially three rules that define a "tidy" dataset:
+Існує три основні правила, які визначають "охайний" набір даних:
 
-1. Each variable has its own column
-2. Each observation has its own row
-3. Each value must have its own cell
+1. Кожна змінна має свій стовпець
+2. Кожне спостереження має свій рядок
+3. Кожне значення має свою окрему клітинку
 
-This graphic visually represents the three rules that define a "tidy" dataset:
+Цей графік візуально ілюструє три правила, що визначають "охайний" набір даних:
 
 ![](fig/tidy-data-wickham.png)
 _R for Data Science_, Wickham H and Grolemund G ([https://r4ds.had.co.nz/index.html](https://r4ds.had.co.nz/index.html))
 © Wickham, Grolemund 2017
 This image is licenced under Attribution-NonCommercial-NoDerivs 3.0 United States (CC-BY-NC-ND 3.0 US)
 
-In this section we will explore how these rules are linked to the different
-data formats researchers are often interested in: "wide" and "long". This
-tutorial will help you efficiently transform your data shape regardless of
-original format. First we will explore qualities of the `interviews` data and
-how they relate to these different types of data formats.
+У цьому розділі ми розглянемо, як ці правила пов’язані з різними форматами даних, які зазвичай цікавлять дослідників: "широким" і "довгим". Цей матеріал допоможе вам ефективно змінювати форму ваших даних незалежно від їх початкового формату. Спершу ми розглянемо характеристики даних `interviews` і те, як вони пов’язані з різними типами форматів даних.
 
-### Long and wide data formats
+### Довгі та широкі формати даних
 
-In the `interviews` data, each row contains the values of variables associated
-with each record collected (each interview in the villages). It is stated
-that the `key_ID` was "added to provide a unique Id for each observation"
-and the `instanceID` "does this as well but it is not as convenient to use."
+У наборі даних `interviews` кожен рядок містить значення змінних, пов’язаних із кожним записом (кожним інтерв’ю у селах). Зазначено, що `key_ID` "додано для надання унікального ідентифікатора для кожного спостереження", а `instanceID` "робить те саме, але його не так зручно використовувати".
 
-Once we have established that `key_ID` and `instanceID` are both unique we can use
-either variable as an identifier corresponding to the 131 interview records.
+Після того, як ми визначили, що `key_ID` і `instanceID` обидва є унікальними, ми можемо використовувати будь-яку з цих змінних як ідентифікатор для 131 запису інтерв’ю.
 
 
 ``` r
@@ -88,9 +79,7 @@ interviews %>%
 [1] 131
 ```
 
-As seen in the code below, for each interview date in each village no
-`instanceID`s are the same. Thus, this format is what is called a "long" data
-format, where each observation occupies only one row in the dataframe.
+Як видно з наведеного нижче коду, для кожної дати інтерв’ю в кожному селі `instanceID`s не повторюються. Таким чином, цей формат називається "довгим" форматом даних, де кожне спостереження займає лише один рядок у датафреймі.
 
 
 ``` r
@@ -104,163 +93,90 @@ interviews %>%
 # A tibble: 10 × 4
    key_ID village  interview_date      instanceID                               
     <dbl> <chr>    <dttm>              <chr>                                    
- 1     57 Chirodzo 2016-11-16 00:00:00 uuid:a7184e55-0615-492d-9835-8f44f3b03a71
- 2     67 Chirodzo 2016-11-16 00:00:00 uuid:6c15d667-2860-47e3-a5e7-7f679271e419
- 3     10 Chirodzo 2016-12-16 00:00:00 uuid:8f4e49bc-da81-4356-ae34-e0d794a23721
- 4      9 Chirodzo 2016-11-16 00:00:00 uuid:846103d2-b1db-4055-b502-9cd510bb7b37
- 5     37 Chirodzo 2016-11-17 00:00:00 uuid:408c6c93-d723-45ef-8dee-1b1bd3fe20cd
- 6     66 Chirodzo 2016-11-16 00:00:00 uuid:a457eab8-971b-4417-a971-2e55b8702816
- 7     60 Chirodzo 2016-11-16 00:00:00 uuid:85465caf-23e4-4283-bb72-a0ef30e30176
- 8     49 Chirodzo 2016-11-16 00:00:00 uuid:2303ebc1-2b3c-475a-8916-b322ebf18440
+ 1     35 Chirodzo 2016-11-17 00:00:00 uuid:ff7496e7-984a-47d3-a8a1-13618b5683ce
+ 2     54 Chirodzo 2016-11-16 00:00:00 uuid:273ab27f-9be3-4f3b-83c9-d3e1592de919
+ 3     63 Chirodzo 2016-11-16 00:00:00 uuid:86ed4328-7688-462f-aac7-d6518414526a
+ 4     60 Chirodzo 2016-11-16 00:00:00 uuid:85465caf-23e4-4283-bb72-a0ef30e30176
+ 5     44 Chirodzo 2016-11-17 00:00:00 uuid:f9fadf44-d040-4fca-86c1-2835f79c4952
+ 6     64 Chirodzo 2016-11-16 00:00:00 uuid:28cfd718-bf62-4d90-8100-55fafbe45d06
+ 7     62 Chirodzo 2016-11-16 00:00:00 uuid:c6597ecc-cc2a-4c35-a6dc-e62c71b345d6
+ 8      9 Chirodzo 2016-11-16 00:00:00 uuid:846103d2-b1db-4055-b502-9cd510bb7b37
  9     55 Chirodzo 2016-11-16 00:00:00 uuid:883c0433-9891-4121-bc63-744f082c1fa0
-10    127 Chirodzo 2016-11-16 00:00:00 uuid:f6d04b41-b539-4e00-868a-0f62b427587d
+10     58 Chirodzo 2016-11-16 00:00:00 uuid:a7a3451f-cd0d-4027-82d9-8dcd1234fcca
 ```
 
-We notice that the layout or format of the `interviews` data is in a format that
-adheres to rules 1-3, where
+Можемо помітити, що структура або формат даних `interviews` відповідає правилам 1-3, де
 
-- each column is a variable
-- each row is an observation
-- each value has its own cell
+- кожен стовпець є змінною
+- кожен ряд є спостереженням
+- кожне значення має свою окрему клітинку
 
-This is called a "long" data format. But, we notice that each column represents
-a different variable. In the "longest" data format there would only be three
-columns, one for the id variable, one for the observed variable, and one for the
-observed value (of that variable). This data format is quite unsightly
-and difficult to work with, so you will rarely see it in use.
+Це називають "довгим" форматом даних. Але зауважте, що кожен стовпець представляє різну змінну. У "найдовшому" форматі даних було б лише три стовпці: один для змінної-ідентифікатора, один для спостережуваної змінної та один для спостережуваного значення цієї змінної. Такий формат даних досить незручний і складний для роботи, тому його рідко використовують на практиці.
 
-Alternatively, in a "wide" data format we see modifications to rule 1, where
-each column no longer represents a single variable. Instead, columns can
-represent different levels/values of a variable. For instance, in some data you
-encounter the researchers may have chosen for every survey date to be a
-different column.
+Крім того, у "широкому" форматі даних спостерігаються зміни в правилі 1: тепер кожен стовпець більше не обов’язково представляє лише одну змінну. Натомість стовпці можуть зображати різні рівні/значення змінної. Наприклад, у деяких наборах даних дослідники могли обрати, щоб кожна дата опитування була окремим стовпцем.
 
-These may sound like dramatically different data layouts, but there are some
-tools that make transitions between these layouts much simpler than you might
-think! The gif below shows how these two formats relate to each other, and
-gives you an idea of how we can use R to shift from one format to the other.
+Хоча ці формати можуть здаватися радикально різними, існують інструменти, які роблять перехід між ними значно простішим, ніж може здатися! Гіф нижче показує, як ці два формати пов’язані між собою і дає уявлення про те, як можна використовувати R для переходу від одного формату до іншого.
 
 ![](fig/tidyr-pivot_wider_longer.gif)
-Long and wide dataframe layouts mainly affect readability. You may find that
-visually you may prefer the "wide" format, since you can see more of the data on
-the screen. However, all of the R functions we have used thus far expect for
-your data to be in a "long" data format. This is because the long format is more
-machine readable and is closer to the formatting of databases.
+Розташування даних у довгому та широкому форматах головним чином впливає на зручність перегляду. Візуально вам може більше подобатися "широкий" формат, оскільки на екрані можна побачити більше даних. Проте всі функції R, які ми використовували досі, очікують, що дані будуть у "довгому" форматі. Це пояснюється тим, що довгий формат легше сприймається машиною і ближчий до формату баз даних.
 
-### Questions which warrant different data formats
+### Питання, які вимагають різних форматів даних
 
-In interviews, each row contains the values of variables associated with each
-record (the unit), values such as the village of the respondent, the number
-of household members, or the type of wall their house had. This format allows
-for us to make comparisons across individual surveys, but what if we wanted to
-look at differences in households grouped by different types of items owned?
+У даних інтерв’ю кожен рядок містить значення змінних, пов’язаних із кожним записом (одиницею), такі як село респондента, кількість членів домогосподарства або тип стіни їхнього будинку. Такий формат дозволяє порівнювати окремі опитування, але що робити, якщо ми хочемо розглянути відмінності між домогосподарствами, згрупованими за різними типами власності?
 
-To facilitate this comparison we would need to create a new table where each row
-(the unit) was comprised of values of variables associated with items owned
-(i.e., `items_owned`). In practical terms this means the values of
-the items in `items_owned` (e.g. bicycle,
-radio, table, etc.) would become the names of column variables and
-the cells would contain values of `TRUE` or `FALSE`, for whether that household
-had that item.
+Щоб полегшити таке порівняння, потрібно створити нову таблицю, де кожен рядок (одиниця) складатиметься зі значень змінних, пов’язаних із власністю (тобто `items_owned`). Практично це означає, що значення елементів у `items_owned` (наприклад, велосипед, радіо, стіл тощо) стануть назвами стовпців, а клітинки міститимуть значення `TRUE` або `FALSE`, залежно від того, чи має домогосподарство цей предмет.
 
-Once we we've created this new table, we can explore the relationship within and
-between villages. The key point here is that we are still following a tidy data
-structure, but we have **reshaped** the data according to the observations of
-interest.
+Після створення такої таблиці ми можемо досліджувати взаємозв’язки всередині та між селами. Ключовий момент тут у тому, що ми все ще дотримуємося структури охайних даних, але **переформатували** дані відповідно до потрібних спостережень.
 
-Alternatively, if the interview dates were spread across multiple columns, and
-we were interested in visualizing, within each village, how irrigation
-conflicts have changed over time. This would require for the interview date to
-be included in a single column rather than spread across multiple columns. Thus,
-we would need to transform the column names into values of a variable.
+Крім того, якщо дати інтерв’ю розташовані у кількох стовпцях, а нас цікавить візуалізація того, як змінювалися конфлікти щодо зрошення з часом у кожному селі. Для цього потрібно, щоб дати інтерв’ю були включені в один стовпець, а не розкидані по кількох. Таким чином, нам потрібно перетворити назви стовпців на значення змінної.
 
-We can do both of these transformations with two `tidyr` functions,
-`pivot_wider()` and `pivot_longer()`.
+Обидві ці трансформації можна виконати за допомогою двох функцій пакета `tidyr`: `pivot_wider()` та `pivot_longer()`.
 
-## Pivoting wider
+## Перетворення у широкий формат
 
-`pivot_wider()` takes three principal arguments:
+`pivot_wider()` має три основні аргументи:
 
-1. the data
-2. the _names\_from_ column variable whose values will become new column names.
-3. the _values\_from_ column variable whose values will fill the new column
-   variables.
+1. дані
+2. змінна _names\_from_, значення якої стануть новими назвами стовпців.
+3. змінна _values\_from_, значення якої заповнюватимуть нові стовпці.
 
-Further arguments include `values_fill` which, if set, fills in missing values
-with the value provided.
+Додаткові аргументи включають `values_fill`, який, якщо його встановити, заповнює пропущені значення вказаним значенням.
 
-Let's use `pivot_wider()` to transform interviews to create new columns for each
-item owned by a household.
-There are a couple of new concepts in this transformation, so let's walk through
-it line by line. First we create a new object (`interviews_items_owned`) based on
-the `interviews` data frame.
+Використаймо `pivot_wider()`, щоб перетворити interviews і створити нові стовпці для кожного предмета, яким володіє домогосподарство.
+У цій трансформації є кілька нових концепцій, тому розглянемо її крок за кроком. Спершу ми створимо новий об’єкт (`interviews_items_owned`) на основі датафрейму `interviews`.
 
 
 ``` r
 interviews_items_owned <- interviews %>%
 ```
 
-Then we will actually need to make our data frame longer, because we have
-multiple items in a single cell.
-We will use a new function, `separate_longer_delim()`, from the **`tidyr`** package
-to separate the values of `items_owned` based on the presence of semi-colons (`;`).
-The values of this variable were multiple items separated by semi-colons, so
-this action creates a row for each item listed in a household's possession.
-Thus, we end up with a long format version of the dataset, with multiple rows
-for each respondent. For example, if a respondent has a television and a solar
-panel, that respondent will now have two rows, one with "television" and the
-other with "solar panel" in the `items_owned` column.
+Тоді нам насправді потрібно зробити наш датафрейм довшим, тому що в одній клітинці міститься кілька предметів.
+Ми використаємо нову функцію `separate_longer_delim()` з пакета **`tidyr`**, щоб розділити значення змінної `items_owned` за наявністю крапок з комою (`;`).
+Значення цієї змінної містили кілька предметів, розділених крапками з комою, тому ця операція створює окремий рядок для кожного предмета, зазначеного у власності домогосподарства.
+Таким чином ми отримуємо довгу версію набору даних — з кількома рядками для кожного респондента. Наприклад, якщо респондент має телевізор і сонячну панель, то тепер у нього буде два рядки: один із "television", а інший із "solar panel" у стовпці `items_owned`.
 
 
 ``` r
 separate_longer_delim(items_owned, delim = ";") %>%
 ```
 
-After this transformation, you may notice that the `items_owned` column contains
-`NA` values. This is because some of the respondents did not own any of the items
-in the interviewer's list. We can use the `replace_na()` function to
-change these `NA` values to something more meaningful. The `replace_na()` function
-expects for you to give it a `list()` of columns that you would like to replace
-the `NA` values in, and the value that you would like to replace the `NA`s. This
-ends up looking like this:
+Після цього перетворення ви можете помітити, що в стовпці `items_owned` з’явилися значення NA. Це тому, що деякі респонденти не володіли жодним із предметів, зазначених у списку інтерв’юера. Ми можемо використати функцію `replace_na()`, щоб замінити ці `NA` на більш змістовне значення. Функція `replace_na()` очікує, що ви передасте їй `list()` зі стовпцями, у яких хочете замінити значення `NA`, а також значення, на яке потрібно замінити ці `NA`. У результаті це виглядає так:
 
 
 ``` r
 replace_na(list(items_owned = "no_listed_items")) %>%
 ```
 
-Next, we create a new variable named `items_owned_logical`, which has one value
-(`TRUE`) for every row. This makes sense, since each item in every row was owned
-by that household. We are constructing this variable so that when we spread the
-`items_owned` across multiple columns, we can fill the values of those columns
-with logical values describing whether the household did (`TRUE`) or did not
-(`FALSE`) own that particular item.
+Далі ми створюємо нову змінну `items_owned_logical`, яка має значення (`TRUE`) для кожного рядка. Це логічно, адже кожен предмет у кожному рядку належав відповідному домогосподарству. Ми створюємо цю змінну для того, щоб під час розширення `items_owned` у кілька стовпців можна було заповнити їх логічними значеннями, які показують, чи володіло домогосподарство відповідним предметом (`TRUE`) або ні (`FALSE`).
 
 
 ``` r
 mutate(items_owned_logical = TRUE) %>%
 ```
 
-![](fig/separate_longer.png){alt="Two tables shown side-by-side. The first row
-of the left table is highlighted in blue, and the first four rows of the right
-table are also highlighted in blue to show how each of the values of 'items
-owned' are given their own row with the separate longer delim function. The
-'items owned logical' column is highlighted in yellow on the right table to show
-how the mutate function adds a new column."}
+![](fig/separate_longer.png){alt="Дві таблиці, показані поруч. Перший рядок лівої таблиці виділено синім, а перші чотири рядки правої таблиці також виділено синім, щоб показати, як кожне значення з 'items owned' отримало окремий рядок за допомогою функції separate_longer_delim(). Стовпець 'items owned logical' виділено жовтим у правій таблиці, щоб показати, як функція mutate додає новий стовпець."}
 
-At this point, we can also count the number of items owned by each household,
-which is equivalent to the number of rows per `key_ID`. We can do this with a
-`group_by()` and `mutate()` pipeline that works similar to `group_by()` and
-`summarize()` discussed in the previous episode but instead of creating a
-summary table, we will add another column called `number_items`. We use the
-`n()` function to count the number of rows within each group. However, there is
-one difficulty we need to take into account, namely those households that did
-not list any items. These households now have `"no_listed_items"` under
-`items_owned`. We do not want to count this as an item but instead show zero
-items. We can accomplish this using **`dplyr`'s** `if_else()` function that
-evaluates a condition and returns one value if true and another if false. Here,
-if the `items_owned` column is `"no_listed_items"`, then a 0 is returned,
-otherwise, the number of rows per group is returned using `n()`.
+На цьому етапі ми також можемо порахувати кількість предметів, якими володіє кожне домогосподарство, що еквівалентно кількості рядків для кожного `key_ID`. Ми можемо зробити це за допомогою `group_by()` та `mutate()`, який працює схоже на комбінацію `group_by()` і `summarize()`, розглянуту в попередньому прикладі, але замість створення підсумкової таблиці ми додамо новий стовпець `number_items`. Для підрахунку кількості рядків у кожній групі використовується функція `n()`. Однак потрібно врахувати один момент: домогосподарства, які не зазначили жодного предмета. У цих домогосподарств тепер у стовпці `items_owned` зазначено `"no_listed_items"`. Ми не хочемо рахувати це як предмет, тому замість цього потрібно поставити нуль. Цього можна досягти за допомогою функції `if_else()` з пакета **`dplyr`**, яка оцінює умову і повертає одне значення, якщо умова істинна, і інше — якщо хибна. Тут, якщо стовпець `items_owned` дорівнює `"no_listed_items"`, повертається 0, інакше кількість рядків у групі повертається за допомогою `n()`.
 
 
 ``` r
@@ -268,11 +184,7 @@ group_by(key_ID) %>%
   mutate(number_items = if_else(items_owned == "no_listed_items", 0, n())) %>% 
 ```
 
-Lastly, we use `pivot_wider()` to switch from long format to wide format. This
-creates a new column for each of the unique values in the `items_owned` column,
-and fills those columns with the values of `items_owned_logical`. We also
-declare that for items that are missing, we want to fill those cells with the
-value of `FALSE` instead of `NA`.
+Нарешті ми використовуємо `pivot_wider()`, щоб перейти з довгого формату в широкий. Це створює новий стовпець для кожного унікального значення у стовпці `items_owned` і заповнює ці стовпці значеннями з `items_owned_logical`. Крім того, ми вказуємо, що для відсутніх предметів клітинки потрібно заповнювати значенням `FALSE` замість `NA`.
 
 
 ``` r
@@ -281,17 +193,9 @@ pivot_wider(names_from = items_owned,
             values_fill = list(items_owned_logical = FALSE))
 ```
 
-![](fig/pivot_wider.png){alt="Two tables shown side-by-side. The 'items owned'
-column is highlighted in blue on the left table, and the column names are
-highlighted in blue on the right table to show how the values of the 'items
-owned' become the column names in the output of the pivot wider function. The
-'items owned logical' column is highlighted in yellow on the left table, and the
-values of the bicycle, television, and solar panel columns are highlighted in
-yellow on the right table to show how the values of the 'items owned logical'
-column became the values of all three of the aforementioned columns."}
+![](fig/pivot_wider.png){alt="Дві таблиці, показані поруч. Стовпець 'items owned' виділено синім у лівій таблиці, а назви стовпців виділено синім у правій таблиці, щоб показати, як значення зі стовпця 'items owned' стають назвами стовпців у результаті функції pivot_wider. Стовпець 'items owned logical' виділено жовтим у лівій таблиці, а значення стовпців bicycle, television і solar panel виділено жовтим у правій таблиці, щоб показати, як значення стовпця 'items owned logical' стали значеннями цих трьох стовпців."}
 
-Combining the above steps, the chunk looks like this. Note that two new columns
-are created within the same `mutate()` call.
+Об’єднавши наведені кроки, код виглядає так. Зверніть увагу, що два нові стовпці створюються в одному виклику mutate().
 
 
 ``` r
@@ -306,17 +210,9 @@ interviews_items_owned <- interviews %>%
               values_fill = list(items_owned_logical = FALSE))
 ```
 
-View the `interviews_items_owned` data frame. It should have `r
-nrow(interviews)` rows (the same number of rows you had originally), but extra
-columns for each item. How many columns were added? Notice that there is no
-longer a column titled `items_owned`. This is because there is a default
-parameter in `pivot_wider()` that drops the original column. The values that
-were in that column have now become columns named `television`, `solar_panel`,
-`table`, etc. You can use `dim(interviews)` and `dim(interviews_wide)` to see
-how the number of columns has changed between the two datasets.
+Перегляньте дата фрейм `interviews_items_owned`. Він має `rnrow(interviews)` рядків (таку ж кількість, як і спочатку), але додаткові стовпці для кожного предмета. Скільки стовпців було додано? Зверніть увагу, що більше немає стовпця `items_owned`. Це тому, що в `pivot_wider()` за замовчуванням встановлено параметр, який видаляє оригінальний стовпець. Значення, які були в цьому стовпці, тепер стали стовпцями з назвами `television`, `solar_panel`, `table` тощо. Ви можете використати `dim(interviews)` та `dim(interviews_wide)`, щоб побачити, як змінилася кількість стовпців між двома наборами даних.
 
-This format of the data allows us to do interesting things, like make a table
-showing the number of respondents in each village who owned a particular item:
+Такий формат даних дозволяє виконувати цікаві операції, наприклад, створювати таблицю, що показує кількість респондентів у кожному селі, які володіли певним предметом:
 
 
 ``` r
@@ -336,9 +232,7 @@ interviews_items_owned %>%
 3 Ruaca    TRUE       20
 ```
 
-Or below we calculate the average number of items from the list owned by
-respondents in each village using the `number_items` column we created to
-count the items listed by each household.
+Або нижче ми обчислюємо середню кількість предметів зі списку, якими володіли респонденти в кожному селі, використовуючи стовпець `number_items`, який ми створили для підрахунку предметів у кожного домогосподарства.
 
 
 ``` r
@@ -358,21 +252,15 @@ interviews_items_owned %>%
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Exercise
+## Завдання
 
-We created `interviews_items_owned` by reshaping the data: first longer and then
-wider. Replicate this process with the `months_lack_food` column in the
-`interviews` dataframe. Create a new dataframe with columns for each of the
-months filled with logical vectors (`TRUE` or `FALSE`) and a summary column
-called `number_months_lack_food` that calculates the number of months each
-household reported a lack of food.
+Ми створили `interviews_items_owned`, переформатувавши дані: спочатку у довгий формат, а потім у широкий. Виконайте цей самий процес для стовпця `months_lack_food у дата фреймі `interviews`. Створіть новий дата фрейм зі стовпцями для кожного місяця, заповненими логічними значеннями (`TRUE`або`FALSE`) та додайте підсумковий стовпець `number_months_lack_food\`, який обчислює кількість місяців, протягом яких домогосподарство повідомляло про нестачу їжі.
 
-Note that if the household did not lack food in the previous 12 months, the
-value input was "none".
+Зверніть увагу: якщо домогосподарство не відчувало нестачі їжі протягом останніх 12 місяців, у стовпці було введено "none".
 
 :::::::::::::::  solution
 
-## Solution
+## Відповідь
 
 
 ``` r
@@ -390,25 +278,19 @@ months_lack_food <- interviews %>%
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Pivoting longer
+## Перетворення у довгий формат
 
-The opposing situation could occur if we had been provided with data in the form
-of `interviews_wide`, where the items owned are column names, but we
-wish to treat them as values of an `items_owned` variable instead.
+Протилежна ситуація може виникнути, якщо нам надали дані у форматі `interviews_wide`, де предмети, якими володіють домогосподарства, записані як назви стовпців, але ми хочемо розглядати їх як значення змінної `items_owned`.
 
-In this situation we are gathering these columns turning them into a pair
-of new variables. One variable includes the column names as values, and the
-other variable contains the values in each cell previously associated with the
-column names. We will do this in two steps to make this process a bit clearer.
+У такій ситуації ми «збираємо» ці стовпці, перетворюючи їх на пару нових змінних. Одна змінна міститиме назви стовпців як значення,
+а інша — значення кожної клітинки, які раніше були пов’язані з цими назвами стовпців. Ми зробимо це у два кроки, щоб процес був зрозумілішим.
 
-`pivot_longer()` takes four principal arguments:
+`pivot_longer()` приймає чотири основні аргументи:
 
-1. the data
-2. _cols_ are the names of the columns we use to fill the a new values variable
-   (or to drop).
-3. the _names\_to_ column variable we wish to create from the _cols_ provided.
-4. the _values\_to_ column variable we wish to create and fill with values
-   associated with the _cols_ provided.
+1. дані
+2. _cols_ - назви стовпців, які ми використовуємо для заповнення нової змінної значень (або для видалення).
+3. _names_to_ - назва нової змінної, яку ми хочемо створити з наданих _cols_.
+4. _values_to_ — назва нової змінної, яку ми хочемо створити та заповнити значеннями, пов’язаними з наданими _cols_.
 
 
 ``` r
@@ -418,24 +300,19 @@ interviews_long <- interviews_items_owned %>%
                values_to = "items_owned_logical")
 ```
 
-View both `interviews_long` and `interviews_items_owned` and compare their structure.
+Перегляньте обидва датафрейми `interviews_long` та `interviews_items_owned` і порівняйте їхню структуру.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Exercise
+## Завдання
 
-We created some summary tables on `interviews_items_owned` using `count` and
-`summarise`. We can create the same tables on `interviews_long`, but this will
-require a different process.
+Ми створили деякі підсумкові таблиці для `interviews_items_owned` за допомогою `count` та `summarise`. Ми можемо створити ті самі таблиці на основі `interviews_long`, але процес буде іншим.
 
-Make a table showing the number of respondents in each village who owned
-a particular item, and include all items. The difference between this format and
-the wide format is that you can now `count` all the items using the
-`items_owned` variable.
+Створіть таблицю, яка показує кількість респондентів у кожному селі, які володіли певним предметом, включаючи всі предмети. Різниця між цим форматом і широким форматом у тому, що тепер можна рахувати всі предмети, використовуючи змінну `items_owned`.
 
 :::::::::::::::  solution
 
-## Solution
+## Відповідь
 
 
 ``` r
@@ -467,22 +344,15 @@ interviews_long %>%
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Applying what we learned to clean our data
+## Застосування отриманих знань для очищення даних
 
-Now we have simultaneously learned about `pivot_longer()` and `pivot_wider()`,
-and fixed a problem in the way our data is structured. In this dataset, we have
-another column that stores multiple values in a single cell. Some of the cells
-in the `months_lack_food` column contain multiple months which, as before, are
-separated by semi-colons (`;`).
+Тепер ми одночасно ознайомилися з `pivot_longer()` та `pivot_wider()` і виправили проблему в структурі наших даних. У цьому наборі даних є ще один стовпець, який містить кілька значень в одній клітинці. Деякі клітинки стовпця `months_lack_food` містять кілька місяців, які, як і раніше, розділені крапкою з комою (;).
 
-To create a data frame where each of the columns contain only one value per cell,
-we can repeat the steps we applied to `items_owned` and apply them to
-`months_lack_food`. Since we will be using this data frame for the next episode,
-we will call it `interviews_plotting`.
+Щоб створити датафрейм, де кожен стовпець містить лише одне значення в клітинці, ми можемо повторити ті ж кроки, що застосовували для `items_owned`, і застосувати їх до `months_lack_food`. Оскільки цей датафрейм ми будемо використовувати в наступному розділі, назвемо його `interviews_plotting`.
 
 
 ``` r
-## Plotting data ##
+## Візуалізація даних ##
 interviews_plotting <- interviews %>%
   ## pivot wider by items_owned
   separate_longer_delim(items_owned, delim = ";") %>%
@@ -503,27 +373,15 @@ interviews_plotting <- interviews %>%
               values_fill = list(months_lack_food_logical = FALSE))
 ```
 
-## Exporting data
+## Експорт даних
 
-Now that you have learned how to use **`dplyr`** and **`tidyr`** to wrangle your
-raw data, you may want to export these new datasets to share them with your
-collaborators or for archival purposes.
+Тепер, коли ви навчилися використовувати **`dplyr`** та **`tidyr`** для обробки сирих даних, можливо, ви захочете експортувати ці нові набори даних, щоб поділитися ними з колегами або зберегти для архіву.
 
-Similar to the `read_csv()` function used for reading CSV files into R, there is
-a `write_csv()` function that generates CSV files from data frames.
+Подібно до функції `read_csv()`, яка використовується для зчитування CSV-файлів у R, існує функція `write_csv()`, яка дозволяє створювати CSV-файли з датафреймів.
 
-Before using `write_csv()`, we are going to create a new folder, `data_output`,
-in our working directory that will store this generated dataset. We don't want
-to write generated datasets in the same directory as our raw data. It's good
-practice to keep them separate. The `data` folder should only contain the raw,
-unaltered data, and should be left alone to make sure we don't delete or modify
-it. In contrast, our script will generate the contents of the `data_output`
-directory, so even if the files it contains are deleted, we can always
-re-generate them.
+Перед використанням `write_csv()` ми створимо нову теку `data_output` у нашій робочій директорії, куди будемо зберігати згенерований набір даних. Не слід записувати згенеровані набори даних у ту саму директорію, де зберігаються сирі дані. Хорошою практикою є тримати їх окремо. Тека `data` повинна містити лише сирі, незмінені дані, щоб уникнути їх випадкового видалення або зміни. Натомість скрипт буде створювати вміст теки `data_output`, тому навіть якщо файли там будуть видалені, їх завжди можна повторно згенерувати.
 
-In preparation for our next lesson on plotting, we created a version of the
-dataset where each of the columns includes only one data value. Now we can save
-this data frame to our `data_output` directory.
+Для підготовки до наступного уроку з візуалізації ми створили версію набору даних, де кожен стовпець містить лише одне значення. Тепер ми можемо зберегти цей датафрейм у теку `data_output`.
 
 
 ``` r
@@ -534,9 +392,9 @@ write_csv(interviews_plotting, file = "data_output/interviews_plotting.csv")
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- Use the `tidyr` package to change the layout of data frames.
-- Use `pivot_wider()` to go from long to wide format.
-- Use `pivot_longer()` to go from wide to long format.
+- Використовуйте пакет `tidyr`, щоб змінювати структуру датафреймів.
+- Використовуйте `pivot_width()` для переходу від довгого до широкого формату.
+- Використовуйте `pivot_longer()` для переходу від широкого до довгого формату.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
