@@ -384,7 +384,7 @@
         
 <section id="aio-00-intro"><p>Content from <a href="00-intro.html">Перед тим як почати</a></p>
 <hr>
-<p>Last updated on 2026-01-17 |
+<p>Last updated on 2026-01-19 |
 
         <a href="https://github.com/ukrainian-carpentries/r-socialsci/edit/main/episodes/00-intro.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -782,8 +782,7 @@ RStudio надає комбінації клавіш <kbd>Ctrl</kbd> + <kbd>1</k
 вкладку <code>packages</code> (за замовчуванням внизу праворуч). Ви
 також можете ввести команду <code>installed.packages()</code>в консоль і
 перевірити вивід.</p>
-<p>! [] (fig/packages_pane.png) {alt=‘Скріншот панелі пакетів’}</p>
-<p>Додаткові пакети можна встановити із вкладки ‘packages’. На вкладці
+<figure><img src="fig/packages_pane.png" alt="Скріншот панелі пакетів" class="figure mx-auto d-block"></figure><p>Додаткові пакети можна встановити із вкладки ‘packages’. На вкладці
 пакетів натисніть значок ‘Install’ (Встановити) і почніть вводити назву
 потрібного пакета у текстовому полі. Під час введення тексту пакети,
 назви яких починаються з введених вами символів, будуть показуватися у
@@ -814,7 +813,7 @@ RStudio надає комбінації клавіш <kbd>Ctrl</kbd> + <kbd>1</k
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Відповідь </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>Прокрутіть вкладку пакетів вниз до ‘tidyverse’. Ви також можете
 ввести кілька символів у вікно пошуку. Пакет ‘tidyverse’ насправді є
@@ -2676,7 +2675,7 @@ dataset.</p></li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Відповідь </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3058,7 +3057,7 @@ you recreate the barplot such that “Undetermined” is last (after
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Відповідь </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb56">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3267,7 +3266,7 @@ R.</li>
 </div>
 </section></section><section id="aio-03-dplyr"><p>Content from <a href="03-dplyr.html">Маніпулювання даними за допомогою пакету dplyr</a></p>
 <hr>
-<p>Last updated on 2026-01-17 |
+<p>Last updated on 2026-01-19 |
 
         <a href="https://github.com/ukrainian-carpentries/r-socialsci/edit/main/episodes/03-dplyr.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -3281,10 +3280,10 @@ R.</li>
 <div class="inner">
 <h3 class="card-title">Questions</h3>
 <ul>
-<li>How can I select specific rows and/or columns from a dataframe?</li>
-<li>How can I combine multiple commands into a single command?</li>
-<li>How can I create new columns or remove existing columns from a
-dataframe?</li>
+<li>Як вибрати певні рядки та/або стовпці з датафрейму?</li>
+<li>Як об’єднати кілька команд в одну команду?</li>
+<li>Як створювати нові стовпці або видаляти наявні стовпці з
+датафрейму?</li>
 </ul>
 </div>
 </div>
@@ -3294,37 +3293,37 @@ dataframe?</li>
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
 <ul>
-<li>Описати призначення пакета R та пакету
+<li>Опишіть призначення пакета R та пакету
 <strong><code>dplyr</code></strong>.</li>
-<li>Вибрати певні стовпці датафрейму за допомогою функції
-<code>select</code> з пакета <strong><code>dplyr</code></strong>.</li>
-<li>Вибрати певні рядки датафрейму відповідно до умов фільтрації за
-допомогою функції <code>filter</code> з пакета
-<strong><code>dplyr</code></strong>.</li>
-<li>Поєднати результат однієї з функції
-<strong><code>dplyr</code></strong> з введенням іншої функції з
-оператором ‘pipe’ <code>%&gt;%</code>.</li>
-<li>Додати нові стовпці до датафрейму, які є функціями наявних стовпців
-за допомогою <code>mutate</code>.</li>
-<li>Використати концепцію розділення-застосування-комбінування для
+<li>Виділіть певні стовпці в датасеті за допомогою функції
+<strong><code>dplyr</code></strong> <code>select</code>.</li>
+<li>Виберіть певні рядки в датасеті відповідно до умов фільтрації за
+допомогою функції <strong><code>dplyr</code></strong>
+<code>filter</code>.</li>
+<li>З’єднайте результат однієї з <strong><code>dplyr</code></strong>
+функції з введенням іншої функції з оператором ‘pipe’
+%&gt;<code>%</code>.</li>
+<li>Додайте нові стовпці дата сету які є функціями наявних стовпців з
+<code>mutate</code>.</li>
+<li>Використовуйте концепцію розділення-застосування-комбінування для
 аналізу даних.</li>
-<li>Use <code>summarize</code>, <code>group_by</code>, and
-<code>count</code> to split a dataframe into groups of observations,
-apply a summary statistics for each group, and then combine the
-results.</li>
+<li>Використовуйте <code>summarize</code>, <code>group_by</code> та
+<code>count</code>, щоб розділити набір даних на групи спостережень,
+застосувати зведену статистику для кожної групи, а потім об’єднати
+результати.</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
 </div>
-<p><strong><code>dplyr</code></strong> is a package for making tabular
-data wrangling easier by using a limited set of functions that can be
-combined to extract and summarize insights from your data.</p>
-<p>Like <strong><code>readr</code></strong>,
-<strong><code>dplyr</code></strong> is a part of the tidyverse. These
-packages were loaded in R’s memory when we called
-<code><a href="https://tidyverse.tidyverse.org" class="external-link">library(tidyverse)</a></code> earlier.</p>
+<p><strong><code>dplyr</code></strong> — це пакет, який спрощує роботу з
+табличними даними, використовуючи обмежений набір функцій, що можна
+поєднувати для отримання та узагальнення інформації з ваших даних.</p>
+<p>Як і <strong><code>readr</code></strong>,
+<strong><code>dplyr</code></strong> є частиною набору пакетів tidyverse.
+Ці пакети були завантажені в пам’ять R, коли ми раніше викликали
+<code><a href="https://tidyverse.tidyverse.org" class="external-link">library (tidyverse)</a></code>.</p>
 <div id="примітка" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
@@ -3737,7 +3736,7 @@ interviews where respondents were members of an irrigation association
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Відповідь </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3874,7 +3873,7 @@ to produce this data frame!</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -4193,7 +4192,7 @@ represented?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Відповідь </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb49">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -4235,7 +4234,7 @@ add the number of observations (hint: see <code>?n</code>).</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Відповідь </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb51">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -4282,7 +4281,7 @@ add the number of observations (hint: see <code>?n</code>).</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Відповідь </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb53">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -5476,7 +5475,7 @@ ggplot. Це означає, що ви можете легко налаштов�
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Відповідь </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -5551,7 +5550,7 @@ boxplot. Альтернатива boxplot — це violin plot (скрипков
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Відповідь </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -5598,7 +5597,7 @@ boxplot. Альтернатива boxplot — це violin plot (скрипков
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Відповідь </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb27">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -5635,7 +5634,7 @@ boxplot. Альтернатива boxplot — це violin plot (скрипков
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Відповідь </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb28">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -5740,7 +5739,7 @@ boxplot. Альтернатива boxplot — це violin plot (скрипков
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Відповідь </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb34">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -6657,7 +6656,7 @@ the output.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Solution to Exercise </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>Create a chunk with <code>{r eval = FALSE, echo = FALSE}</code>, then
 create another chunk with <code>{r include = FALSE}</code> to compare.
@@ -6763,7 +6762,7 @@ the <code>interviews_plotting</code> data frame.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Solution to Exercise </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -6904,7 +6903,7 @@ document</li>
 </div>
 </section></section><section id="aio-07-json"><p>Content from <a href="07-json.html">Обробка даних JSON (необов'язково)</a></p>
 <hr>
-<p>Last updated on 2026-01-17 |
+<p>Last updated on 2026-01-19 |
 
         <a href="https://github.com/ukrainian-carpentries/r-socialsci/edit/main/episodes/07-json.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -6918,9 +6917,9 @@ document</li>
 <div class="inner">
 <h3 class="card-title">Questions</h3>
 <ul>
-<li>What is JSON format?</li>
-<li>How can I convert JSON to an R dataframe?</li>
-<li>How can I convert an array of JSON record into a table?</li>
+<li>Що таке формат JSON?</li>
+<li>Як я можу перетворити JSON в датафрейм в R?</li>
+<li>Як я можу перетворити масив записів JSON у таблицю?</li>
 </ul>
 </div>
 </div>
@@ -6931,14 +6930,16 @@ document</li>
 <h3 class="card-title">Objectives</h3>
 <ul>
 <li>Опис формату даних JSON</li>
-<li>Understand where JSON is typically used</li>
-<li>Appreciate some advantages of using JSON over tabular data</li>
-<li>Appreciate some disadvantages of processing JSON documents</li>
-<li>Use the jsonLite package to read a JSON file</li>
-<li>Display formatted JSON as dataframe</li>
-<li>Select and display nested dataframe fields from a JSON document</li>
-<li>Write tabular data from selected elements from a JSON document to a
-csv file</li>
+<li>Розуміння, де JSON зазвичай використовується</li>
+<li>Оцініть деякі переваги використання JSON перед табличними
+даними</li>
+<li>Оцініть деякі недоліки обробки документів JSON</li>
+<li>Використовуйте пакет JSONLite для читання файлу JSON</li>
+<li>Відображення форматованого JSON як датафрейм</li>
+<li>Вибір та відображення вкладених полів датафрейму з документа
+JSON</li>
+<li>Запис табличних даних з вибраних елементів з документа JSON у файл
+csv</li>
 </ul>
 </div>
 </div>
@@ -7358,7 +7359,7 @@ csv file</li>
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
 
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/main" class="external-link">sandpaper (0.18.1)</a>, <a href="https://github.com/carpentries/pegboard/tree/main" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.9" class="external-link">varnish (1.0.9)</a></p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/main" class="external-link">sandpaper (0.18.3)</a>, <a href="https://github.com/carpentries/pegboard/tree/main" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.9" class="external-link">varnish (1.0.9)</a></p>
 		</div>
 		</footer>
 </div> <!-- / div.container -->
@@ -7381,8 +7382,8 @@ csv file</li>
   "url": "https://ukrainian-carpentries.github.io/r-socialsci/aio.html",
   "identifier": "https://ukrainian-carpentries.github.io/r-socialsci/aio.html",
   "dateCreated": "2017-05-25",
-  "dateModified": "2026-01-17",
-  "datePublished": "2026-01-17"
+  "dateModified": "2026-01-19",
+  "datePublished": "2026-01-19"
 }
 
   </script><script>
