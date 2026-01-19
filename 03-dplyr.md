@@ -19,30 +19,28 @@ source: Rmd
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Описати призначення пакета R та пакету **`dplyr`**.
-- Вибрати певні стовпці датафрейму за допомогою функції `select` з пакета **`dplyr`**.
-- Вибрати певні рядки датафрейму відповідно до умов фільтрації за допомогою функції `filter` з пакета **`dplyr`**.
-- Поєднати результат однієї з функції **`dplyr`** з введенням іншої функції з оператором 'pipe' `%>%`.
-- Додати нові стовпці до датафрейму, які є функціями наявних стовпців за допомогою `mutate`.
-- Використати концепцію розділення-застосування-комбінування для аналізу даних.
-- Use `summarize`, `group_by`, and `count` to split a dataframe into groups of observations, apply a summary statistics for each group, and then combine the results.
+- Опишіть призначення пакета R та пакету **`dplyr`**.
+- Виділіть певні стовпці в датасеті за допомогою функції **`dplyr`** `select`.
+- Виберіть певні рядки в датасеті відповідно до умов фільтрації за допомогою функції **`dplyr`** `filter`.
+- З'єднайте результат однієї з **`dplyr`** функції з введенням іншої функції з оператором 'pipe' %>`%`.
+- Додайте нові стовпці дата сету які є функціями наявних стовпців з `mutate`.
+- Використовуйте концепцію розділення-застосування-комбінування для аналізу даних.
+- Використовуйте `summarize`, `group_by` та `count`, щоб розділити набір даних на групи спостережень, застосувати зведену статистику для кожної групи, а потім об'єднати результати.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- How can I select specific rows and/or columns from a dataframe?
-- How can I combine multiple commands into a single command?
-- How can I create new columns or remove existing columns from a dataframe?
+- Як вибрати певні рядки та/або стовпці з датафрейму?
+- Як об'єднати кілька команд в одну команду?
+- Як створювати нові стовпці або видаляти наявні стовпці з датафрейму?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-**`dplyr`** is a package for making tabular data wrangling easier by using a
-limited set of functions that can be combined to extract and summarize insights
-from your data.
+**`dplyr`**  — це пакет, який спрощує роботу з табличними даними, використовуючи обмежений набір функцій, що можна поєднувати для отримання та узагальнення інформації з ваших даних.
 
-Like **`readr`**, **`dplyr`** is a part of the tidyverse. These packages were loaded
-in R's memory when we called `library(tidyverse)` earlier.
+Як і **`readr`**, **`dplyr`** є частиною набору пакетів tidyverse. Ці пакети були завантажені
+в пам'ять R, коли ми раніше викликали `library (tidyverse)`.
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 

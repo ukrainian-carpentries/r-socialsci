@@ -17,21 +17,21 @@ source: Rmd
 ::::::::::::::::::::::::::::::::::::::: objectives
 
 - Опис формату даних JSON
-- Understand where JSON is typically used
-- Appreciate some advantages of using JSON over tabular data
-- Appreciate some disadvantages of processing JSON documents
-- Use the jsonLite package to read a JSON file
-- Display formatted JSON as dataframe
-- Select and display nested dataframe fields from a JSON document
-- Write tabular data from selected elements from a JSON document to a csv file
+- Розуміння, де JSON зазвичай використовується
+- Оцініть деякі переваги використання JSON перед табличними даними
+- Оцініть деякі недоліки обробки документів JSON
+- Використовуйте пакет JSONLite для читання файлу JSON
+- Відображення форматованого JSON як датафрейм
+- Вибір та відображення вкладених полів датафрейму з документа JSON
+- Запис табличних даних з вибраних елементів з документа JSON у файл csv
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- What is JSON format?
-- How can I convert JSON to an R dataframe?
-- How can I convert an array of JSON record into a table?
+- Що таке формат JSON?
+- Як я можу перетворити JSON в датафрейм в R?
+- Як я можу перетворити масив записів JSON у таблицю?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
